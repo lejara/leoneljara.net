@@ -1,0 +1,14 @@
+/*Utils*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Everything */
+body {
+  background-color: white;
+}
+
+/* Titles */
+
+.text_title {
+}
