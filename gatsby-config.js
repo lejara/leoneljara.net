@@ -4,7 +4,6 @@ module.exports = {
     title: "leoneljara.me",
   },
   plugins: [
-    "gatsby-plugin-sass",
     "gatsby-plugin-image",
     {
       resolve: "gatsby-plugin-google-analytics",
