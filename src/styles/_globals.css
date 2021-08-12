@@ -3,12 +3,27 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Color Vars */
+$primary-color: #01ad76;
+$bg-color: #0a0d26;
+$text-color: white;
+
 /* Everything */
 body {
-  background-color: white;
+  background-color: $bg-color;
+  color: $text-color;
+}
+
+/* Text */
+.link-primary {
+  color: $primary-color;
+}
+
+/* Component Block*/
+.block-component {
+  border: 2px solid red;
 }
 
 /* Titles */
-
-.text_title {
+.text-title {
 }

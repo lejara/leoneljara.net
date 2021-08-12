@@ -1,1 +1,6 @@
+/* Globals */
 @import "./_globals.css";
+
+/* Components */
+@import "./components/_header.css";
+@import "./components/_hero.css";

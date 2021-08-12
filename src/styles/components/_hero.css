@@ -1,0 +1,8 @@
+.hero {
+}
+.hero__title {
+  width: 700px;
+  fill: $primary-color;
+}
+.hero__adword {
+}
