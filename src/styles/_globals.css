@@ -5,6 +5,7 @@
 
 /* Color Vars */
 $primary-color: #01ad76;
+$title-color: #fdb215;
 $bg-color: #0a0d26;
 $text-color: white;
 
@@ -15,6 +16,11 @@ body {
 }
 
 /* Text */
+@font-face {
+  font-family: Yantramanav;
+  src: url("../fonts/Yantramanav-Black.ttf");
+}
+
 .link-primary {
   color: $primary-color;
 }

@@ -1,8 +1,36 @@
 .hero {
 }
 .hero__title {
-  width: 700px;
-  fill: $primary-color;
+  color: $title-color;
+  font-family: Yantramanav;
+  font-size: 5rem;
+  line-height: 60%;
 }
+
+@media only screen and (min-width: 380px) {
+  .hero__title {
+    font-size: 8rem;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .hero__title {
+    font-size: 14rem;
+  }
+}
+.hero__second {
+  padding-right: 4.4rem;
+}
+
+@media only screen and (min-width: 380px) {
+  .hero__second {
+    padding-right: 7rem;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .hero__second {
+    padding-right: 12.35rem;
+  }
+}
+
 .hero__adword {
 }
