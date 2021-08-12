@@ -9,16 +9,15 @@ $title-color: #fdb215;
 $bg-color: #0a0d26;
 $text-color: white;
 
-/* Everything */
-body {
-  background-color: $bg-color;
-  color: $text-color;
-}
-
 /* Text */
 @font-face {
   font-family: Yantramanav;
   src: url("../fonts/Yantramanav-Black.ttf");
+}
+
+@font-face {
+  font-family: Cairo;
+  src: url("../fonts/Cairo-Bold.ttf");
 }
 
 .link-primary {

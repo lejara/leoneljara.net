@@ -4,3 +4,10 @@
 /* Components */
 @import "./components/_header.css";
 @import "./components/_hero.css";
+
+/* Everything */
+body {
+  background-color: $bg-color;
+  color: $text-color;
+  font-family: Yantramanav;
+}
