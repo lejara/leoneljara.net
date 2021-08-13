@@ -1,0 +1,25 @@
+.contact {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.contact__name {
+  display: block;
+  margin: 0 auto;
+}
+.contact__email {
+  display: block;
+  margin: 0 auto;
+}
+.contact__message {
+  display: block;
+  margin: 0 auto;
+}
+.contact__button {
+  display: block;
+  background-color: $primary-color;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 80px;
+  padding-right: 80px;
+}

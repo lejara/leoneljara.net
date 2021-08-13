@@ -1,5 +1,6 @@
 .works__grid {
   display: grid;
+  place-items: center stretch;
   grid-template-columns: repeat(2, 1fr);
   gap: 100px;
   grid-auto-rows: minmax(100px, auto);
