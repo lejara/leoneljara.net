@@ -2,7 +2,7 @@ import * as React from "react";
 
 const Hero = () => {
   return (
-    <div className="block hero">
+    <div className="block-component hero">
       <div className="hero__content mx-auto my-16">
         <div className="hero__title">
           <h1>Leonel</h1>
