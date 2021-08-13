@@ -1,0 +1,40 @@
+.works__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 100px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.works__item--1 {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+}
+
+.works__item--2 {
+  grid-column: 1 / span 2;
+  grid-row: 2;
+}
+
+@screen md {
+  .works__grid {
+    gap: 20px;
+  }
+
+  .works__item--1 {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .works__item--2 {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+@screen lg {
+  .works__grid {
+    gap: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}
