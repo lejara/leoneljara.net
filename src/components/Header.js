@@ -4,7 +4,7 @@ import MenuIcon from "../images/svg/menu.svg";
 
 const Header = () => {
   return (
-    <header className="block-component header m-0 p-2">
+    <header className="header m-0 p-2">
       <div className="menu float-right mr-4">
         <Link href="link" aria-label="Menu">
           <MenuIcon />

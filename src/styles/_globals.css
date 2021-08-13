@@ -9,26 +9,15 @@ $title-color: #fdb215;
 $bg-color: #0a0d26;
 $text-color: white;
 
-/* Text */
-@font-face {
-  font-family: Yantramanav;
-  src: url("../fonts/Yantramanav-Black.ttf");
-}
-
-@font-face {
-  font-family: Cairo;
-  src: url("../fonts/Cairo-Bold.ttf");
-}
-
-.link-primary {
-  color: $primary-color;
-}
-
 /* Component Block*/
 .block-component {
   border: 2px solid red;
+  @apply py-16;
 }
 
-/* Titles */
-.text-title {
+/* Everything */
+body {
+  background-color: $bg-color;
+  color: $text-color;
+  font-family: Yantramanav;
 }

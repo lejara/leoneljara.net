@@ -3,7 +3,7 @@ import * as React from "react";
 const About = () => {
   return (
     <div className="block-component">
-      <div className="about__wrapper my-16">
+      <div className="about__wrapper">
         <div className="about__text p-2">
           something about me, this is filler text. so yeah this is something
           about me, this is filler text. something about me, this is filler
