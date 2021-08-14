@@ -11,10 +11,12 @@ const Projects = () => {
         so good
       </h3>
       <div className="works__grid my-6">
-        <Card styleName="works__item--1" image_alt="Picture of Test" />
+        <Card styleName="works__item--1" image_alt="Picture of Test">
+          Content in card 1
+        </Card>
         <Card styleName="works__item--2" image_alt="Picture of Test" />
       </div>
-      {/* TODO: add more projects link */}
+      {/* TODO: add more projects link, get layout for card inorder */}
     </div>
   );
 };
