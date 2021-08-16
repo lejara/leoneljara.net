@@ -1,8 +1,16 @@
+.card {
+  margin-left: 0.7rem;
+  margin-right: 0.7rem;
+}
 .card__image {
+  width: 11rem;
+  margin: 0 auto;
+  margin-bottom: -80px;
 }
 .card__content {
-  width: 100%;
-  height: 500px;
+  height: 400px;
   background-color: gray;
-  border-radius: 15px;
+  border-radius: 8px;
+}
+.card__desc {
 }

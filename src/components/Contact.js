@@ -8,11 +8,11 @@ const Contact = () => {
         Want to have a chat? Tell me, hows your day or what you ate last night!
       </h2>
       <form className="contact mt-16 mx-auto">
-        <label for="name">Name</label>
+        <label htmlFor="name">Name</label>
         <input id="name" className="contact__name" />
-        <label for="email">Email</label>
+        <label htmlFor="email">Email</label>
         <input id="email" className="contact__email" />
-        <label for="message">Message</label>
+        <label htmlFor="message">Message</label>
         <input id="message" className="contact__message" />
         <button className="contact__button">Send Message!</button>
       </form>

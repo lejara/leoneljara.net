@@ -7,7 +7,7 @@ const Header = () => {
     <header className="header m-0 p-2">
       <div className="menu float-right mr-4">
         <Link href="link" aria-label="Menu">
-          <MenuIcon />
+          {/* <MenuIcon /> */}
         </Link>
       </div>
     </header>
