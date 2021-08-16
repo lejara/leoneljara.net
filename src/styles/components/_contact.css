@@ -1,25 +1,27 @@
 .contact {
-  display: inline-block;
+  margin-left: 0.7rem;
+  margin-right: 0.7rem;
+}
+
+.contact__form {
+  max-width: 400px;
+  font-size: 1.3rem;
   margin: 0 auto;
 }
 
-.contact__name {
+.contact__form input,
+.contact__form button {
   display: block;
-  margin: 0 auto;
+  width: 100%;
+  border-radius: 2px;
 }
-.contact__email {
-  display: block;
-  margin: 0 auto;
-}
+
 .contact__message {
-  display: block;
-  margin: 0 auto;
+  height: 200px;
 }
 .contact__button {
-  display: block;
+  margin: 0 auto;
   background-color: $primary-color;
   padding-top: 5px;
   padding-bottom: 5px;
-  padding-left: 80px;
-  padding-right: 80px;
 }
