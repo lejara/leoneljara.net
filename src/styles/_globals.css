@@ -9,11 +9,29 @@ $title-color: #fdb215;
 $bg-color: #0a0d26;
 $text-color: white;
 $card-color: #010826;
+$inputBG-color: #007dae;
 
 /* Component Block*/
 .block-component {
   border: 2px solid red;
   @apply py-16;
+}
+
+/* Input */
+
+input,
+textarea {
+  color: #000000;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #e2e3dd;
+}
+
+input:focus,
+textarea:focus {
+  background-color: $inputBG-color;
+  outline: none;
+  transition: all 0.3s ease;
 }
 
 /* Everything */

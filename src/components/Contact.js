@@ -1,9 +1,33 @@
 import * as React from "react";
+import { useState } from "react";
+import emailjs from "emailjs-com";
 
 const Contact = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [submitBtn, setSubmitBtn] = useState("Send Message!");
+
   const Submit = (e) => {
     e.preventDefault();
-    console.log("lol");
+    setSubmitBtn("Sending...");
+    emailjs
+      .sendForm(
+        "service_u1jhj3g",
+        "template_h88px7b",
+        e.target,
+        "user_i8U9IZg1PbcZVAOtLIelq"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setSubmitBtn("Sent!");
+        },
+        (error) => {
+          console.log(error.text);
+          setSubmitBtn("Not Sent!");
+        }
+      );
   };
 
   return (
@@ -13,14 +37,46 @@ const Contact = () => {
         Want to have a chat? Tell me, hows your day or what you ate last night!
       </h2>
       <div className="contact mt-8">
-        <form className="contact__form" onSubmit={Submit}>
-          <label htmlFor="name">Name</label>
-          <input id="name" className="mb-2" />
-          <label htmlFor="email">Email</label>
-          <input id="email" className="mb-2" />
+        <form id="contact-form" className="contact__form" onSubmit={Submit}>
+          <input type="hidden" name="contact_number" />
+          <label htmlFor="user_name">Name</label>
+          <input
+            type="text"
+            id="user_name"
+            name="user_name"
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+            value={name}
+            className="mb-2"
+            required
+          />
+          <label htmlFor="user_email ">Email</label>
+          <input
+            type="email"
+            id="user_email"
+            name="user_email"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            value={email}
+            className="mb-2"
+            required
+          />
           <label htmlFor="message">Message</label>
-          <input id="message" className="contact__message mb-6" />
-          <button className="contact__button">Send Message!</button>
+          <textarea
+            id="message"
+            name="message"
+            onChange={(e) => {
+              setMessage(e.target.value);
+            }}
+            value={message}
+            className="contact__message mb-6"
+            required
+          />
+          <button type="submit" value="Send" className="contact__button">
+            {submitBtn}
+          </button>
         </form>
       </div>
     </div>
