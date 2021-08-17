@@ -7,6 +7,7 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [submitBtn, setSubmitBtn] = useState("Send Message!");
+  const [hasError, setHasError] = useState(false);
 
   const Submit = (e) => {
     e.preventDefault();
@@ -21,10 +22,12 @@ const Contact = () => {
       .then(
         (result) => {
           console.log(result.text);
-          setSubmitBtn("Sent!");
+          setHasError(false);
+          setSubmitBtn("Sent");
         },
         (error) => {
           console.log(error.text);
+          setHasError(true);
           setSubmitBtn("Not Sent!");
         }
       );
@@ -74,7 +77,13 @@ const Contact = () => {
             className="contact__message mb-6"
             required
           />
-          <button type="submit" value="Send" className="contact__button">
+          <button
+            type="submit"
+            value="Send"
+            className={`contact__button ${
+              hasError ? "connect__button--error" : ""
+            }`}
+          >
             {submitBtn}
           </button>
         </form>
