@@ -1,3 +1,7 @@
+.projects {
+  background-color: #082a68;
+}
+
 .works__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

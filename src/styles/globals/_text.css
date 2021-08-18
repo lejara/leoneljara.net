@@ -1,12 +1,17 @@
 /* Font */
 @font-face {
-  font-family: Yantramanav;
+  font-family: Yantramanav-Black;
   src: url("../fonts/Yantramanav-Black.ttf");
 }
 
 @font-face {
   font-family: Cairo;
   src: url("../fonts/Cairo-Bold.ttf");
+}
+
+@font-face {
+  font-family: Yantramanav-Regular;
+  src: url("../fonts/Yantramanav-Regular.ttf");
 }
 
 .link-primary {

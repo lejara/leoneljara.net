@@ -2,15 +2,25 @@
   margin-left: 0.7rem;
   margin-right: 0.7rem;
 }
+.card__title {
+  font-size: 1.5rem;
+}
 .card__image {
   width: 11rem;
   margin: 0 auto;
   margin-bottom: -80px;
 }
 .card__content {
-  height: 400px;
-  background-color: gray;
+  min-height: 400px;
+  background-color: #010826;
   border-radius: 5px;
 }
+
+.card__action--link {
+  font-family: Yantramanav-Regular;
+}
 .card__desc {
+  font-size: 1rem;
+  min-height: 200px;
+  font-family: Yantramanav-Regular;
 }
