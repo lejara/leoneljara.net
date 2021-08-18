@@ -20,6 +20,12 @@ $inputBG-color: $secondary-color;
   @apply py-20;
 }
 
+.block-break {
+  border-top: 1px solid $linebreak-color;
+  width: 60%;
+  margin: 0 auto;
+}
+
 /* Input */
 
 input,

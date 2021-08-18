@@ -11,8 +11,11 @@ const IndexPage = () => {
   return (
     <Layout>
       <Hero />
+      <hr className="block-break" />
       <About />
+      <hr className="block-break" />
       <Projects />
+      <hr className="block-break" />
       <Contact />
     </Layout>
   );

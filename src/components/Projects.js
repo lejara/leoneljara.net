@@ -12,7 +12,7 @@ const Projects = () => {
         filler text, blah blahs, yes another filler text, here it is hahah wowo
         so good
       </h3>
-      <div className="works__grid py-14">
+      <div className="works__grid py-10">
         <div className="works__item--1">
           <Card
             title="Da Twitch Charades"

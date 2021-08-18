@@ -1,7 +1,7 @@
 footer {
   display: flex;
   justify-content: space-between;
-  opacity: 80%;
+  opacity: 70%;
 }
 .footer__line {
   border-top: 1px solid $linebreak-color;
