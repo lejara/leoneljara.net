@@ -1,21 +1,36 @@
 import * as React from "react";
-import { StaticImage } from "gatsby-plugin-image";
 import GitHubIcon from "../images/svg/github.svg";
+import TwitterIcon from "../images/svg/twitter.svg";
+import { StaticImage } from "gatsby-plugin-image";
+
 const About = () => {
   return (
     <div className="block-component">
-      <div className="about__wrapper">
+      <div className="about__grid">
         <div className="about__text p-2">
           something about me, this is filler text. so yeah this is something
           about me, this is filler text. something about me, this is filler
           text. Hi something about me, this is filler text. No way He can do
           that? Yes, yes he can. The end, now you know everything!
         </div>
-        <div className="about__image p-2">img</div>
+        <div className="about__image p-2">
+          <StaticImage
+            src="../images/pic_leo.jpg"
+            alt="Picture of leonel"
+            height="400"
+            width="400"
+          />
+        </div>
         <div className="about__socials p-2">
-          <a href="https://twitter.com/Leption_LJ"></a>
-          <a href="https://github.com/lejara"></a>
-          <GitHubIcon className="about__socials--github" />
+          <p className="about__socials--title">Where you can follow me</p>
+          <div className="about__socials--flex mt-1">
+            <a href="https://twitter.com/Leption_LJ">
+              <TwitterIcon />
+            </a>
+            <a href="https://github.com/lejara">
+              <GitHubIcon />
+            </a>
+          </div>
         </div>
       </div>
     </div>

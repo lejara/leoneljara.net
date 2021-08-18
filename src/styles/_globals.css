@@ -5,7 +5,7 @@
 
 /* Color Vars */
 $primary-color: #01ad76;
-$secondary-color: #007dae;
+$secondary-color: #50c8e8;
 $error-color: #e1341e;
 $linebreak-color: #710ac2;
 $title-color: #fdb215;
@@ -17,7 +17,7 @@ $inputBG-color: $secondary-color;
 /* Component Block*/
 .block-component {
   /* border: 2px solid red; */
-  @apply py-16;
+  @apply py-20;
 }
 
 /* Input */

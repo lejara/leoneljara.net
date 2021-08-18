@@ -25,7 +25,7 @@ const Projects = () => {
           <Card title="Sol" image_src={dtc_icon} image_alt="Picture of Test" />
         </div>
       </div>
-      {/* TODO: add more projects link, get layout for card inorder */}
+      {/* TODO: add more projects link*/}
     </div>
   );
 };
