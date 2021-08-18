@@ -5,13 +5,14 @@
 
 /* Color Vars */
 $primary-color: #01ad76;
+$secondary-color: #007dae;
 $error-color: #e1341e;
 $linebreak-color: #710ac2;
 $title-color: #fdb215;
 $bg-color: #0a0d26;
 $text-color: white;
 $card-color: #010826;
-$inputBG-color: #007dae;
+$inputBG-color: $secondary-color;
 
 /* Component Block*/
 .block-component {

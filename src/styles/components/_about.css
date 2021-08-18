@@ -24,6 +24,14 @@
   grid-row: 4;
   background-color: green;
 }
+.about__socials--github {
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+}
+svg:hover path {
+  fill: #50c8e8;
+}
 
 /* Desktop */
 @screen md {
