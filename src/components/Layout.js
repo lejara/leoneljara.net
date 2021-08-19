@@ -9,10 +9,11 @@ const Layout = ({ children }) => {
       <Helmet>
         <title>Leonel Jara</title>
       </Helmet>
-      <Header />
-      <main>{children}</main>
-      <hr className="footer__line" />
-      <Footer />
+      <div className="page-container">
+        <Header />
+        <main className="content-wrap">{children}</main>
+        <Footer />
+      </div>
     </div>
   );
 };

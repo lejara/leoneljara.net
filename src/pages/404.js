@@ -1,33 +1,32 @@
 import * as React from "react";
 import { Link } from "gatsby";
 
+import Layout from "../components/Layout";
+import Background from "../components/Background";
+
 // markup
 const NotFoundPage = () => {
   return (
-    <main>
-      <title>Not found</title>
-      <h1>Page not found</h1>
-      <p>
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{" "}
-        we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
+    <div>
+      <Layout>
+        <Background />
+        <main className="sm:text-xl md:text-3xl p-5">
+          <title>Not found</title>
+          <h2 className="text-title">404</h2>
+          <p className="text-center mt-16">
+            Sorry
+            <span role="img" aria-label="Pensive emoji">
+              😔
+            </span>
+            I have no page for that.
             <br />
-            Try creating a page in <code>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link className="link-primary" to="/">
-          Go home
-        </Link>
-        .
-      </p>
-    </main>
+            <Link className="link-primary text-center" to="/">
+              Go home
+            </Link>
+          </p>
+        </main>
+      </Layout>
+    </div>
   );
 };
 

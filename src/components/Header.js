@@ -1,15 +1,10 @@
 import * as React from "react";
 import { Link } from "gatsby";
-import MenuIcon from "../images/svg/menu.svg";
 
 const Header = () => {
   return (
     <header className="header m-0 p-2">
-      <div className="menu float-right mr-4">
-        <Link href="link" aria-label="Menu">
-          <MenuIcon />
-        </Link>
-      </div>
+      <div className="menu float-right mr-4"></div>
     </header>
   );
 };

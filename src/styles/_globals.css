@@ -14,10 +14,12 @@ $text-color: white;
 /* Background colors */
 $bg-color: #07091a;
 $projectsBg-color: #061c47;
-$contactBg-color: #1c304d;
-$footerBg-color: #000000;
+$contactBg-color: #063f47;
+$footerBg-color: #0f0f0f;
 $card-color: #010826;
 $inputBG-color: $secondary-color;
+
+$footer-height: 3rem;
 
 /* Component Block*/
 .block-component {
@@ -26,8 +28,8 @@ $inputBG-color: $secondary-color;
 }
 
 .block-break {
-  border-top: 1px solid $linebreak-color;
-  width: 50rem;
+  border-top: 2px solid $linebreak-color;
+  width: 50vw;
   margin: 0 auto;
 }
 
@@ -53,4 +55,12 @@ body {
   background-color: $bg-color;
   color: $text-color;
   font-family: Yantramanav-Black;
+}
+
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+.content-wrap {
+  padding-bottom: 2.5rem; /* Footer height */
 }
