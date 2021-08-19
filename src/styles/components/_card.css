@@ -12,7 +12,7 @@
 }
 .card__content {
   min-height: 400px;
-  background-color: #010826;
+  background-color: $card-color;
   border-radius: 5px;
 }
 

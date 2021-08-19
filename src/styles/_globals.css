@@ -9,11 +9,15 @@ $secondary-color: #50c8e8;
 $error-color: #e1341e;
 $linebreak-color: #710ac2;
 $title-color: #fdb215;
-$bg-color: #07091a;
 $text-color: white;
+
+/* Background colors */
+$bg-color: #07091a;
+$projectsBg-color: #061c47;
+$contactBg-color: #1c304d;
+$footerBg-color: #000000;
 $card-color: #010826;
 $inputBG-color: $secondary-color;
-$projectsBg-color: #05193d;
 
 /* Component Block*/
 .block-component {
@@ -23,7 +27,7 @@ $projectsBg-color: #05193d;
 
 .block-break {
   border-top: 1px solid $linebreak-color;
-  width: 60%;
+  width: 50rem;
   margin: 0 auto;
 }
 

@@ -11,6 +11,7 @@ const Layout = ({ children }) => {
       </Helmet>
       <Header />
       <main>{children}</main>
+      <hr className="footer__line" />
       <Footer />
     </div>
   );

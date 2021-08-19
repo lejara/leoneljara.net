@@ -1,4 +1,7 @@
 .contact {
+  background-color: $contactBg-color;
+}
+.contact__wrapper {
   margin-left: 0.7rem;
   margin-right: 0.7rem;
 }
