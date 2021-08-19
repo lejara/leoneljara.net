@@ -1,5 +1,5 @@
 .projects {
-  background-color: #082a68;
+  background-color: $projectsBg-color;
 }
 
 .works__grid {
