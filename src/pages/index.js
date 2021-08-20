@@ -7,18 +7,20 @@ import About from "../components/About";
 import Projects from "../components/Projects";
 import Contact from "../components/Contact";
 import Background from "../components/Background";
+import Game from "../components/Game";
 
 const IndexPage = () => {
   return (
     <Layout>
       <Background />
-      <Hero />
-      <hr className="block-break" />
+      {/* <Hero /> */}
+      <Game />
+      {/* <hr className="block-break" />
       <About />
       <hr className="block-break" />
       <Projects />
       <hr className="block-break" />
-      <Contact />
+      <Contact /> */}
     </Layout>
   );
 };
