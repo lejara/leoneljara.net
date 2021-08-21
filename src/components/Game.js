@@ -12,9 +12,10 @@ const Game = () => {
     objects,
     keys = [],
     friction,
-    gravity;
+    gravity,
+    time = {};
   var requestAnimationFrame;
-
+  const [timePassed, setTimePassed] = useState(0);
   function init() {
     requestAnimationFrame =
       window.requestAnimationFrame ||
@@ -31,6 +32,10 @@ const Game = () => {
     keys = [];
     friction = 0.8;
     gravity = 0.2;
+    time = {
+      start_time: new Date(),
+      time_to_win: 100,
+    };
     player = {
       x: 100,
       y: 640,
@@ -98,56 +103,67 @@ const Game = () => {
       projectiles: [],
       maxSpawn: 50,
       spawned: 0,
-      min_speed: 2,
-      max_speed: 10,
+      min_speed: 4,
+      max_speed: 15,
       spawn_height: -2,
-      y_dir: 1,
       update: () => {
-        // //spawn check
-        // if (!spawned >= maxSpawn) {
-        //   var newSpawn = getRandomInt(1, 3);
-        //   // prettier-ignore
-        //   newSpawn = (spawned+newSpawn) > maxSpawn ? ((spawned+newSpawn) - maxSpawn) - newSpawn  :  newSpawn
-        // } else {
-        //   console.log("Max Object Spawned");
-        // }
-        //random direction
-        if (objects.projectiles.length != 0) {
-          // target player
-          var distance = {
-            x: objects.projectiles[0].x - player.x,
-            y: objects.projectiles[0].y - player.y,
-          };
-          var length = Math.sqrt(
-            distance.x * distance.x + distance.y * distance.y
-          );
-          objects.projectiles[0].direction = {
-            x: (distance.x / length) * -1,
-            y: (distance.y / length) * -1,
-          };
-        }
+        function TrySpawn() {
+          if (objects.spawned < objects.maxSpawn) {
+            var trySpawn = getRandomInt(1, 70);
+            if (trySpawn == 1) {
+              var object_x = getRandomInt(1, canvas.width);
+              //calulate direction to player
+              var distance = {
+                x: object_x - player.x,
+                y: objects.spawn_height - player.y,
+              };
+              var length = Math.sqrt(
+                distance.x * distance.x + distance.y * distance.y
+              );
+              var direction = {
+                x: (distance.x / length) * -1, //TODO: add a small random offset
+                y: (distance.y / length) * -1,
+              };
 
-        function updateProjectiles() {
+              objects.projectiles.push({
+                x: object_x,
+                y: objects.spawn_height,
+                width: 20,
+                height: 20,
+                direction: {
+                  x: direction.x,
+                  y: direction.y,
+                },
+                speed: getRandomInt(objects.min_speed, objects.max_speed),
+                color: "#655643",
+                die: false,
+              });
+              objects.spawned++;
+            }
+          }
+        }
+        function UpdateProjectiles() {
           objects.projectiles.map((o) => {
             o.x += o.direction.x * o.speed;
             o.y += o.direction.y * o.speed;
             o.die = o.y > canvas.height + 20 ? true : false;
             //update spawn counter if die is true
+            var hitting = false;
             objects.spawned = o.die ? --objects.spawned : objects.spawned;
+            if (collisionCheck(player, o)) {
+              hitting = true;
+            }
+            //check projectiles are hitting the player
           });
-          //remove projectiles that are out of screen
+          //remove projectiles that are out of screen, 0n
           objects.projectiles = objects.projectiles.filter(
             (item) => item.die == false
           );
         }
-        updateProjectiles();
-        //check projectiles are hitting the player
-        var hitting = false;
-        objects.projectiles.map((o) => {
-          if (collisionCheck(player, o)) {
-            hitting = true;
-          }
-        });
+
+        UpdateProjectiles();
+        TrySpawn();
+        // console.log(objects.spawned);
       },
       draw: () => {
         objects.projectiles.map((o) => {
@@ -156,21 +172,6 @@ const Game = () => {
         });
       },
     };
-
-    // dimensions
-    objects.projectiles.push({
-      x: 340,
-      y: objects.spawn_height,
-      width: 30,
-      height: 30,
-      direction: {
-        x: 0.2,
-        y: objects.y_dir,
-      },
-      speed: 3,
-      color: "#655643",
-      die: false,
-    });
 
     document.body.addEventListener("keydown", function (e) {
       keys[e.keyCode] = true;
@@ -189,6 +190,10 @@ const Game = () => {
     bounds_width = canvas.width;
     bounds_height = canvas.height;
 
+    //time
+    var cur_time = new Date();
+    setTimePassed(Math.round((cur_time - time.start_time) / 1000));
+    //updates
     player.update();
     objects.update();
 
@@ -213,7 +218,7 @@ const Game = () => {
 
     // if the x and y vector are less than the half width or half height, they we must be inside the object, causing a collision
     if (Math.abs(vX) < hWidths && Math.abs(vY) < hHeights) {
-      console.log("hitting");
+      console.log("hit");
       hit = true;
     }
     return hit;
@@ -231,6 +236,7 @@ const Game = () => {
 
   return (
     <div className="-z-10 absolute top-0 left-0">
+      <p className=" absolute text-center w-full mt-24 text-xl">{timePassed}</p>
       <canvas className="block w-full" id="min-game" height="800"></canvas>
     </div>
   );
