@@ -13,14 +13,14 @@ const IndexPage = () => {
   return (
     <Layout>
       <Background />
-      {/* <Hero /> */}
       <Game />
-      {/* <hr className="block-break" />
+      <Hero />
+      <hr className="block-break" />
       <About />
       <hr className="block-break" />
       <Projects />
       <hr className="block-break" />
-      <Contact /> */}
+      <Contact />
     </Layout>
   );
 };

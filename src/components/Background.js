@@ -51,7 +51,7 @@ const Background = () => {
           },
           fullScreen: {
             enable: true,
-            zIndex: -1,
+            zIndex: -20,
           },
           detectRetina: true,
           duration: 0,

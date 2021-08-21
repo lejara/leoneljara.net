@@ -1,11 +1,12 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
 
+//TODO: objects spawning, input fix, game manager
 const Game = () => {
   var canvas,
     ctx,
-    width = 1000, // change
-    height = 400, //change
+    bounds_width,
+    bounds_height,
     floor_height,
     player,
     objects,
@@ -22,14 +23,17 @@ const Game = () => {
       window.msRequestAnimationFrame;
     window.requestAnimationFrame = requestAnimationFrame;
 
-    canvas = document.getElementsByClassName("tsparticles-canvas-el")[0];
+    canvas = document.getElementById("min-game");
     ctx = canvas.getContext("2d");
-    width = 1000; //change
-    height = 300; //change
-    floor_height = height - 50;
+    bounds_width = canvas.width;
+    bounds_height = canvas.height;
+    floor_height = 646;
+    keys = [];
+    friction = 0.8;
+    gravity = 0.2;
     player = {
-      x: width / 2,
-      y: 200,
+      x: 100,
+      y: 640,
       width: 25,
       height: 25,
       speed: 3,
@@ -60,6 +64,10 @@ const Game = () => {
             player.velX--;
           }
         }
+        player.velX *= friction;
+        //apply player pos
+        player.x += player.velX;
+        player.y += player.velY;
 
         //Floor check
         if (player.y > floor_height) {
@@ -71,11 +79,13 @@ const Game = () => {
           player.jumping = false;
         }
 
-        player.velX *= friction;
-
-        //apply player pos
-        player.x += player.velX;
-        player.y += player.velY;
+        //Bounds Check
+        var maxWidth = bounds_width - player.width;
+        if (player.x >= maxWidth) {
+          player.x = maxWidth;
+        } else if (player.x <= 0) {
+          player.x = 0;
+        }
       },
       draw: () => {
         //Draw charater stuff
@@ -85,107 +95,81 @@ const Game = () => {
       },
     };
     objects = {
-      boxes: [],
+      projectiles: [],
+      maxSpawn: 50,
+      spawned: 0,
+      min_speed: 2,
+      max_speed: 10,
+      spawn_height: -2,
+      y_dir: 1,
       update: () => {
+        // //spawn check
+        // if (!spawned >= maxSpawn) {
+        //   var newSpawn = getRandomInt(1, 3);
+        //   // prettier-ignore
+        //   newSpawn = (spawned+newSpawn) > maxSpawn ? ((spawned+newSpawn) - maxSpawn) - newSpawn  :  newSpawn
+        // } else {
+        //   console.log("Max Object Spawned");
+        // }
+        //random direction
+        if (objects.projectiles.length != 0) {
+          // target player
+          var distance = {
+            x: objects.projectiles[0].x - player.x,
+            y: objects.projectiles[0].y - player.y,
+          };
+          var length = Math.sqrt(
+            distance.x * distance.x + distance.y * distance.y
+          );
+          objects.projectiles[0].direction = {
+            x: (distance.x / length) * -1,
+            y: (distance.y / length) * -1,
+          };
+        }
+
+        function updateProjectiles() {
+          objects.projectiles.map((o) => {
+            o.x += o.direction.x * o.speed;
+            o.y += o.direction.y * o.speed;
+            o.die = o.y > canvas.height + 20 ? true : false;
+            //update spawn counter if die is true
+            objects.spawned = o.die ? --objects.spawned : objects.spawned;
+          });
+          //remove projectiles that are out of screen
+          objects.projectiles = objects.projectiles.filter(
+            (item) => item.die == false
+          );
+        }
+        updateProjectiles();
+        //check projectiles are hitting the player
         var hitting = false;
-        objects.boxes.map((o) => {
+        objects.projectiles.map((o) => {
           if (collisionCheck(player, o)) {
             hitting = true;
           }
         });
       },
       draw: () => {
-        objects.boxes.map((o) => {
+        objects.projectiles.map((o) => {
           ctx.fillStyle = o.color;
           ctx.rect(o.x, o.y, o.width, o.height);
         });
       },
     };
-    keys = [];
-    friction = 0.8;
-    gravity = 0.2;
 
     // dimensions
-    objects.boxes.push({
-      //box on left
-      x: 0,
-      y: height / 4 + 10,
-      width: 10,
-      height: height,
-      color: "green",
-    });
-    objects.boxes.push({
-      //box on left
-      x: 0,
-      y: 0,
-      width: 10,
-      height: height / 4 - 15,
-      color: "green",
-    });
-
-    objects.boxes.push({
-      //box on right
-      x: width - 10,
-      y: 0,
-      width: 50,
-      height: height,
-      color: "yellow",
-    });
-    objects.boxes.push({
-      x: 290,
-      y: 200,
-      width: 260,
-      height: 10,
-      color: "blue",
-    });
-    objects.boxes.push({
-      x: 590,
-      y: 200,
-      width: 80,
-      height: 10,
-      color: "blue",
-    });
-    objects.boxes.push({
-      x: 120,
-      y: 250,
-      width: 150,
-      height: 10,
-      color: "red",
-    });
-    objects.boxes.push({
-      x: 220,
-      y: 300,
-      width: 80,
-      height: 10,
-      color: "black",
-    });
-    objects.boxes.push({
+    objects.projectiles.push({
       x: 340,
-      y: 350,
-      width: 90,
-      height: 10,
+      y: objects.spawn_height,
+      width: 30,
+      height: 30,
+      direction: {
+        x: 0.2,
+        y: objects.y_dir,
+      },
+      speed: 3,
       color: "#655643",
-    });
-    objects.boxes.push({
-      x: 740,
-      y: 300,
-      width: 160,
-      height: 10,
-      color: "#655643",
-    });
-    objects.boxes.push({
-      x: 0,
-      y: 350,
-      width: 90,
-      height: 10,
-      color: "#655643",
-    });
-    objects.boxes.push({
-      x: 90,
-      y: 350,
-      width: 10,
-      height: 50,
-      color: "#655643",
+      die: false,
     });
 
     document.body.addEventListener("keydown", function (e) {
@@ -195,9 +179,16 @@ const Game = () => {
     document.body.addEventListener("keyup", function (e) {
       keys[e.keyCode] = false;
     });
+
+    requestAnimationFrame(update);
   }
 
   function update() {
+    canvas.width = window.innerWidth;
+
+    bounds_width = canvas.width;
+    bounds_height = canvas.height;
+
     player.update();
     objects.update();
 
@@ -206,12 +197,11 @@ const Game = () => {
   }
 
   function draw() {
-    //draw objects
     objects.draw();
-    //draw player
     player.draw();
   }
 
+  //utils
   function collisionCheck(shapeA, shapeB) {
     var hit = false;
     // get the vectors to check against
@@ -229,13 +219,21 @@ const Game = () => {
     return hit;
   }
 
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
   useEffect(() => {
     init();
-
-    requestAnimationFrame(update);
   }, []);
 
-  return <div></div>;
+  return (
+    <div className="-z-10 absolute top-0 left-0">
+      <canvas className="block w-full" id="min-game" height="800"></canvas>
+    </div>
+  );
 };
 
 export default Game;
