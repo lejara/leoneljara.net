@@ -1,24 +1,16 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
+import player from "../game/Player";
+import objects from "../game/Objects";
 
 //TODO: fix fps, input fix, game manager
 const Game = () => {
   var canvas,
     ctx,
-    bounds_width,
-    bounds_height,
-    floor_height,
-    player,
-    objects,
-    keys = [],
-    friction,
-    gravity,
-    time = {},
-    dying,
-    dead;
+    gameState = {},
+    time = {};
   var requestAnimationFrame;
 
-  const [timePassed, setTimePassed] = useState(0);
   const [playing, setPlaying] = useState(false);
 
   function init() {
@@ -28,165 +20,24 @@ const Game = () => {
       window.webkitRequestAnimationFrame ||
       window.msRequestAnimationFrame;
     window.requestAnimationFrame = requestAnimationFrame;
-
     canvas = document.getElementById("min-game");
+    canvas.focus();
     ctx = canvas.getContext("2d");
-    bounds_width = canvas.width;
-    floor_height = 646;
-    keys = [];
-    friction = 0.8;
-    gravity = 0.2;
+    canvas.width = window.innerWidth;
+
+    gameState = {
+      dying: false,
+      dead: false,
+      diffculty: 1,
+    };
     time = {
       start_time: new Date(),
       time_to_win: 100,
-    };
-    dying = false;
-    dead = false;
-    canvas.width = window.innerWidth;
-
-    player = {
-      x: canvas.width / 2 + 15,
-      y: 640,
-      width: 25,
-      height: 25,
-      speed: 3,
-      velX: 0,
-      velY: 0,
-      jumping: false,
-      grounded: false,
-      color: "#E6AC27",
-      update: () => {
-        // Check Input for movment
-        if (keys[38] || keys[32] || keys[87]) {
-          // up arrow or space
-          if (!player.jumping && player.grounded) {
-            player.jumping = true;
-            player.grounded = false;
-            player.velY = -player.speed * 2; //how high to jump
-          }
-        }
-        if (keys[39] || keys[68]) {
-          // right arrow
-          if (player.velX < player.speed) {
-            player.velX++;
-          }
-        }
-        if (keys[37] || keys[65]) {
-          // left arrow
-          if (player.velX > -player.speed) {
-            player.velX--;
-          }
-        }
-        player.velX *= friction;
-        //apply player pos
-        player.x += player.velX;
-        player.y += player.velY;
-
-        //Floor check
-        if (player.y > floor_height) {
-          player.y = floor_height;
-          player.grounded = true;
-        } else {
-          player.velY += gravity;
-          player.grounded = false;
-          player.jumping = false;
-        }
-
-        //Bounds Check
-        var maxWidth = bounds_width - player.width;
-        if (player.x >= maxWidth) {
-          player.x = maxWidth;
-        } else if (player.x <= 0) {
-          player.x = 0;
-        }
-      },
-      draw: () => {
-        //Draw charater stuff
-        ctx.fill();
-        ctx.fillStyle = player.color;
-        ctx.fillRect(player.x, player.y, player.width, player.height);
-      },
-    };
-    objects = {
-      projectiles: [],
-      maxSpawn: 50,
-      spawned: 0,
-      min_speed: 4,
-      max_speed: 15,
-      spawn_height: -2,
-      update: () => {
-        function TrySpawn() {
-          if (objects.spawned < objects.maxSpawn) {
-            var trySpawn = getRandomInt(1, 70);
-            if (trySpawn == 1) {
-              var object_x = getRandomInt(1, canvas.width);
-              //calulate direction to player
-              var distance = {
-                x: object_x - player.x,
-                y: objects.spawn_height - player.y,
-              };
-              var length = Math.sqrt(
-                distance.x * distance.x + distance.y * distance.y
-              );
-              var direction = {
-                x: (distance.x / length) * -1, //TODO: add a small random offset
-                y: (distance.y / length) * -1,
-              };
-
-              objects.projectiles.push({
-                x: object_x,
-                y: objects.spawn_height,
-                width: 20,
-                height: 20,
-                direction: {
-                  x: direction.x,
-                  y: direction.y,
-                },
-                speed: getRandomInt(objects.min_speed, objects.max_speed),
-                color: "#655643",
-                die: false,
-              });
-              objects.spawned++;
-            }
-          }
-        }
-        function UpdateProjectiles() {
-          objects.projectiles.map((o) => {
-            o.x += o.direction.x * o.speed;
-            o.y += o.direction.y * o.speed;
-            o.die = o.y > canvas.height + 20 ? true : false;
-            //update spawn counter if die is true
-            objects.spawned = o.die ? --objects.spawned : objects.spawned;
-            if (collisionCheck(player, o)) {
-              dying = true;
-            }
-            //check projectiles are hitting the player
-          });
-          //remove projectiles that are out of screen, 0n
-          objects.projectiles = objects.projectiles.filter(
-            (item) => item.die == false
-          );
-        }
-
-        UpdateProjectiles();
-        TrySpawn();
-        // console.log(objects.spawned);
-      },
-      draw: () => {
-        objects.projectiles.map((o) => {
-          ctx.fillStyle = o.color;
-          ctx.rect(o.x, o.y, o.width, o.height);
-        });
-      },
+      timePassed: 0,
     };
 
-    document.body.addEventListener("keydown", function (e) {
-      keys[e.keyCode] = true;
-    });
-
-    document.body.addEventListener("keyup", function (e) {
-      keys[e.keyCode] = false;
-    });
+    player.init(canvas, ctx, gameState);
+    objects.init(canvas, ctx, player, gameState);
   }
 
   function start() {
@@ -197,27 +48,28 @@ const Game = () => {
   }
 
   function end() {
+    objects.end();
+    player.end();
     setPlaying(false);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.beginPath();
   }
 
   function update() {
     canvas.width = window.innerWidth;
-    bounds_width = canvas.width;
 
     //time
     var cur_time = new Date();
-    setTimePassed(Math.round((cur_time - time.start_time) / 1000));
+    time.timePassed = Math.round((cur_time - time.start_time) / 1000);
     //updates
     player.update();
     objects.update();
 
     draw();
-    if (!dying) {
+    if (!gameState.dying) {
       requestAnimationFrame(update);
     } else {
       end();
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.beginPath();
     }
   }
 
@@ -228,33 +80,9 @@ const Game = () => {
     player.draw();
   }
 
-  //utils
-  function collisionCheck(shapeA, shapeB) {
-    var hit = false;
-    // get the vectors to check against
-    var vX = shapeA.x + shapeA.width / 2 - (shapeB.x + shapeB.width / 2),
-      vY = shapeA.y + shapeA.height / 2 - (shapeB.y + shapeB.height / 2),
-      // add the half widths and half heights of the objects
-      hWidths = shapeA.width / 2 + shapeB.width / 2,
-      hHeights = shapeA.height / 2 + shapeB.height / 2;
-
-    // if the x and y vector are less than the half width or half height, they we must be inside the object, causing a collision
-    if (Math.abs(vX) < hWidths && Math.abs(vY) < hHeights) {
-      console.log("hit");
-      hit = true;
-    }
-    return hit;
-  }
-
-  function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
-  // useEffect(() => {
-  //   init();
-  // }, []);
+  useEffect(() => {
+    start();
+  }, []);
 
   return (
     <div>
@@ -267,7 +95,8 @@ const Game = () => {
 
       <button
         disabled={playing}
-        onClick={() => {
+        onClick={(x) => {
+          x.target.blur();
           start();
         }}
         className="mt-4"
