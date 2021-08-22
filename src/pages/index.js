@@ -7,13 +7,12 @@ import About from "../components/About";
 import Projects from "../components/Projects";
 import Contact from "../components/Contact";
 import Background from "../components/Background";
-import Game from "../components/Game";
 
 const IndexPage = () => {
+  const bg = React.useRef();
   return (
     <Layout>
-      <Background />
-      <Game />
+      <Background bg_containerRef={bg} />
       <Hero />
       <hr className="block-break" />
       <About />

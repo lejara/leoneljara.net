@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
 
-//TODO: objects spawning, input fix, game manager
+//TODO: fix fps, input fix, game manager
 const Game = () => {
   var canvas,
     ctx,
@@ -13,9 +13,14 @@ const Game = () => {
     keys = [],
     friction,
     gravity,
-    time = {};
+    time = {},
+    dying,
+    dead;
   var requestAnimationFrame;
+
   const [timePassed, setTimePassed] = useState(0);
+  const [playing, setPlaying] = useState(false);
+
   function init() {
     requestAnimationFrame =
       window.requestAnimationFrame ||
@@ -27,7 +32,6 @@ const Game = () => {
     canvas = document.getElementById("min-game");
     ctx = canvas.getContext("2d");
     bounds_width = canvas.width;
-    bounds_height = canvas.height;
     floor_height = 646;
     keys = [];
     friction = 0.8;
@@ -36,8 +40,12 @@ const Game = () => {
       start_time: new Date(),
       time_to_win: 100,
     };
+    dying = false;
+    dead = false;
+    canvas.width = window.innerWidth;
+
     player = {
-      x: 100,
+      x: canvas.width / 2 + 15,
       y: 640,
       width: 25,
       height: 25,
@@ -148,10 +156,9 @@ const Game = () => {
             o.y += o.direction.y * o.speed;
             o.die = o.y > canvas.height + 20 ? true : false;
             //update spawn counter if die is true
-            var hitting = false;
             objects.spawned = o.die ? --objects.spawned : objects.spawned;
             if (collisionCheck(player, o)) {
-              hitting = true;
+              dying = true;
             }
             //check projectiles are hitting the player
           });
@@ -180,15 +187,22 @@ const Game = () => {
     document.body.addEventListener("keyup", function (e) {
       keys[e.keyCode] = false;
     });
+  }
 
-    requestAnimationFrame(update);
+  function start() {
+    console.log("ran");
+    init();
+    setPlaying(true);
+    requestAnimationFrame(update); //TODO: https://gist.github.com/elundmark/38d3596a883521cb24f5
+  }
+
+  function end() {
+    setPlaying(false);
   }
 
   function update() {
     canvas.width = window.innerWidth;
-
     bounds_width = canvas.width;
-    bounds_height = canvas.height;
 
     //time
     var cur_time = new Date();
@@ -198,10 +212,18 @@ const Game = () => {
     objects.update();
 
     draw();
-    requestAnimationFrame(update);
+    if (!dying) {
+      requestAnimationFrame(update);
+    } else {
+      end();
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.beginPath();
+    }
   }
 
   function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.beginPath();
     objects.draw();
     player.draw();
   }
@@ -230,14 +252,28 @@ const Game = () => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  useEffect(() => {
-    init();
-  }, []);
+  // useEffect(() => {
+  //   init();
+  // }, []);
 
   return (
-    <div className="-z-10 absolute top-0 left-0">
-      <p className=" absolute text-center w-full mt-24 text-xl">{timePassed}</p>
-      <canvas className="block w-full" id="min-game" height="800"></canvas>
+    <div>
+      <canvas
+        style={{ height: 800 + "px" }}
+        className="block -z-10 absolute  top-0 left-0 w-full"
+        id="min-game"
+        height="800"
+      ></canvas>
+
+      <button
+        disabled={playing}
+        onClick={() => {
+          start();
+        }}
+        className="mt-4"
+      >
+        Start
+      </button>
     </div>
   );
 };

@@ -2,14 +2,13 @@ import * as React from "react";
 import Particles from "react-tsparticles";
 import { useEffect, useState } from "react";
 
-const Background = () => {
-  const containerRef = React.useRef();
+const Background = ({ bg_containerRef }) => {
   return (
     <div>
       <button
         onClick={() => {
-          console.log(containerRef);
-          containerRef.current.particles.array.map((x) => {
+          console.log(bg_containerRef);
+          bg_containerRef.current.particles.array.map((x) => {
             // x.maxSpeed = 100;
             x.moveSpeed = 0.2;
             x.direction = -0.5;
@@ -23,9 +22,9 @@ const Background = () => {
       </button>
       <button
         onClick={() => {
-          console.log(containerRef);
+          console.log(bg_containerRef);
           // containerRef.current.pause();
-          containerRef.current.particles.array.map((x) => {
+          bg_containerRef.current.particles.array.map((x) => {
             x.moveSpeed = 0;
           });
 
@@ -35,7 +34,7 @@ const Background = () => {
         Bg MoveSpeed
       </button>
       <Particles
-        container={containerRef}
+        container={bg_containerRef}
         id="tsparticles"
         options={{
           autoPlay: true,
