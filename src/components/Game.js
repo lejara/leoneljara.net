@@ -1,5 +1,6 @@
 import * as React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import gameContext from "../context/gameContext";
 import player from "../game/Player";
 import objects from "../game/Objects";
 
@@ -11,7 +12,7 @@ const Game = () => {
     time = {};
   var requestAnimationFrame;
 
-  const [playing, setPlaying] = useState(false);
+  const { playing, setPlaying } = useContext(gameContext);
 
   function init() {
     requestAnimationFrame =
@@ -27,7 +28,7 @@ const Game = () => {
 
     gameState = {
       dying: false,
-      dead: false,
+      gamemover: false,
       diffculty: 1,
     };
     time = {
@@ -40,10 +41,14 @@ const Game = () => {
     objects.init(canvas, ctx, player, gameState);
   }
 
-  function start() {
+  function awake() {
     console.log("ran");
     init();
     setPlaying(true);
+    start();
+  }
+
+  function start() {
     requestAnimationFrame(update); //TODO: https://gist.github.com/elundmark/38d3596a883521cb24f5
   }
 
@@ -80,9 +85,9 @@ const Game = () => {
     player.draw();
   }
 
-  useEffect(() => {
-    start();
-  }, []);
+  // useEffect(() => {
+  //   awake();
+  // }, []);
 
   return (
     <div>
@@ -97,7 +102,7 @@ const Game = () => {
         disabled={playing}
         onClick={(x) => {
           x.target.blur();
-          start();
+          awake();
         }}
         className="mt-4"
       >
