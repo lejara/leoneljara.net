@@ -1,7 +1,7 @@
 import * as React from "react";
 import "../styles/style.css";
 
-import gameContext from "../context/gameContext";
+import { GameContextProvider } from "../context/gameContext";
 
 import Layout from "../components/Layout";
 import Hero from "../components/Hero";
@@ -12,11 +12,10 @@ import Background from "../components/Background";
 
 const IndexPage = () => {
   const bg = React.useRef();
-  // const [won, setWon] = React.useState(false);
-  const [playing, setPlaying] = React.useState(false);
+
   return (
     <Layout>
-      <gameContext.Provider value={{ playing, setPlaying }}>
+      <GameContextProvider>
         <Background bg_containerRef={bg} />
         <Hero />
         <hr className="block-break" />
@@ -25,7 +24,7 @@ const IndexPage = () => {
         <Projects />
         <hr className="block-break" />
         <Contact />
-      </gameContext.Provider>
+      </GameContextProvider>
     </Layout>
   );
 };
