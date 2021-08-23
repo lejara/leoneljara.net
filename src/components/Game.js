@@ -89,7 +89,7 @@ const Game = ({ bg }) => {
     player.draw();
   }
 
-  // useEffect(() => {
+  // React.useEffect(() => {
   //   awake();
   // }, []);
 
@@ -108,10 +108,8 @@ const Game = ({ bg }) => {
           x.target.blur();
           awake();
         }}
-        className="mt-4"
-      >
-        Start
-      </button>
+        className={`game__btn--start ${playing ? "invisible" : "visible"}`}
+      />
     </div>
   );
 };

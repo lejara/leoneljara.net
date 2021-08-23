@@ -17,8 +17,8 @@ const About = () => {
           <StaticImage
             src="../images/pic_leo.jpg"
             alt="Picture of leonel"
-            height="400"
-            width="400"
+            height="330"
+            width="330"
           />
         </div>
         <div className="about__socials p-2">

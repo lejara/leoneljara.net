@@ -21,12 +21,13 @@ var player = {
   velY: 0,
   jumping: false,
   grounded: false,
-  color: "#E6AC27",
+  color: "#fdb215",
   init: (canvas, ctx, gameState) => {
     player.canvas = canvas;
     player.ctx = ctx;
     player.gameState = gameState;
-    player.x = player.canvas.width / 2 + 15;
+    player.x = player.canvas.width / 2;
+    player.y = 600;
   },
   update: () => {
     // Check Input for movment

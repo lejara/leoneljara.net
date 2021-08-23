@@ -13,6 +13,7 @@ $text-color: white;
 
 /* Background colors */
 $bg-color: #07091a;
+$about-color: #473705;
 $projectsBg-color: #061c47;
 $contactBg-color: #063f47;
 $footerBg-color: #0f0f0f;
@@ -24,12 +25,12 @@ $footer-height: 3rem;
 /* Component Block*/
 .block-component {
   /* border: 2px solid red; */
-  @apply py-20;
+  @apply py-16;
 }
 
 .block-break {
   border-top: 2px solid $linebreak-color;
-  width: 50vw;
+  width: 100%;
   margin: 0 auto;
 }
 

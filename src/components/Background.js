@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const Background = ({ bg_containerRef }) => {
   return (
     <div>
-      <button
+      {/* <button
         onClick={() => {
           console.log(bg_containerRef);
           bg_containerRef.current.particles.array.map((x) => {
@@ -32,7 +32,7 @@ const Background = ({ bg_containerRef }) => {
         }}
       >
         Bg MoveSpeed
-      </button>
+      </button> */}
       <Particles
         container={bg_containerRef}
         id="tsparticles"
