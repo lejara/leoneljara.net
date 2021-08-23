@@ -3,6 +3,8 @@
 }
 .hero__content {
   display: inline-block;
+  transition: opacity 2s ease-in;
+  transition-delay: 1s;
 }
 .hero__title {
   color: $title-color;

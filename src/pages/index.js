@@ -17,7 +17,7 @@ const IndexPage = () => {
     <Layout>
       <GameContextProvider>
         <Background bg_containerRef={bg} />
-        <Hero />
+        <Hero bg={bg} />
         <hr className="block-break" />
         <About />
         <hr className="block-break" />

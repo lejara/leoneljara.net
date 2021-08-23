@@ -1,18 +1,18 @@
 import * as React from "react";
-import { useEffect, useState, useContext } from "react";
 import gameContext from "../context/gameContext";
+import { backgroundStart, backgroundEnd } from "../game/Utils";
 import player from "../game/Player";
 import objects from "../game/Objects";
 
 //TODO: fix fps, input fix, game manager
-const Game = () => {
+const Game = ({ bg }) => {
   var canvas,
     ctx,
     gameState = {},
     time = {};
   var requestAnimationFrame;
 
-  const { playing, setPlaying } = useContext(gameContext);
+  const { playing, setPlaying } = React.useContext(gameContext);
 
   function init() {
     requestAnimationFrame =
@@ -43,6 +43,9 @@ const Game = () => {
 
   function awake() {
     console.log("ran");
+
+    backgroundStart(bg);
+
     init();
     setPlaying(true);
     start();
@@ -53,6 +56,7 @@ const Game = () => {
   }
 
   function end() {
+    backgroundEnd(bg);
     objects.end();
     player.end();
     setPlaying(false);

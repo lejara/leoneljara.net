@@ -21,4 +21,38 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-export { collisionCheck, getRandomInt };
+function backgroundStart(bg) {
+  bg.current.particles.array.map((p) => {
+    var speed_target = 5;
+    var speed_incra = 0.5;
+    var setMoveSpeed = () => {
+      p.moveSpeed = p.moveSpeed + speed_incra;
+
+      if (p.moveSpeed < speed_target) {
+        setTimeout(setMoveSpeed, 200);
+      } else {
+        p.moveSpeed = speed_target;
+      }
+    };
+    setMoveSpeed();
+  });
+}
+
+function backgroundEnd(bg) {
+  bg.current.particles.array.map((p) => {
+    var speed_target = 0.4;
+    var speed_incra = 0.5;
+    var setMoveSpeed = () => {
+      p.moveSpeed = p.moveSpeed - speed_incra;
+
+      if (p.moveSpeed > speed_target) {
+        setTimeout(setMoveSpeed, 200);
+      } else {
+        p.moveSpeed = speed_target;
+      }
+    };
+    setMoveSpeed();
+  });
+}
+
+export { collisionCheck, getRandomInt, backgroundStart, backgroundEnd };
