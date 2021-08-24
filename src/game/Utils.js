@@ -21,6 +21,12 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function getRandomSign() {
+  var ran = Math.floor(Math.random() * 2 - 1);
+  ran = ran == 0 ? 1 : ran;
+  return ran;
+}
+
 function backgroundStart(bg) {
   bg.current.particles.array.map((p) => {
     var speed_target = 4;
@@ -55,4 +61,10 @@ function backgroundEnd(bg) {
   });
 }
 
-export { collisionCheck, getRandomInt, backgroundStart, backgroundEnd };
+export {
+  collisionCheck,
+  getRandomInt,
+  getRandomSign,
+  backgroundStart,
+  backgroundEnd,
+};

@@ -1,4 +1,4 @@
-import { collisionCheck, getRandomInt } from "./Utils";
+import { collisionCheck, getRandomInt, getRandomSign } from "./Utils";
 
 var objects = {
   projectiles: [],
@@ -31,7 +31,11 @@ var objects = {
             x: (distance.x / length) * -1, //TODO: add a small random offset
             y: (distance.y / length) * -1,
           };
-
+          //give variance to the x direction to some objects
+          if (getRandomInt(1, 4) == 1) {
+            direction.x += (getRandomInt(1, 2) / 10) * getRandomSign();
+          }
+          console.log(direction.x);
           objects.projectiles.push({
             x: object_x,
             y: objects.spawn_height,
@@ -57,7 +61,7 @@ var objects = {
         //update spawn counter if die is true
         objects.spawned = o.die ? --objects.spawned : objects.spawned;
         if (collisionCheck(objects.player, o)) {
-          objects.gameState.dying = true;
+          objects.gameState.dead = true;
         }
         //check projectiles are hitting the player
       });

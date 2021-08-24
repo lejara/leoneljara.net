@@ -7,7 +7,7 @@ import objects from "../game/Objects";
 import play_icon from "../game/StartIcon";
 import GameIcon from "../images/svg/game_icon.svg";
 
-//TODO: fix fps, input fix, game manager
+//TODO: fix fps, input fix, diffualty
 const Game = ({ bg }) => {
   var canvas,
     ctx,
@@ -16,6 +16,19 @@ const Game = ({ bg }) => {
   var requestAnimationFrame;
 
   const { playing, setPlaying } = React.useContext(gameContext);
+
+  function awake() {
+    console.log("ran");
+    //Starting animations
+    play_icon();
+    backgroundStart(bg);
+
+    init();
+    //start game
+    setTimeout(() => {
+      start();
+    }, 440);
+  }
 
   function init() {
     requestAnimationFrame =
@@ -30,8 +43,7 @@ const Game = ({ bg }) => {
     canvas.width = window.innerWidth;
 
     gameState = {
-      dying: false,
-      gamemover: false,
+      dead: false,
       diffculty: 1,
     };
     time = {
@@ -44,32 +56,13 @@ const Game = ({ bg }) => {
     objects.init(canvas, ctx, player, gameState);
   }
 
-  function awake() {
-    console.log("ran");
-    play_icon();
-    backgroundStart(bg);
-    init();
-
-    setTimeout(() => {
-      start();
-    }, 440);
-  }
-
   function start() {
     setPlaying(true);
     requestAnimationFrame(update); //TODO: https://gist.github.com/elundmark/38d3596a883521cb24f5
   }
 
-  function end() {
-    backgroundEnd(bg);
-    objects.end();
-    player.end();
-    setPlaying(false);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.beginPath();
-  }
-
   function update() {
+    //scale canvas if window changes
     canvas.width = window.innerWidth;
 
     //time
@@ -79,8 +72,9 @@ const Game = ({ bg }) => {
     player.update();
     objects.update();
 
+    //Draw all objects
     draw();
-    if (!gameState.dying) {
+    if (!gameState.dead) {
       requestAnimationFrame(update);
     } else {
       end();
@@ -92,6 +86,15 @@ const Game = ({ bg }) => {
     ctx.beginPath();
     objects.draw();
     player.draw();
+  }
+
+  function end() {
+    backgroundEnd(bg);
+    objects.end();
+    player.end();
+    setPlaying(false);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.beginPath();
   }
 
   // React.useEffect(() => {
