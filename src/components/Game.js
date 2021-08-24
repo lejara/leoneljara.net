@@ -4,6 +4,9 @@ import { backgroundStart, backgroundEnd } from "../game/Utils";
 import player from "../game/Player";
 import objects from "../game/Objects";
 
+import play_icon from "../game/StartIcon";
+import GameIcon from "../images/svg/game_icon.svg";
+
 //TODO: fix fps, input fix, game manager
 const Game = ({ bg }) => {
   var canvas,
@@ -43,15 +46,17 @@ const Game = ({ bg }) => {
 
   function awake() {
     console.log("ran");
-
+    play_icon();
     backgroundStart(bg);
-
     init();
-    setPlaying(true);
-    start();
+
+    setTimeout(() => {
+      start();
+    }, 440);
   }
 
   function start() {
+    setPlaying(true);
     requestAnimationFrame(update); //TODO: https://gist.github.com/elundmark/38d3596a883521cb24f5
   }
 
@@ -102,14 +107,18 @@ const Game = ({ bg }) => {
         height="800"
       ></canvas>
 
-      <button
-        disabled={playing}
-        onClick={(x) => {
-          x.target.blur();
-          awake();
-        }}
-        className={`game__btn--start ${playing ? "invisible" : "visible"}`}
-      />
+      <div className={`${playing ? "invisible" : "visible"}`}>
+        <GameIcon className="game__btn--icon" />
+
+        <button
+          disabled={playing}
+          onClick={(x) => {
+            x.target.blur();
+            awake();
+          }}
+          className="game__btn"
+        />
+      </div>
     </div>
   );
 };
