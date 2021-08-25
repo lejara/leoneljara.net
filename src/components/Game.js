@@ -1,24 +1,26 @@
 import * as React from "react";
 import gameContext from "../context/gameContext";
 import { backgroundStart, backgroundEnd } from "../game/Utils";
-import player from "../game/Player";
-import objects from "../game/Objects";
+import Player from "../game/Player";
+import Objects from "../game/Objects";
 
 import play_icon from "../game/StartIcon";
 import GameIcon from "../images/svg/game_icon.svg";
 
-//TODO: fix fps, input fix, diffualty
+//TODO: fix delta miss timings, input fix, diffualty
 const Game = ({ bg }) => {
   var canvas,
     ctx,
     gameState = {},
-    time = {};
+    time = {},
+    fps = 60,
+    player,
+    objects;
   var requestAnimationFrame;
 
   const { playing, setPlaying } = React.useContext(gameContext);
 
   function awake() {
-    console.log("ran");
     //Starting animations
     play_icon();
     backgroundStart(bg);
@@ -47,33 +49,43 @@ const Game = ({ bg }) => {
       diffculty: 1,
     };
     time = {
-      start_time: new Date(),
+      start_time: Date.now(),
       time_to_win: 100,
       timePassed: 0,
+      delta: 0,
+      interval: 1000 / fps,
+      then: Date.now(),
     };
-
-    player.init(canvas, ctx, gameState);
-    objects.init(canvas, ctx, player, gameState);
+    player = new Player(canvas, ctx, gameState, time);
+    objects = new Objects(canvas, ctx, player, gameState, time);
   }
 
   function start() {
     setPlaying(true);
-    requestAnimationFrame(update); //TODO: https://gist.github.com/elundmark/38d3596a883521cb24f5
+    time.then = time.interval + 1;
+    update();
   }
 
   function update() {
-    //scale canvas if window changes
-    canvas.width = window.innerWidth;
+    //Frame timing
+    var now = Date.now();
+    time.delta = now - time.then;
+    if (time.delta > time.interval) {
+      //scale canvas if window changes, sideeffect: of clearing of the canvas
+      canvas.width = window.innerWidth;
+      time.then = now - (time.delta % time.interval);
 
-    //time
-    var cur_time = new Date();
-    time.timePassed = Math.round((cur_time - time.start_time) / 1000);
-    //updates
-    player.update();
-    objects.update();
+      //timer
+      time.timePassed = Math.round((now - time.start_time) / 1000);
 
-    //Draw all objects
-    draw();
+      //updates
+      player.update();
+      objects.update();
+
+      //Draw all objects
+      draw();
+    }
+
     if (!gameState.dead) {
       requestAnimationFrame(update);
     } else {
@@ -92,6 +104,9 @@ const Game = ({ bg }) => {
     backgroundEnd(bg);
     objects.end();
     player.end();
+    player = null;
+    objects = null;
+    time = null;
     setPlaying(false);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.beginPath();
