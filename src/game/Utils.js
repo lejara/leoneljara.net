@@ -9,7 +9,7 @@ function collisionCheck(shapeA, shapeB) {
 
   // if the x and y vector are less than the half width or half height, they we must be inside the object, causing a collision
   if (Math.abs(vX) < hWidths && Math.abs(vY) < hHeights) {
-    console.log("hit");
+    // console.log("hit");
     hit = true;
   }
   return hit;
@@ -61,10 +61,20 @@ function backgroundEnd(bg) {
   });
 }
 
+function backgroundWon(bg) {
+  bg.current.particles.array.map((x) => {
+    x.direction = -0.5;
+    x.color.h.value = 65;
+    x.color.l.value = 64;
+    x.color.s.value = 96;
+  });
+}
+
 export {
   collisionCheck,
   getRandomInt,
   getRandomSign,
   backgroundStart,
   backgroundEnd,
+  backgroundWon,
 };

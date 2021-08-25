@@ -1,13 +1,13 @@
 import * as React from "react";
 import gameContext from "../context/gameContext";
-import { backgroundStart, backgroundEnd } from "../game/Utils";
+import { backgroundStart, backgroundEnd, backgroundWon } from "../game/Utils";
 import Player from "../game/Player";
 import Objects from "../game/Objects";
 
 import play_icon from "../game/StartIcon";
 import GameIcon from "../images/svg/game_icon.svg";
 
-//TODO: fix delta miss timings, input fix, diffualty
+//TODO: input fix
 const Game = ({ bg }) => {
   var canvas,
     ctx,
@@ -15,10 +15,12 @@ const Game = ({ bg }) => {
     time = {},
     fps = 60,
     player,
-    objects;
+    objects,
+    diffculties,
+    win_time = 75;
   var requestAnimationFrame;
 
-  const { playing, setPlaying } = React.useContext(gameContext);
+  const { playing, setPlaying, setWon } = React.useContext(gameContext);
 
   function awake() {
     //Starting animations
@@ -43,11 +45,6 @@ const Game = ({ bg }) => {
     canvas.focus();
     ctx = canvas.getContext("2d");
     canvas.width = window.innerWidth;
-
-    gameState = {
-      dead: false,
-      diffculty: 1,
-    };
     time = {
       start_time: Date.now(),
       time_to_win: 100,
@@ -56,8 +53,27 @@ const Game = ({ bg }) => {
       interval: 1000 / fps,
       then: Date.now(),
     };
+    gameState = {
+      dead: false,
+      diffculty: 2,
+    };
+
+    diffculties = {
+      levels: [
+        {
+          spawnChance: 60,
+        },
+        {
+          spawnChance: 30,
+        },
+        {
+          spawnChance: 20,
+        },
+      ],
+      breakpoints: [0, 20, 60],
+    };
     player = new Player(canvas, ctx, gameState, time);
-    objects = new Objects(canvas, ctx, player, gameState, time);
+    objects = new Objects(canvas, ctx, player, gameState, time, diffculties);
   }
 
   function start() {
@@ -77,6 +93,20 @@ const Game = ({ bg }) => {
 
       //timer
       time.timePassed = Math.round((now - time.start_time) / 1000);
+      //diffculty scale
+      if (time.timePassed == diffculties.breakpoints[0]) {
+        gameState.diffculty = 0;
+      } else if (time.timePassed == diffculties.breakpoints[1]) {
+        gameState.diffculty = 1;
+      } else if (time.timePassed == diffculties.breakpoints[2]) {
+        gameState.diffculty = 2;
+      }
+      if (time.timePassed == win_time) {
+        setWon(true);
+        console.log("WON!");
+        backgroundWon(bg);
+      }
+      // console.log(gameState.diffculty);
 
       //updates
       player.update();
@@ -111,10 +141,6 @@ const Game = ({ bg }) => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.beginPath();
   }
-
-  // React.useEffect(() => {
-  //   awake();
-  // }, []);
 
   return (
     <div>

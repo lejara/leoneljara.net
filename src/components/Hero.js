@@ -3,12 +3,12 @@ import gameContext from "../context/gameContext";
 import Game from "../components/Game";
 
 const Hero = ({ bg }) => {
-  const { playing } = React.useContext(gameContext);
+  const { playing, won } = React.useContext(gameContext);
   return (
     <div className="block-component hero mb-2">
       <div
         className={`hero__content mx-auto ${
-          playing ? "opacity-10" : "opacity-100"
+          playing ? "opacity-0" : "opacity-100"
         }`}
       >
         <div className="hero__title">

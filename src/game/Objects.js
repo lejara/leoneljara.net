@@ -1,7 +1,7 @@
 import { collisionCheck, getRandomInt, getRandomSign } from "./Utils";
 
 class Objects {
-  constructor(canvas, ctx, player, gameState, time) {
+  constructor(canvas, ctx, player, gameState, time, diffculties) {
     this.projectiles = [];
     this.maxSpawn = 50;
     this.spawned = 0;
@@ -14,6 +14,7 @@ class Objects {
     this.time = time; //ref
     this.player = player; //ref
     this.gameState = gameState; //ref
+    this.diffculties = diffculties; //ref
   }
 
   update() {
@@ -23,7 +24,10 @@ class Objects {
 
   TrySpawn() {
     if (this.spawned < this.maxSpawn) {
-      var trySpawn = getRandomInt(1, 70);
+      var trySpawn = getRandomInt(
+        1,
+        this.diffculties.levels[this.gameState.diffculty].spawnChance
+      );
       if (trySpawn == 1) {
         var object_x = getRandomInt(1, this.canvas.width);
         //calulate direction to player
@@ -39,7 +43,7 @@ class Objects {
           y: (distance.y / length) * -1,
         };
         //give variance to the x direction to some this
-        if (getRandomInt(1, 4) == 1) {
+        if (getRandomInt(1, 3) == 1) {
           direction.x += (getRandomInt(1, 2) / 10) * getRandomSign();
         }
         this.projectiles.push({
