@@ -46,7 +46,7 @@ function backgroundStart(bg) {
 
 function backgroundEnd(bg) {
   bg.current.particles.array.map((p) => {
-    var speed_target = 0.4;
+    var speed_target = 0.8;
     var speed_incra = 1;
     var setMoveSpeed = () => {
       p.moveSpeed = p.moveSpeed - speed_incra;

@@ -1,15 +1,8 @@
+import PlayerInput from "./Input";
 var keys = [],
   floor_height = 646,
   friction = 0.8,
   gravity = 0.012;
-
-document.body.addEventListener("keydown", function (e) {
-  keys[e.keyCode] = true;
-});
-
-document.body.addEventListener("keyup", function (e) {
-  keys[e.keyCode] = false;
-});
 
 class Player {
   constructor(canvas, ctx, gameState, time) {
@@ -25,6 +18,9 @@ class Player {
     this.color = "#fdb215";
     this.jump_height = 0.37;
 
+    this.playerInput = PlayerInput;
+    this.playerInput.init(canvas);
+
     this.canvas = canvas; //ref
     this.ctx = ctx; //ref
     this.gameState = gameState; //ref
@@ -36,7 +32,7 @@ class Player {
 
   update() {
     // Check Input for movment
-    if (keys[38] || keys[32] || keys[87]) {
+    if (this.playerInput.events.jump) {
       // up arrow or space
       if (!this.jumping && this.grounded) {
         this.jumping = true;
@@ -44,10 +40,10 @@ class Player {
         this.velY = -this.jump_height; //how high to jump
       }
     }
-    if (keys[39] || keys[68]) {
+    if (this.playerInput.events.moveRight) {
       this.velX += this.speed;
     }
-    if (keys[37] || keys[65]) {
+    if (this.playerInput.events.moveLeft) {
       this.velX -= this.speed;
     }
     //apply player movement
@@ -78,74 +74,9 @@ class Player {
     this.ctx.fillStyle = this.color;
     this.ctx.fillRect(this.x, this.y, this.width, this.height);
   }
-  end() {}
+  end() {
+    this.playerInput.end();
+  }
 }
-
-// var Player = {
-//   x: 0,
-//   y: 640,
-//   width: 25,
-//   height: 25,
-//   speed: 0.05,
-//   velX: 0,
-//   velY: 0,
-//   jumping: false,
-//   grounded: false,
-//   color: "#fdb215",
-//   jump_height: 0.37,
-//   init: (canvas, ctx, gameState, time) => {
-//     Player.canvas = canvas; //ref
-//     Player.ctx = ctx; //ref
-//     Player.gameState = gameState; //ref
-//     Player.time = time; //ref
-//     Player.x = Player.canvas.width / 2;
-//     Player.y = 600;
-//   },
-//   update: () => {
-//     // Check Input for movment
-//     if (keys[38] || keys[32] || keys[87]) {
-//       // up arrow or space
-//       if (!Player.jumping && Player.grounded) {
-//         Player.jumping = true;
-//         Player.grounded = false;
-//         Player.velY = -Player.jump_height; //how high to jump
-//       }
-//     }
-//     if (keys[39] || keys[68]) {
-//       Player.velX += Player.speed;
-//     }
-//     if (keys[37] || keys[65]) {
-//       Player.velX -= Player.speed;
-//     }
-//     //apply player movement
-//     Player.velX *= friction;
-//     Player.x += Player.velX * Player.time.delta;
-//     Player.y += Player.velY * Player.time.delta;
-
-//     //Floor check
-//     if (Player.y > floor_height) {
-//       Player.y = floor_height;
-//       Player.grounded = true;
-//     } else {
-//       Player.velY += gravity;
-//       Player.grounded = false;
-//       Player.jumping = false;
-//     }
-
-//     //Bounds Check
-//     var maxWidth = Player.canvas.width - Player.width;
-//     if (Player.x >= maxWidth) {
-//       Player.x = maxWidth;
-//     } else if (Player.x <= 0) {
-//       Player.x = 0;
-//     }
-//   },
-//   draw: () => {
-//     Player.ctx.fill();
-//     Player.ctx.fillStyle = Player.color;
-//     Player.ctx.fillRect(Player.x, Player.y, Player.width, Player.height);
-//   },
-//   end: () => {},
-// };
 
 export default Player;

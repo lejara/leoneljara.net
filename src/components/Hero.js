@@ -8,7 +8,7 @@ const Hero = ({ bg }) => {
     <div className="block-component hero mb-2">
       <div
         className={`hero__content mx-auto ${
-          playing ? "opacity-0" : "opacity-100"
+          playing ? "opacity-0 invisible" : "opacity-100 visible"
         }`}
       >
         <div className="hero__title">

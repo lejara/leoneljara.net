@@ -21,8 +21,9 @@ const Game = ({ bg }) => {
   var requestAnimationFrame;
 
   const { playing, setPlaying, setWon } = React.useContext(gameContext);
-
+  const [started, setStarted] = React.useState(false);
   function awake() {
+    setStarted(true);
     //Starting animations
     play_icon();
     backgroundStart(bg);
@@ -143,6 +144,7 @@ const Game = ({ bg }) => {
     objects = null;
     time = null;
     setPlaying(false);
+    setStarted(false);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.beginPath();
   }
@@ -160,7 +162,7 @@ const Game = ({ bg }) => {
         <GameIcon className="game__btn--icon" />
 
         <button
-          disabled={playing}
+          disabled={started}
           onClick={(x) => {
             x.target.blur();
             awake();
