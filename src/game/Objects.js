@@ -56,7 +56,7 @@ class Objects {
             y: direction.y,
           },
           speed: getRandomInt(this.min_speed, this.max_speed) / 100,
-          color: "#655643",
+          color: "#ffffff",
           die: false,
         });
         this.spawned++;

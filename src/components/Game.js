@@ -7,7 +7,7 @@ import Objects from "../game/Objects";
 import play_icon from "../game/StartIcon";
 import GameIcon from "../images/svg/game_icon.svg";
 
-//TODO: input fix
+//TODO: input fix, maybe soundeffects
 const Game = ({ bg }) => {
   var canvas,
     ctx,
@@ -61,16 +61,19 @@ const Game = ({ bg }) => {
     diffculties = {
       levels: [
         {
-          spawnChance: 60,
+          spawnChance: 58,
         },
         {
           spawnChance: 30,
         },
         {
-          spawnChance: 20,
+          spawnChance: 15,
+        },
+        {
+          spawnChance: 5,
         },
       ],
-      breakpoints: [0, 20, 60],
+      breakpoints: [0, 20, 60, 120],
     };
     player = new Player(canvas, ctx, gameState, time);
     objects = new Objects(canvas, ctx, player, gameState, time, diffculties);
@@ -100,6 +103,8 @@ const Game = ({ bg }) => {
         gameState.diffculty = 1;
       } else if (time.timePassed == diffculties.breakpoints[2]) {
         gameState.diffculty = 2;
+      } else if (time.timePassed == diffculties.breakpoints[3]) {
+        gameState.diffculty = 3;
       }
       if (time.timePassed == win_time) {
         setWon(true);

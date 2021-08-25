@@ -49,7 +49,7 @@ export default function play_icon() {
       "#bottom_right",
       {
         duration: 0.4,
-        startAt: { x: 10, y: 10 },
+        startAt: { x: 5, y: 0 },
         x: -25,
         y: -25,
         ease: "power4",
