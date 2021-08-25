@@ -9,6 +9,8 @@ class Input {
     };
     this.middlePoint = canvas.width / 2;
     this.latestTap = 0;
+    this.doubleTouchRegion = { x: 50, y: 50 };
+    this.lastTouchPoint;
 
     document.body.addEventListener("keydown", keyDown, false);
     document.body.addEventListener("keyup", keyUp, false);
@@ -41,7 +43,7 @@ function keyUp(e) {
 
 function touchStart(e) {
   // e.preventDefault();
-  doubleTapCheck();
+  doubleTapCheck(e);
   touchCheck(e);
 }
 function touchMove(e) {
@@ -65,17 +67,29 @@ function touchCheck(e) {
   }
 }
 
-function doubleTapCheck() {
-  var now = new Date().getTime();
-  var timesince = now - PlayerInput.latestTap;
-  if (timesince < 600 && timesince > 0) {
-    // double tap
-    PlayerInput.events.jump = true;
-    setTimeout(() => {
-      PlayerInput.events.jump = false;
-    }, 100);
+function doubleTapCheck(e) {
+  var touchPoint = e.changedTouches[0];
+
+  if (PlayerInput.lastTouchPoint !== undefined) {
+    var x_range = Math.abs(touchPoint.pageX - PlayerInput.lastTouchPoint.pageX);
+    var y_range = Math.abs(touchPoint.pageY - PlayerInput.lastTouchPoint.pageY);
+    if (
+      x_range <= PlayerInput.doubleTouchRegion.x &&
+      y_range <= PlayerInput.doubleTouchRegion.y
+    ) {
+      var now = new Date().getTime();
+      var timesince = now - PlayerInput.latestTap;
+      if (timesince < 600 && timesince > 0) {
+        // double tap
+        PlayerInput.events.jump = true;
+        setTimeout(() => {
+          PlayerInput.events.jump = false;
+        }, 100);
+      }
+    }
   }
 
+  PlayerInput.lastTouchPoint = touchPoint;
   PlayerInput.latestTap = new Date().getTime();
 }
 

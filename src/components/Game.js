@@ -32,7 +32,7 @@ const Game = ({ bg }) => {
     //start game
     setTimeout(() => {
       start();
-    }, 440);
+    }, 400);
   }
 
   function init() {
@@ -152,10 +152,10 @@ const Game = ({ bg }) => {
   return (
     <div>
       <canvas
-        style={{ height: 800 + "px" }}
+        style={{ height: 591 + "px" }}
         className="block -z-10 absolute  top-0 left-0 w-full"
         id="min-game"
-        height="800"
+        height="591"
       ></canvas>
 
       <div className={`${playing ? "invisible" : "visible"}`}>

@@ -2,8 +2,8 @@
   background-color: $contactBg-color;
 }
 .contact__wrapper {
-  margin-left: 0.7rem;
-  margin-right: 0.7rem;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
 }
 
 .contact__form {
@@ -21,6 +21,10 @@
   border-radius: 2px;
 }
 
+.contact__form textarea {
+  padding-top: 3px;
+}
+
 .contact__message {
   height: 200px;
   min-height: 200px;
@@ -28,7 +32,7 @@
 }
 .contact__button {
   margin: 0 auto;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   text-align: center;
   background-color: $primary-color;
   padding-top: 6px;

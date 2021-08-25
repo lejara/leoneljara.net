@@ -47,12 +47,12 @@ function backgroundStart(bg) {
 function backgroundEnd(bg) {
   bg.current.particles.array.map((p) => {
     var speed_target = 0.8;
-    var speed_incra = 1;
+    var speed_incra = 0.5;
     var setMoveSpeed = () => {
       p.moveSpeed = p.moveSpeed - speed_incra;
 
       if (p.moveSpeed > speed_target) {
-        setTimeout(setMoveSpeed, 100);
+        setTimeout(setMoveSpeed, 50);
       } else {
         p.moveSpeed = speed_target;
       }

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const Background = ({ bg_containerRef }) => {
   return (
-    <div>
+    <>
       {/* <button
         onClick={() => {
           console.log(bg_containerRef);
@@ -54,7 +54,7 @@ const Background = ({ bg_containerRef }) => {
           },
           detectRetina: true,
           duration: 0,
-          fpsLimit: 60,
+          fpsLimit: 30,
           manualParticles: [],
           motion: {
             disable: false,
@@ -185,7 +185,7 @@ const Background = ({ bg_containerRef }) => {
               frequency: 1,
               opacity: 1,
               shadow: {
-                blur: false,
+                blur: true,
                 color: {
                   value: "#021bc8",
                 },
@@ -282,8 +282,8 @@ const Background = ({ bg_containerRef }) => {
               },
               enable: true,
               offset: {
-                x: 0,
-                y: 0,
+                x: 1,
+                y: 1,
               },
             },
             shape: {
@@ -293,11 +293,11 @@ const Background = ({ bg_containerRef }) => {
             size: {
               random: {
                 enable: true,
-                minimumValue: 2,
+                minimumValue: 1,
               },
               value: {
-                min: 2,
-                max: 2,
+                min: 1.7,
+                max: 2.2,
               },
               animation: {
                 count: 0,
@@ -320,13 +320,13 @@ const Background = ({ bg_containerRef }) => {
               velocityRate: 1,
             },
           },
-          pauseOnBlur: true,
-          pauseOnOutsideViewport: true,
+          pauseOnBlur: false,
+          pauseOnOutsideViewport: false,
           responsive: [],
           themes: [],
         }}
       />
-    </div>
+    </>
   );
 };
 
