@@ -24,11 +24,11 @@ const Game = ({ bg }) => {
 
   const { playing, setPlaying, setWon } = React.useContext(gameContext);
   const [started, setStarted] = React.useState(false);
+  const [playerMoved, setPlayerMoved] = React.useState(false);
   function awake() {
     setStarted(true);
     //Starting animations
     // play_icon();
-    backgroundStart(bg);
 
     init();
     //start game
@@ -59,6 +59,8 @@ const Game = ({ bg }) => {
     gameState = {
       dead: false,
       diffculty: 2,
+      playerMoved: false,
+      gameStarted: false,
     };
 
     diffculties = {
@@ -96,7 +98,13 @@ const Game = ({ bg }) => {
       //scale canvas if window changes, sideeffect: of clearing of the canvas
       canvas.width = window.innerWidth;
       time.then = now - (time.delta % time.interval);
-
+      //Check If player moved
+      if (gameState.playerMoved && !gameState.gameStarted) {
+        setPlayerMoved(true);
+        backgroundStart(bg);
+        gameState.gameStarted = true;
+        console.log("player moved");
+      }
       //timer
       time.timePassed = Math.round((now - time.start_time) / 1000);
       //diffculty scale
@@ -114,11 +122,12 @@ const Game = ({ bg }) => {
         console.log("WON!");
         backgroundWon(bg);
       }
-      // console.log(gameState.diffculty);
 
       //updates
       player.update();
-      // objects.update();
+      if (gameState.playerMoved === true) {
+        objects.update();
+      }
 
       //Draw all objects
       draw();
@@ -145,6 +154,7 @@ const Game = ({ bg }) => {
     player = null;
     objects = null;
     time = null;
+    setPlayerMoved(false);
     setPlaying(false);
     setStarted(false);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -162,7 +172,9 @@ const Game = ({ bg }) => {
 
       <div
         className={`game__instructions ${
-          playing ? "opacity-100 visible" : "opacity-0 invisible"
+          playing && !playerMoved
+            ? "opacity-100 visible"
+            : "opacity-0 invisible"
         }`}
       >
         <StaticImage

@@ -3,7 +3,7 @@
   position: absolute;
   width: 100%;
   transform: translate(0, -400px);
-  transition: visibility 1.5s, opacity 1.5s ease;
+  transition: visibility 0.8s, opacity 0.8s ease;
   transition-delay: 0.8s;
 }
 .game__arrows {

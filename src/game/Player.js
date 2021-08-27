@@ -32,6 +32,7 @@ class Player {
   update() {
     // Check Input for movment
     if (this.playerInput.events.jump) {
+      this.gameState.playerMoved = true;
       // up arrow or space
       if (!this.jumping && this.grounded) {
         this.jumping = true;
@@ -40,10 +41,15 @@ class Player {
       }
     }
     if (this.playerInput.events.moveRight) {
+      this.gameState.playerMoved = true;
       this.velX += this.speed;
     }
     if (this.playerInput.events.moveLeft) {
+      this.gameState.playerMoved = true;
       this.velX -= this.speed;
+    }
+    if (this.playerInput.events.exit) {
+      this.gameState.dead = true;
     }
     //apply player movement
     this.velX *= friction;

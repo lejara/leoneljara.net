@@ -6,6 +6,7 @@ class Input {
       jump: false,
       moveLeft: false,
       moveRight: false,
+      exit: false,
     };
     this.middlePoint = canvas.width / 2;
     this.latestTap = 0;
@@ -103,21 +104,24 @@ function keyCheck(e, value) {
     case "w":
     case " ":
       PlayerInput.events.jump = value;
+      e.preventDefault();
       break;
     case "Left":
     case "ArrowLeft":
     case "a":
       PlayerInput.events.moveLeft = value;
+      e.preventDefault();
       break;
     case "Right":
     case "ArrowRight":
     case "d":
       PlayerInput.events.moveRight = value;
+      e.preventDefault();
+      break;
+    case "Escape":
+      PlayerInput.events.exit = true;
       break;
   }
-
-  // Cancel the default action to avoid it being handled twice
-  e.preventDefault();
 }
 
 export default PlayerInput;
