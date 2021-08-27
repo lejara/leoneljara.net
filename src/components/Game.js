@@ -1,15 +1,13 @@
 import * as React from "react";
 import gameContext from "../context/gameContext";
 import { backgroundStart, backgroundEnd, backgroundWon } from "../game/Utils";
+import btnPlayAnimation from "../game/StartBtn";
 import Player from "../game/Player";
 import Objects from "../game/Objects";
-
-import play_icon from "../game/StartIcon";
+import { StaticImage } from "gatsby-plugin-image";
 import GameIcon from "../images/svg/btn_sprite.svg";
 import SpriteArrows from "../images/svg/sprite_arrows.svg";
-import { StaticImage } from "gatsby-plugin-image";
 
-//TODO: input fix, maybe soundeffects
 const Game = ({ bg }) => {
   var canvas,
     ctx,
@@ -25,16 +23,17 @@ const Game = ({ bg }) => {
   const { playing, setPlaying, setWon } = React.useContext(gameContext);
   const [started, setStarted] = React.useState(false);
   const [playerMoved, setPlayerMoved] = React.useState(false);
+
   function awake() {
     setStarted(true);
     //Starting animations
-    // play_icon();
+    btnPlayAnimation();
 
     init();
     //start game
     setTimeout(() => {
       start();
-    }, 400);
+    }, 790);
   }
 
   function init() {
@@ -44,7 +43,7 @@ const Game = ({ bg }) => {
       window.webkitRequestAnimationFrame ||
       window.msRequestAnimationFrame;
     window.requestAnimationFrame = requestAnimationFrame;
-    canvas = document.getElementById("min-game");
+    canvas = document.getElementById("mini-game");
     canvas.focus();
     ctx = canvas.getContext("2d");
     canvas.width = window.innerWidth;
@@ -164,10 +163,10 @@ const Game = ({ bg }) => {
   return (
     <div>
       <canvas
-        style={{ height: 591 + "px" }}
+        style={{ height: 592 + "px" }}
         className="block -z-10 absolute  top-0 left-0 w-full"
-        id="min-game"
-        height="591"
+        id="mini-game"
+        height="592"
       ></canvas>
 
       <div

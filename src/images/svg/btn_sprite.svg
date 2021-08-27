@@ -1,12 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="25" height="25" viewBox="0 0 25 25">
-  <defs>
-    <style>
-      .btn_style {
-        fill: #fead05;
-        fill-rule: evenodd;
-      }
-    </style>
-  </defs>
-  <path id="btn_play" class="btn_style" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"/>
-  <path id="btn_box" class="btn_style" d="M-0.000,-0.000 C-0.000,-0.000 1.638,-0.000 4.076,-0.000 C11.161,-0.000 25.000,-0.000 25.000,-0.000 L25.000,25.000 C25.000,25.000 11.161,25.000 4.076,25.000 C1.638,25.000 -0.000,25.000 -0.000,25.000 L-0.000,-0.000 Z" />
-</svg>
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid"
+    width="25" height="25" viewBox="0 0 25 25" id="btn_play_svg">
+    <defs>
+      <style>
+        .btn_style {
+          fill: #fead05;
+          fill-rule: evenodd;
+        }
+      </style>
+    </defs>
+    <path class="btn_style"
+      d="M 0 2.337 C 0 0.296 2.444 -0.504 4.04 0.321 C 10.588 3.708 17.136 7.094 23.684 10.481 C 23.684 10.481 23.684 10.481 23.684 10.481 C 25.442 11.385 25.436 13.611 23.684 14.514 C 17.136 17.899 10.588 21.285 4.04 24.67 C 2.271 25.588 0 24.485 0 22.654 L 0 12.495 L 0 2.337"
+      id="btn_play_backup" />
+    <path class="btn_style">
+      <animate id="btn_play_animate" begin="undefined" attributeName="d" dur="0.8s" calcMode="spline"
+        keySplines="0.4 0 0.2 1; 0.4 0 0.2 1" values="
+          M 0 2.337 C 0 0.296 2.444 -0.504 4.04 0.321 C 10.588 3.708 17.136 7.094 23.684 10.481 C 23.684 10.481 23.684 10.481 23.684 10.481 C 25.442 11.385 25.436 13.611 23.684 14.514 C 17.136 17.899 10.588 21.285 4.04 24.67 C 2.271 25.588 0 24.485 0 22.654 L 0 12.495 L 0 2.337;
+					
+          M 0 0 C 0 0 1.638 0 4.076 0 C 7.619 0 12.85 0 17.195 0 C 21.54 0 25 0 25 0 C 25 8.333 25 16.667 25 25 C 25 25 11.161 25 4.076 25 C 1.638 25 0 25 0 25 L 0 0 L 0 0;
+          
+          M 0 0 C 0 0 1.638 0 4.076 0 C 7.619 0 12.85 0 17.195 0 C 21.54 0 25 0 25 0 C 25 8.333 25 16.667 25 25 C 25 25 11.161 25 4.076 25 C 1.638 25 0 25 0 25 L 0 0 L 0 0;
+          " />
+    </path>
+  </svg>
