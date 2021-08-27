@@ -26,7 +26,7 @@ class Player {
     this.gameState = gameState; //ref
     this.time = time; //ref
 
-    this.x = this.canvas.width / 2;
+    this.x = this.canvas.width / 2 - this.width / 2;
   }
 
   update() {

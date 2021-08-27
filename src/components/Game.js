@@ -5,7 +5,9 @@ import Player from "../game/Player";
 import Objects from "../game/Objects";
 
 import play_icon from "../game/StartIcon";
-import GameIcon from "../images/svg/game_icon.svg";
+import GameIcon from "../images/svg/btn_sprite.svg";
+import SpriteArrows from "../images/svg/sprite_arrows.svg";
+import { StaticImage } from "gatsby-plugin-image";
 
 //TODO: input fix, maybe soundeffects
 const Game = ({ bg }) => {
@@ -25,7 +27,7 @@ const Game = ({ bg }) => {
   function awake() {
     setStarted(true);
     //Starting animations
-    play_icon();
+    // play_icon();
     backgroundStart(bg);
 
     init();
@@ -116,7 +118,7 @@ const Game = ({ bg }) => {
 
       //updates
       player.update();
-      objects.update();
+      // objects.update();
 
       //Draw all objects
       draw();
@@ -158,9 +160,26 @@ const Game = ({ bg }) => {
         height="591"
       ></canvas>
 
-      <div className={`${playing ? "invisible" : "visible"}`}>
-        <GameIcon className="game__btn--icon" />
+      <div
+        className={`game__instructions ${
+          playing ? "opacity-100 visible" : "opacity-0 invisible"
+        }`}
+      >
+        <StaticImage
+          className="game__inputs"
+          src="../images/instructions.png"
+          alt="Game Instructions"
+          height="330"
+          width="330"
+        />
 
+        <SpriteArrows height="100" width="100" className="game__arrows" />
+      </div>
+
+      <div
+        className={`game__btnContainer ${playing ? "invisible" : "visible"}`}
+      >
+        <GameIcon className="game__icon" />
         <button
           disabled={started}
           onClick={(x) => {
