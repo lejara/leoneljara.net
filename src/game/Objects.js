@@ -5,8 +5,8 @@ class Objects {
     this.projectiles = [];
     this.maxSpawn = 50;
     this.spawned = 0;
-    this.min_speed = 35;
-    this.max_speed = 50;
+    this.min_speed = 4;
+    this.max_speed = 15;
     this.spawn_height = -2;
 
     this.canvas = canvas; //ref
@@ -55,7 +55,7 @@ class Objects {
             x: direction.x,
             y: direction.y,
           },
-          speed: getRandomInt(this.min_speed, this.max_speed) / 100,
+          speed: getRandomInt(this.min_speed, this.max_speed),
           color: "#ffffff",
           die: false,
         });
@@ -66,8 +66,8 @@ class Objects {
 
   UpdateProjectiles() {
     this.projectiles.map((o) => {
-      o.x += o.direction.x * o.speed * this.time.delta;
-      o.y += o.direction.y * o.speed * this.time.delta;
+      o.x += o.direction.x * o.speed;
+      o.y += o.direction.y * o.speed;
       o.die = o.y > this.canvas.height + 20 ? true : false;
       //update spawn counter if die is true
       this.spawned = o.die ? --this.spawned : this.spawned;

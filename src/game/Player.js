@@ -2,7 +2,7 @@ import PlayerInput from "./Input";
 var keys = [],
   floor_height = 566,
   friction = 0.8,
-  gravity = 0.012;
+  gravity = 0.2;
 
 class Player {
   constructor(canvas, ctx, gameState, time) {
@@ -10,13 +10,13 @@ class Player {
     this.y = 520;
     this.width = 25;
     this.height = 25;
-    this.speed = 0.05;
+    this.speed = 1.5;
     this.velX = 0;
     this.velY = 0;
     this.jumping = false;
     this.grounded = false;
     this.color = "#fdb215";
-    this.jump_height = 0.37;
+    this.jump_height = 6;
 
     this.playerInput = PlayerInput;
     this.playerInput.init(canvas);
@@ -53,8 +53,8 @@ class Player {
     }
     //apply player movement
     this.velX *= friction;
-    this.x += this.velX * this.time.delta;
-    this.y += this.velY * this.time.delta;
+    this.x += this.velX;
+    this.y += this.velY;
 
     //Floor check
     if (this.y > floor_height) {

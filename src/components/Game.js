@@ -1,6 +1,11 @@
 import * as React from "react";
 import gameContext from "../context/gameContext";
-import { backgroundStart, backgroundEnd, backgroundWon } from "../game/Utils";
+import {
+  backgroundStart,
+  backgroundEnd,
+  backgroundWon,
+  backgroundTrueWin,
+} from "../game/Utils";
 import btnPlayAnimation from "../game/StartBtn";
 import Player from "../game/Player";
 import Objects from "../game/Objects";
@@ -16,8 +21,7 @@ const Game = ({ bg }) => {
     fps = 60,
     player,
     objects,
-    diffculties,
-    win_time = 75;
+    diffculties;
   var requestAnimationFrame;
 
   const { playing, setPlaying, setWon } = React.useContext(gameContext);
@@ -25,15 +29,14 @@ const Game = ({ bg }) => {
   const [playerMoved, setPlayerMoved] = React.useState(false);
 
   function awake() {
-    setStarted(true);
-    //Starting animations
-    btnPlayAnimation();
-
-    init();
     //start game
     setTimeout(() => {
       start();
     }, 790);
+    init();
+    setStarted(true);
+    //Starting animations
+    btnPlayAnimation();
   }
 
   function init() {
@@ -49,7 +52,8 @@ const Game = ({ bg }) => {
     canvas.width = window.innerWidth;
     time = {
       start_time: Date.now(),
-      time_to_win: 100,
+      time_to_win: 90,
+      time_to_actually_win: 150,
       timePassed: 0,
       delta: 0,
       interval: 1000 / fps,
@@ -60,24 +64,26 @@ const Game = ({ bg }) => {
       diffculty: 2,
       playerMoved: false,
       gameStarted: false,
+      win: false,
     };
 
     diffculties = {
       levels: [
+        // lower = more. hehe
         {
-          spawnChance: 58,
+          spawnChance: 50,
         },
         {
-          spawnChance: 30,
+          spawnChance: 28,
         },
         {
-          spawnChance: 15,
+          spawnChance: 12,
         },
         {
-          spawnChance: 5,
+          spawnChance: 7,
         },
       ],
-      breakpoints: [0, 20, 60, 120],
+      breakpoints: [0, 20, 65, 120],
     };
     player = new Player(canvas, ctx, gameState, time);
     objects = new Objects(canvas, ctx, player, gameState, time, diffculties);
@@ -104,8 +110,7 @@ const Game = ({ bg }) => {
         gameState.gameStarted = true;
         console.log("player moved");
       }
-      //timer
-      time.timePassed = Math.round((now - time.start_time) / 1000);
+
       //diffculty scale
       if (time.timePassed == diffculties.breakpoints[0]) {
         gameState.diffculty = 0;
@@ -116,15 +121,20 @@ const Game = ({ bg }) => {
       } else if (time.timePassed == diffculties.breakpoints[3]) {
         gameState.diffculty = 3;
       }
-      if (time.timePassed == win_time) {
+      //Win check
+      if (time.timePassed == time.time_to_win && !gameState.win) {
         setWon(true);
-        console.log("WON!");
         backgroundWon(bg);
+        gameState.win = true;
+      } else if (time.timePassed == time.time_to_actually_win) {
+        backgroundTrueWin(bg);
+        console.log("true winner");
       }
-
       //updates
       player.update();
       if (gameState.playerMoved === true) {
+        //timer
+        time.timePassed = Math.round((now - time.start_time) / 1000);
         objects.update();
       }
 

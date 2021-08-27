@@ -65,8 +65,16 @@ function backgroundWon(bg) {
   bg.current.particles.array.map((x) => {
     x.direction = -0.5;
     x.color.h.value = 65;
-    x.color.l.value = 64;
     x.color.s.value = 96;
+    x.color.l.value = 64;
+  });
+}
+
+function backgroundTrueWin(bg) {
+  bg.current.particles.array.map((x) => {
+    x.color.h.value = 126;
+    x.color.s.value = 100;
+    x.color.l.value = 50;
   });
 }
 
@@ -77,4 +85,5 @@ export {
   backgroundStart,
   backgroundEnd,
   backgroundWon,
+  backgroundTrueWin,
 };
