@@ -5,7 +5,7 @@ var keys = [],
   gravity = 0.2;
 
 class Player {
-  constructor(canvas, ctx, gameState, time) {
+  constructor(canvas, ctx, gameState) {
     this.x = 0;
     this.y = 520;
     this.width = 25;
@@ -24,7 +24,6 @@ class Player {
     this.canvas = canvas; //ref
     this.ctx = ctx; //ref
     this.gameState = gameState; //ref
-    this.time = time; //ref
 
     this.x = this.canvas.width / 2 - this.width / 2;
   }

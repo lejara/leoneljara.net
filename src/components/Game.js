@@ -85,8 +85,8 @@ const Game = ({ bg }) => {
       ],
       breakpoints: [0, 20, 65, 120],
     };
-    player = new Player(canvas, ctx, gameState, time);
-    objects = new Objects(canvas, ctx, player, gameState, time, diffculties);
+    player = new Player(canvas, ctx, gameState);
+    objects = new Objects(canvas, ctx, player, gameState, diffculties);
   }
 
   function start() {
@@ -108,7 +108,7 @@ const Game = ({ bg }) => {
         setPlayerMoved(true);
         backgroundStart(bg);
         gameState.gameStarted = true;
-        console.log("player moved");
+        // console.log("player moved");
       }
 
       //diffculty scale
