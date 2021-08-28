@@ -1,38 +1,9 @@
 import * as React from "react";
 import Particles from "react-tsparticles";
-import { useEffect, useState } from "react";
 
 const Background = ({ bg_containerRef }) => {
   return (
     <>
-      {/* <button
-        onClick={() => {
-          console.log(bg_containerRef);
-          bg_containerRef.current.particles.array.map((x) => {
-            // x.maxSpeed = 100;
-            x.moveSpeed = 0.2;
-            x.direction = -0.5;
-            x.color.h.value = 0;
-            x.color.l.value = 81;
-            x.color.s.value = 50;
-          });
-        }}
-      >
-        The Button2
-      </button>
-      <button
-        onClick={() => {
-          console.log(bg_containerRef);
-          // containerRef.current.pause();
-          bg_containerRef.current.particles.array.map((x) => {
-            x.moveSpeed = 0;
-          });
-
-          // containerRef.current.refresh();
-        }}
-      >
-        Bg MoveSpeed
-      </button> */}
       <Particles
         container={bg_containerRef}
         id="tsparticles"

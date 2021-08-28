@@ -20,13 +20,15 @@ const Projects = () => {
             image_alt="Logo of Twitch Charades"
             link="https://datwitchcharades.page/"
           >
-            Web App that allowed influencers on the platform Twtich.tv to play
-            charades with viewers in the chat. Was recived with great sucess by
-            thousands of visiters and spectators.
-            <div className="mt-4">
+            <p>
+              Web App that allowed influencers on the platform Twtich.tv to play
+              charades with viewers in the chat. Was recived with great sucess
+              by thousands of visiters and spectators.
+            </p>
+            <p className="mt-4">
               Open-source project; developed as mobile first mind-set. Made
               using JS, SASS, HTML, and Bootstrap Overrides
-            </div>
+            </p>
           </Card>
         </div>
         <div className="works__item--2">
@@ -36,18 +38,19 @@ const Projects = () => {
             image_alt="Logo of Solitary"
             link="https://github.com/PopeSpaceous/Solitary"
           >
-            Devloped and designed the backend of the 2D Puzzle Platformer
-            Solitary. Players must slove a series of puzzles through out a level
-            in order to escape the decaying ship.
-            <div className="mt-4">
+            <p>
+              Devloped and designed the backend of the 2D Puzzle Platformer
+              Solitary. Players must slove a series of puzzles through out a
+              level in order to escape the decaying ship.
+            </p>
+            <p className="mt-4">
               Part of the orignal 4 person team; Now an Open-source project!
               Made using Unity with C#
-            </div>
+            </p>
           </Card>
         </div>
       </div>
       {/* TODO: add more projects link*/}
-      <div className="h-20"></div>
     </div>
   );
 };

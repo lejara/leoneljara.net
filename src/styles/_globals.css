@@ -7,13 +7,13 @@
 $primary-color: #01ad76;
 $secondary-color: #50c8e8;
 $error-color: #e1341e;
-$linebreak-color: #710ac2;
+$linebreak-color: #6b6a6a;
 $title-color: #fdb215;
 $text-color: white;
 
 /* Background colors */
 $bg-color: #07091a;
-$about-color: #473705;
+/* $about-color: #473705; */
 $projectsBg-color: #061c47;
 $contactBg-color: #063f47;
 $footerBg-color: #0f0f0f;

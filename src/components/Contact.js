@@ -34,7 +34,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="block-component contact">
+    <div className="block-component mb-8">
       <h2 className="text-title">Contact Me</h2>
       <h2 className="text-subtitle">
         Want to have a chat? Tell me, hows your day or what you ate last night!

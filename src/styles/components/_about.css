@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 5px;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   grid-auto-rows: minmax(100px, auto);
   justify-items: center;
@@ -18,7 +18,7 @@
 .about__text {
   grid-column: 1 / span 2;
   grid-row: 1;
-  font-size: 1.1rem;
+  font-size: 1.18rem;
   text-align: center;
   font-family: Yantramanav-Regular;
   /* background-color: grey; */

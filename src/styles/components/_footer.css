@@ -6,5 +6,5 @@ footer {
   display: flex;
   justify-content: space-between;
   background-color: $footerBg-color;
-  border-top: 1px solid $linebreak-color;
+  border-top: 1px solid #bd00ff;
 }

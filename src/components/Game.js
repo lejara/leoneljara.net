@@ -190,8 +190,8 @@ const Game = ({ bg }) => {
           className="game__inputs"
           src="../images/instructions.png"
           alt="Game Instructions"
-          height="330"
-          width="330"
+          height={330}
+          width={330}
         />
 
         <SpriteArrows height="100" width="100" className="game__arrows" />
