@@ -4,6 +4,9 @@
 /* Text */
 @import "./globals/_text.css";
 
+/* Animations */
+@import "./globals/_animations.css";
+
 /* --Components-- */
 @import "./components/_header.css";
 @import "./components/_hero.css";

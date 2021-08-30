@@ -58,11 +58,11 @@ body {
   font-family: Yantramanav-Black;
 }
 
-*:focus {
+/* *:focus {
   outline: none;
   border-radius: 2px;
   box-shadow: 0 0 0 0.07rem #fff, 0 0 0 0.2rem white;
-}
+} */
 
 .page-container {
   position: relative;

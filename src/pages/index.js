@@ -9,6 +9,7 @@ import About from "../components/About";
 import Projects from "../components/Projects";
 import Contact from "../components/Contact";
 import Background from "../components/Background";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const IndexPage = () => {
   const bg = React.useRef();
@@ -17,13 +18,26 @@ const IndexPage = () => {
     <Layout>
       <GameContextProvider>
         <Background bg_containerRef={bg} />
-        <Hero bg={bg} />
+
+        <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
+          <Hero bg={bg} />
+        </ScrollAnimation>
+
         <hr className="block-break" />
-        <About />
+
+        <ScrollAnimation animateIn="slideInLeft" animateOnce={true}>
+          <About />
+        </ScrollAnimation>
+
         <hr className="block-break" />
+
         <Projects />
+
         <hr className="block-break" />
-        <Contact />
+
+        <ScrollAnimation animateIn="slideInLeft" animateOnce={true}>
+          <Contact />
+        </ScrollAnimation>
       </GameContextProvider>
     </Layout>
   );
