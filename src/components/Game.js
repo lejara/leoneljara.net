@@ -200,15 +200,17 @@ const Game = ({ bg }) => {
       <div
         className={`game__btnContainer ${playing ? "invisible" : "visible"}`}
       >
-        <GameIcon className="game__icon" />
         <button
           disabled={started}
           onClick={(x) => {
             x.target.blur();
             awake();
           }}
+          aria-label="play mini game"
           className="game__btn"
-        />
+        >
+          <GameIcon />
+        </button>
       </div>
     </div>
   );

@@ -14,9 +14,9 @@ const Hero = ({ bg }) => {
         <div className="hero__title">
           <h1>Leonel</h1>
           <h1 className="hero__second">Jara</h1>
-          <h4 className="hero__adword text-left">
+          <h2 className="hero__adword text-left">
             {won ? "Knows Your The Best" : "The One That Types"}
-          </h4>
+          </h2>
         </div>
       </div>
 

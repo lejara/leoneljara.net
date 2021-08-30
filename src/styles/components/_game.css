@@ -18,16 +18,8 @@
 }
 
 .game__btn {
-  background: blue;
   margin: 0 auto;
   height: 25px;
   width: 25px;
-  opacity: 0;
-  z-index: 100;
   transform: translate(0, -25px);
-}
-
-.game__icon {
-  margin: 0 auto;
-  /* opacity: 0.5; */
 }

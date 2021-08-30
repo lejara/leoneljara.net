@@ -6,7 +6,7 @@ const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [submitBtn, setSubmitBtn] = useState("Send Message!");
+  const [submitBtn, setSubmitBtn] = useState("Send Message");
   const [hasError, setHasError] = useState(false);
 
   const Submit = (e) => {
@@ -54,7 +54,7 @@ const Contact = () => {
             className="mb-2"
             required
           />
-          <label htmlFor="user_email ">Email</label>
+          <label htmlFor="user_email">Email</label>
           <input
             type="email"
             id="user_email"

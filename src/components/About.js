@@ -24,10 +24,16 @@ const About = () => {
         <div className="about__socials p-2">
           <p className="about__socials--title">Socials!~</p>
           <div className="about__socials--flex mt-1">
-            <a href="https://twitter.com/Leption_LJ">
+            <a
+              aria-label="Follow me on twitter (goes to the twitter website)"
+              href="https://twitter.com/Leption_LJ"
+            >
               <TwitterIcon />
             </a>
-            <a href="https://github.com/lejara">
+            <a
+              aria-label="Follow me on github (goes to the github website)"
+              href="https://github.com/lejara"
+            >
               <GitHubIcon />
             </a>
           </div>

@@ -29,12 +29,13 @@
 }
 .contact__button {
   margin: 0 auto;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   text-align: center;
   background-color: $primary-color;
   padding-top: 6px;
   padding-bottom: 6px;
   line-height: normal;
+  color: #150012;
 }
 
 .connect__button--error {

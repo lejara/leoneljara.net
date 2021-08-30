@@ -5,7 +5,7 @@ import Footer from "./Footer";
 const Layout = ({ children }) => {
   return (
     <div>
-      <Helmet>
+      <Helmet htmlAttributes={{ lang: "en" }}>
         <title>Leonel Jara</title>
       </Helmet>
       <div className="page-container">

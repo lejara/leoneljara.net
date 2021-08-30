@@ -263,7 +263,7 @@ const Background = ({ bg_containerRef }) => {
               },
               value: {
                 min: 2,
-                max: 2,
+                max: 2.1,
               },
               animation: {
                 count: 0,

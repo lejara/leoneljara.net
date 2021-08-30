@@ -7,7 +7,7 @@ var keys = [],
 class Player {
   constructor(canvas, ctx, gameState) {
     this.x = 0;
-    this.y = 520;
+    this.y = 495;
     this.width = 25;
     this.height = 25;
     this.speed = 1.5;

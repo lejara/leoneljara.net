@@ -14,7 +14,7 @@ $text-color: white;
 /* Background colors */
 $bg-color: #07091a;
 /* $about-color: #473705; */
-$projectsBg-color: #061c47;
+$projectsBg-color: #082a68;
 $contactBg-color: #063f47;
 $footerBg-color: #0f0f0f;
 $card-color: #010826;
@@ -56,6 +56,12 @@ body {
   background-color: $bg-color;
   color: $text-color;
   font-family: Yantramanav-Black;
+}
+
+*:focus {
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0 0 0 0.07rem #fff, 0 0 0 0.2rem white;
 }
 
 .page-container {
