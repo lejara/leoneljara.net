@@ -4,7 +4,6 @@ import { Link } from "gatsby";
 import Layout from "../components/Layout";
 import Background from "../components/Background";
 
-// markup
 const NotFoundPage = () => {
   return (
     <div>
@@ -18,7 +17,7 @@ const NotFoundPage = () => {
             <span role="img" aria-label="Pensive emoji">
               😔
             </span>
-            I have no page for that.
+            I do not have this page
             <br />
             <Link className="link-primary text-center" to="/">
               Go home
