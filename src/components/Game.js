@@ -51,15 +51,6 @@ const Game = ({ bg }) => {
     canvas.setAttribute("tabindex", "0");
     canvas.focus();
     canvas.width = window.innerWidth;
-    time = {
-      start_time: Date.now(),
-      time_to_win: 90,
-      time_to_actually_win: 150,
-      timePassed: 0,
-      delta: 0,
-      interval: 1000 / fps,
-      then: Date.now(),
-    };
     gameState = {
       dead: false,
       diffculty: 2,
@@ -67,21 +58,37 @@ const Game = ({ bg }) => {
       gameStarted: false,
       win: false,
     };
-
+    time = {
+      start_time: Date.now(),
+      time_to_win: 90,
+      time_to_actually_win: 180,
+      timePassed: 0,
+      delta: 0,
+      interval: 1000 / fps,
+      then: Date.now(),
+    };
     diffculties = {
       levels: [
         // lower = more. hehe
         {
-          spawnChance: 50,
+          spawnChance: 60,
+          min_speed: 4,
+          max_speed: 8,
         },
         {
           spawnChance: 28,
+          min_speed: 4,
+          max_speed: 15,
         },
         {
           spawnChance: 12,
+          min_speed: 4,
+          max_speed: 15,
         },
         {
-          spawnChance: 7,
+          spawnChance: 62,
+          min_speed: 16,
+          max_speed: 20,
         },
       ],
       breakpoints: [0, 20, 65, 120],

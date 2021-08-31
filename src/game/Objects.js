@@ -5,8 +5,8 @@ class Objects {
     this.projectiles = [];
     this.maxSpawn = 50;
     this.spawned = 0;
-    this.min_speed = 4;
-    this.max_speed = 15;
+    // this.min_speed = 4;
+    // this.max_speed = 15;
     this.spawn_height = -2;
 
     this.canvas = canvas; //ref
@@ -54,7 +54,10 @@ class Objects {
             x: direction.x,
             y: direction.y,
           },
-          speed: getRandomInt(this.min_speed, this.max_speed),
+          speed: getRandomInt(
+            this.diffculties.levels[this.gameState.diffculty].min_speed,
+            this.diffculties.levels[this.gameState.diffculty].max_speed
+          ),
           color: "#ffffff",
           die: false,
         });
