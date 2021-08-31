@@ -5,8 +5,6 @@ class Objects {
     this.projectiles = [];
     this.maxSpawn = 50;
     this.spawned = 0;
-    // this.min_speed = 4;
-    // this.max_speed = 15;
     this.spawn_height = -2;
 
     this.canvas = canvas; //ref
