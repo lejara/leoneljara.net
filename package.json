@@ -11,8 +11,8 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
-    "deploy": "gatsby build && gh-pages -d public",
+    "clean": "gatsby clean",
+    "deploy": "gatsby build && gh-pages -d public"
   },
   "dependencies": {
     "emailjs-com": "^3.2.0",
