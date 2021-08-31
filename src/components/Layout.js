@@ -8,7 +8,7 @@ const Layout = ({
   children,
   title = "Leo's Best Website Ever",
   description = "Leonel Jara is a web developer, love creating website and games",
-  url = "https://leoneljara.me/",
+  url = "https://leoneljara.net/",
   image = title_image,
 }) => {
   return (

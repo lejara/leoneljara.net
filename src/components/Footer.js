@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="py-4 px-3">
       <p>&copy;{new Date().getFullYear()} Leonel Jara</p>
       <p>
-        <a href="https://github.com/lejara/leoneljara.me">Source Code</a>
+        <a href="https://github.com/lejara/leoneljara.net">Source Code</a>
       </p>
     </footer>
   );
