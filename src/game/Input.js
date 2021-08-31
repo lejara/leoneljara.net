@@ -106,6 +106,9 @@ function keyCheck(e, value) {
       PlayerInput.events.jump = value;
       e.preventDefault();
       break;
+    case "ArrowDown":
+      e.preventDefault();
+      break;
     case "Left":
     case "ArrowLeft":
     case "a":

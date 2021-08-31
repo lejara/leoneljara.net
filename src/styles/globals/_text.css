@@ -2,16 +2,19 @@
 @font-face {
   font-family: Yantramanav-Black;
   src: url("../fonts/Yantramanav-Black.ttf");
+  font-display: swap;
 }
 
 @font-face {
   font-family: Cairo;
   src: url("../fonts/Cairo-Bold.ttf");
+  font-display: swap;
 }
 
 @font-face {
   font-family: Yantramanav-Regular;
   src: url("../fonts/Yantramanav-Regular.ttf");
+  font-display: swap;
 }
 
 .link-primary {

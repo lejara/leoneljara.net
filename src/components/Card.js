@@ -3,7 +3,13 @@ import * as React from "react";
 const Card = ({ title, children, image_src, image_alt, link }) => {
   return (
     <div className={`card`}>
-      <img className="card__image" src={image_src} alt={image_alt} />
+      <img
+        className="card__image"
+        src={image_src}
+        alt={image_alt}
+        height={176}
+        width={176}
+      />
 
       <div className="card__content p-5">
         <div className="mt-16">

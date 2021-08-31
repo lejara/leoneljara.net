@@ -51,7 +51,7 @@ const Contact = () => {
               setName(e.target.value);
             }}
             value={name}
-            className="mb-2"
+            className="selection mb-2"
             required
           />
           <label htmlFor="user_email">Email</label>
@@ -63,7 +63,7 @@ const Contact = () => {
               setEmail(e.target.value);
             }}
             value={email}
-            className="mb-2"
+            className="selection mb-2"
             required
           />
           <label htmlFor="message">Message</label>
@@ -74,13 +74,13 @@ const Contact = () => {
               setMessage(e.target.value);
             }}
             value={message}
-            className="contact__message mb-6"
+            className="selection contact__message mb-6"
             required
           />
           <button
             type="submit"
             value="Send"
-            className={`contact__button ${
+            className={`selection contact__button ${
               hasError ? "connect__button--error" : ""
             }`}
           >

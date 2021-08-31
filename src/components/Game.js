@@ -47,8 +47,9 @@ const Game = ({ bg }) => {
       window.msRequestAnimationFrame;
     window.requestAnimationFrame = requestAnimationFrame;
     canvas = document.getElementById("mini-game");
-    canvas.focus();
     ctx = canvas.getContext("2d");
+    canvas.setAttribute("tabindex", "0");
+    canvas.focus();
     canvas.width = window.innerWidth;
     time = {
       start_time: Date.now(),
@@ -158,6 +159,7 @@ const Game = ({ bg }) => {
 
   function end() {
     backgroundEnd(bg);
+    canvas.setAttribute("tabindex", "-1");
     objects.end();
     player.end();
     player = null;

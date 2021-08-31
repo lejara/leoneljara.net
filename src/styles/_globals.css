@@ -44,8 +44,9 @@ textarea {
   background-color: #e2e3dd;
 }
 
-input:focus,
-textarea:focus {
+input.selection:focus,
+textarea.selection:focus,
+button.selection:focus {
   background-color: $inputBG-color;
   outline: none;
   transition: all 0.3s ease;
@@ -58,11 +59,18 @@ body {
   font-family: Yantramanav-Black;
 }
 
-/* *:focus {
-  outline: none;
+*:focus {
+  outline: 1.2px solid white;
   border-radius: 2px;
-  box-shadow: 0 0 0 0.07rem #fff, 0 0 0 0.2rem white;
-} */
+  /* box-shadow: 0 0 0 0.07rem #fff, 0 0 0 0.2rem white; */
+}
+
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+a:active:focus {
+  outline: none;
+}
 
 .page-container {
   position: relative;
