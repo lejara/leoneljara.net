@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import emailjs from "emailjs-com";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -34,61 +35,66 @@ const Contact = () => {
   };
 
   return (
-    <div className="block-component mb-8">
-      <h2 className="text-title">Contact Me</h2>
-      <h2 className="text-subtitle">
-        Want to have a chat? Tell me, hows your day or what you ate last night!
-      </h2>
-      <div className="contact__wrapper mt-8">
-        <form id="contact-form" className="contact__form" onSubmit={Submit}>
-          <input type="hidden" name="contact_number" />
-          <label htmlFor="user_name">Name</label>
-          <input
-            type="text"
-            id="user_name"
-            name="user_name"
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-            value={name}
-            className="selection mb-2"
-            required
-          />
-          <label htmlFor="user_email">Email</label>
-          <input
-            type="email"
-            id="user_email"
-            name="user_email"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-            value={email}
-            className="selection mb-2"
-            required
-          />
-          <label htmlFor="message">Message</label>
-          <textarea
-            id="message"
-            name="message"
-            onChange={(e) => {
-              setMessage(e.target.value);
-            }}
-            value={message}
-            className="selection contact__message mb-6"
-            required
-          />
-          <button
-            type="submit"
-            value="Send"
-            className={`selection contact__button ${
-              hasError ? "connect__button--error" : ""
-            }`}
-          >
-            {submitBtn}
-          </button>
-        </form>
+    <>
+      <div className="block-component contact">
+        <ScrollAnimation animateIn="slideInLeft" animateOnce={true}>
+          <h2 className="text-title">Contact Me</h2>
+          <h2 className="text-subtitle">
+            Want to have a chat? Tell me, hows your day or what you ate last
+            night!
+          </h2>
+          <div className="contact__wrapper mt-8">
+            <form id="contact-form" className="contact__form" onSubmit={Submit}>
+              <input type="hidden" name="contact_number" />
+              <label htmlFor="user_name">Name</label>
+              <input
+                type="text"
+                id="user_name"
+                name="user_name"
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
+                value={name}
+                className="selection mb-2"
+                required
+              />
+              <label htmlFor="user_email">Email</label>
+              <input
+                type="email"
+                id="user_email"
+                name="user_email"
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+                value={email}
+                className="selection mb-2"
+                required
+              />
+              <label htmlFor="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                onChange={(e) => {
+                  setMessage(e.target.value);
+                }}
+                value={message}
+                className="selection contact__message mb-6"
+                required
+              />
+              <button
+                type="submit"
+                value="Send"
+                className={`contact__button selection${
+                  hasError ? "connect__button--error" : ""
+                }`}
+              >
+                {submitBtn}
+              </button>
+            </form>
+          </div>
+        </ScrollAnimation>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -18,26 +18,13 @@ const IndexPage = () => {
     <Layout>
       <GameContextProvider>
         <Background bg_containerRef={bg} />
-
-        <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
-          <Hero bg={bg} />
-        </ScrollAnimation>
-
+        <Hero bg={bg} />
+        <hr className="hero-break" />
+        <About />
         <hr className="block-break" />
-
-        <ScrollAnimation animateIn="slideInLeft" animateOnce={true}>
-          <About />
-        </ScrollAnimation>
-
-        <hr className="block-break" />
-
         <Projects />
-
         <hr className="block-break" />
-
-        <ScrollAnimation animateIn="slideInLeft" animateOnce={true}>
-          <Contact />
-        </ScrollAnimation>
+        <Contact />
       </GameContextProvider>
     </Layout>
   );

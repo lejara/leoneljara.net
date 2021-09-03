@@ -7,33 +7,38 @@
 $primary-color: #01ad76;
 $secondary-color: #50c8e8;
 $error-color: #e1341e;
-$linebreak-color: #6b6a6a;
+$linebreak-color: #959595;
 $title-color: #fdb215;
 $text-color: white;
 
 /* Background colors */
 $bg-color: #07091a;
-/* $about-color: #473705; */
-$projectsBg-color: #082a68;
-$contactBg-color: #063f47;
+$about-color: rgba(8, 42, 104, 0);
+$projectsBg-color: rgba(6, 63, 71, 0.8);
+$contactBg-color: rgba(55, 5, 71, 0);
 $footerBg-color: #0f0f0f;
-$card-color: #010826;
+$footerHr-color: #bd00ff;
+$card-color: #47061f;
 $inputBG-color: $secondary-color;
 
 $footer-height: 3rem;
 
 /* Component Block*/
 .block-component {
-  /* border: 2px solid red; */
   @apply py-16;
 }
 
 .block-break {
   border-top: 2px solid $linebreak-color;
   width: 100%;
-  margin: 0 auto;
+  opacity: 0.5;
 }
 
+.hero-break {
+  border-top: 4px solid $linebreak-color;
+  width: 100%;
+  opacity: 0.7;
+}
 /* Input */
 
 input,
@@ -68,7 +73,7 @@ body {
 button:focus:not(:focus-visible) {
   outline: none;
 }
-a:active:focus {
+a:focus:not(:focus-visible) {
   outline: none;
 }
 

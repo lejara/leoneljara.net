@@ -1,3 +1,6 @@
+/* .about {
+  background-color: $about-color;
+} */
 .about__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -12,22 +15,19 @@
 .about__image {
   grid-column: 1 / span 2;
   grid-row: 2 / span 2;
-  /* background-color: blue; */
 }
 
 .about__text {
   grid-column: 1 / span 2;
   grid-row: 1;
   font-size: 1.18rem;
-  text-align: center;
+  text-align: left;
   font-family: Yantramanav-Regular;
-  /* background-color: grey; */
 }
 
 .about__socials {
   grid-column: 1 / span 2;
   grid-row: 4;
-  /* background-color: green; */
 }
 
 /* Desktop */

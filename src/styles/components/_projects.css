@@ -21,6 +21,12 @@
   grid-row: 2;
 }
 
+.works__more-link {
+  margin: auto;
+  width: 60%;
+  text-align: center;
+}
+
 @screen md {
   .works__item--1 {
     grid-column: 1;

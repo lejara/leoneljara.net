@@ -2,17 +2,20 @@ import * as React from "react";
 import dtc_icon from "../images/DTC_ICON.png";
 import sol_icon from "../images/SOL_ICON.png";
 import ScrollAnimation from "react-animate-on-scroll";
+import gameContext from "../context/gameContext";
 
 import Card from "./Card";
 
 const Projects = () => {
+  const { won } = React.useContext(gameContext);
+
   return (
     <div className="block-component projects">
       <ScrollAnimation animateIn="slideInLeft" animateOnce={true}>
         <h2 className="text-title">Previous Works</h2>
         <h3 className="text-subtitle">
-          filler text, blah blahs, yes another filler text, here it is hahah
-          wowo so good
+          Leonel believes that by giving the time and effort a person can
+          achieve their goals.
         </h3>
         <div className="works__grid py-10">
           <div className="works__item--1">
@@ -23,13 +26,13 @@ const Projects = () => {
               link="https://datwitchcharades.page/"
             >
               <p>
-                Web App that allowed influencers on the platform Twtich.tv to
-                play charades with viewers in the chat. Was recived with great
-                sucess by thousands of visiters and spectators.
+                Web App that allowed streamers on the platform Twtich.tv to play
+                charades with viewers in the chat. Was recived with great sucess
+                by thousands of visiters and spectators.
               </p>
               <p className="mt-4">
                 Open-source project; developed as mobile first mind-set. Made
-                using JS, SASS, HTML, and Bootstrap Overrides
+                using basic JS, CSS, HTML, with a bit of SASS and Bootstrap.
               </p>
             </Card>
           </div>
@@ -46,13 +49,19 @@ const Projects = () => {
                 level in order to escape the decaying ship.
               </p>
               <p className="mt-4">
-                Part of the orignal 4 person team; Now an Open-source project!
-                Made using Unity with C#
+                An Open-source project. Made using Unity with C#
               </p>
             </Card>
           </div>
         </div>
-        {/* TODO: add more projects link*/}
+        <div className="works__more-link">
+          <a
+            className={`link-primary ${won ? "visible" : "invisible"}`}
+            href="https://github.com/users/lejara/projects/2"
+          >
+            More Projects →
+          </a>
+        </div>
       </ScrollAnimation>
     </div>
   );

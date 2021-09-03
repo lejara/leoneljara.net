@@ -263,7 +263,7 @@ const Background = ({ bg_containerRef }) => {
               },
               value: {
                 min: 2,
-                max: 2.1,
+                max: 2.3,
               },
               animation: {
                 count: 0,
@@ -271,7 +271,7 @@ const Background = ({ bg_containerRef }) => {
                 speed: 2,
                 sync: false,
                 destroy: "none",
-                minimumValue: 1,
+                minimumValue: 1.3,
                 startValue: "max",
               },
             },

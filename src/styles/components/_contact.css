@@ -1,3 +1,6 @@
+/* .contact {
+  background-color: $contactBg-color;
+} */
 .contact__wrapper {
   margin-left: 2.5rem;
   margin-right: 2.5rem;
@@ -31,11 +34,11 @@
   margin: 0 auto;
   font-size: 1.4rem;
   text-align: center;
-  background-color: $primary-color;
+  background-color: #47061f;
   padding-top: 6px;
   padding-bottom: 6px;
   line-height: normal;
-  color: #150012;
+  color: white;
 }
 
 .connect__button--error {
