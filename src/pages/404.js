@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Link } from "gatsby";
+import "../styles/style.css";
 
 import Layout from "../components/Layout";
 import Background from "../components/Background";

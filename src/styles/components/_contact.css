@@ -41,6 +41,6 @@
   color: white;
 }
 
-.connect__button--error {
+.contact__button--error {
   background-color: $error-color;
 }

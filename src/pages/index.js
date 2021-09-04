@@ -9,7 +9,6 @@ import About from "../components/About";
 import Projects from "../components/Projects";
 import Contact from "../components/Contact";
 import Background from "../components/Background";
-import ScrollAnimation from "react-animate-on-scroll";
 
 const IndexPage = () => {
   const bg = React.useRef();

@@ -4,14 +4,14 @@ module.exports = {
     title: "leoneljara.net",
   },
   plugins: [
-    "gatsby-plugin-postcss",
-    "gatsby-plugin-image",
     {
-      resolve: "gatsby-plugin-google-analytics",
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: "G-HEHT5B8N6D",
+        trackingIds: ["UA-158713868-2"],
       },
     },
+    "gatsby-plugin-postcss",
+    "gatsby-plugin-image",
     {
       resolve: "gatsby-plugin-react-svg",
       options: {

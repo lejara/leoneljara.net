@@ -2,36 +2,60 @@ import * as React from "react";
 import { useState } from "react";
 import emailjs from "emailjs-com";
 import ScrollAnimation from "react-animate-on-scroll";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [sending, setSending] = useState(false);
   const [submitBtn, setSubmitBtn] = useState("Send Message");
   const [hasError, setHasError] = useState(false);
-
-  const Submit = (e) => {
+  const [showCaptcha, setShowCaptcha] = useState(false);
+  const formShowCaptcha = (e) => {
     e.preventDefault();
+    setSubmitBtn("Waiting...");
+    setSending(true);
+    setShowCaptcha(true);
+  };
+
+  const Submit = (captchaValue) => {
     setSubmitBtn("Sending...");
+    var templateParams = {
+      user_name: name,
+      user_email: email,
+      message: message,
+      "g-recaptcha-response": captchaValue,
+    };
     emailjs
-      .sendForm(
+      .send(
         "service_u1jhj3g",
         "template_h88px7b",
-        e.target,
+        templateParams,
         "user_i8U9IZg1PbcZVAOtLIelq"
       )
       .then(
         (result) => {
           console.log(result.text);
           setHasError(false);
-          setSubmitBtn("Sent");
+          setSending(false);
+          setSubmitBtn("Sent!");
+          window.grecaptcha.reset();
+          setShowCaptcha(false);
         },
         (error) => {
-          console.log(error.text);
-          setHasError(true);
-          setSubmitBtn("Not Sent!");
+          hasErrorFunc(error);
         }
       );
+  };
+
+  var hasErrorFunc = (error) => {
+    console.log(error.text);
+    setHasError(true);
+    setSending(false);
+    setSubmitBtn("Not Sent!");
+    window.grecaptcha.reset();
+    setShowCaptcha(false);
   };
 
   return (
@@ -41,7 +65,11 @@ const Contact = () => {
           <h2 className="text-title">Contact Me</h2>
           <h2 className="text-subtitle">Want To have Chat? Sure!</h2>
           <div className="contact__wrapper mt-8">
-            <form id="contact-form" className="contact__form" onSubmit={Submit}>
+            <form
+              id="contact-form"
+              className="contact__form"
+              onSubmit={formShowCaptcha}
+            >
               <input type="hidden" name="contact_number" />
               <label htmlFor="user_name">Name</label>
               <input
@@ -79,14 +107,23 @@ const Contact = () => {
                 required
               />
               <button
+                disabled={sending}
                 type="submit"
                 value="Send"
-                className={`contact__button selection${
-                  hasError ? "connect__button--error" : ""
+                className={`contact__button${
+                  hasError ? "contact__button--error" : ""
                 }`}
               >
                 {submitBtn}
               </button>
+
+              <ReCAPTCHA
+                sitekey="6LfssEUcAAAAAAlKqSq8T0MqMKID3zT86W7XxjvG"
+                onChange={Submit}
+                theme="dark"
+                className={`pt-4 ${showCaptcha ? "visible" : "invisible"}`}
+                onErrored={hasErrorFunc}
+              />
             </form>
           </div>
         </ScrollAnimation>
