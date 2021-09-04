@@ -15,7 +15,7 @@ const About = () => {
               humble beginnings in creating small 2D sprite games, and off shoot
               projects, to contributing code for Mozilla. It wasn’t until Da
               Twitch Charades project where he found his passion in web
-              development. Since then, he have deep dived into the front end
+              development. Since then, he has deep dived into the front end
               world. Learning the best practices in code structure,
               documentation, UI/UX design, accessibility, and many more still
               too this day.

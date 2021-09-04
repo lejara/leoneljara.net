@@ -14,8 +14,8 @@ const Projects = () => {
       <ScrollAnimation animateIn="slideInLeft" animateOnce={true}>
         <h2 className="text-title">Previous Works</h2>
         <h3 className="text-subtitle">
-          Leonel believes that by giving the time and effort a person can
-          achieve their goals.
+          Leo believes that by giving the time and effort a person can achieve
+          their goals.
         </h3>
         <div className="works__grid py-10">
           <div className="works__item--1">

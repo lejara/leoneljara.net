@@ -17,7 +17,7 @@ $about-color: rgba(8, 42, 104, 0);
 $projectsBg-color: rgba(6, 63, 71, 0.8);
 $contactBg-color: rgba(55, 5, 71, 0);
 $footerBg-color: #0f0f0f;
-$footerHr-color: #bd00ff;
+$footerHr-color: $linebreak-color;
 $card-color: #47061f;
 $inputBG-color: $secondary-color;
 

@@ -39,10 +39,7 @@ const Contact = () => {
       <div className="block-component contact">
         <ScrollAnimation animateIn="slideInLeft" animateOnce={true}>
           <h2 className="text-title">Contact Me</h2>
-          <h2 className="text-subtitle">
-            Want to have a chat? Tell me, hows your day or what you ate last
-            night!
-          </h2>
+          <h2 className="text-subtitle">Want To have Chat? Sure!</h2>
           <div className="contact__wrapper mt-8">
             <form id="contact-form" className="contact__form" onSubmit={Submit}>
               <input type="hidden" name="contact_number" />

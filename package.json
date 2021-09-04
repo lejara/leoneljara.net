@@ -6,6 +6,10 @@
   "keywords": [
     "gatsby"
   ],
+  "browserslist": [
+    "> 1%",
+    "not dead"
+  ],
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
