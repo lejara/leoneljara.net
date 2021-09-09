@@ -37,6 +37,7 @@ const Game = ({ bg }) => {
     setStarted(true);
     //Starting animations
     btnPlayAnimation();
+    backgroundStart(bg);
   }
 
   function init() {
@@ -114,7 +115,6 @@ const Game = ({ bg }) => {
       //Check If player moved
       if (gameState.playerMoved && !gameState.gameStarted) {
         setPlayerMoved(true);
-        backgroundStart(bg);
         gameState.gameStarted = true;
         // console.log("player moved");
       }

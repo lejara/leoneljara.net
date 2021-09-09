@@ -21,11 +21,28 @@
   border-radius: 2px;
 }
 
+.contact__form input,
+.contact__form textarea {
+  color: #000000;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #e2e3dd;
+}
+
+.contact__form input:focus,
+.contact__form button:focus,
+.contact__form textarea:focus {
+  background-color: $inputBG-color;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
 .contact__form textarea {
   padding-top: 3px;
 }
 
 .contact__message {
+  color: white;
   height: 200px;
   min-height: 200px;
   max-height: 380px;

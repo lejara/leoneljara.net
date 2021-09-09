@@ -39,23 +39,6 @@ $footer-height: 3rem;
   width: 100%;
   opacity: 0.7;
 }
-/* Input */
-
-input,
-textarea {
-  color: #000000;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: #e2e3dd;
-}
-
-input.selection:focus,
-textarea.selection:focus,
-button.selection:focus {
-  background-color: $inputBG-color;
-  outline: none;
-  transition: all 0.3s ease;
-}
 
 /* Everything */
 body {
@@ -74,6 +57,10 @@ button:focus:not(:focus-visible) {
   outline: none;
 }
 a:focus:not(:focus-visible) {
+  outline: none;
+}
+
+canvas:focus {
   outline: none;
 }
 
