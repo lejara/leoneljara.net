@@ -13,8 +13,8 @@ const About = () => {
             <div className="about__text p-2">
               (Leo)nel Jara a web developer. Born and raised in Toronto. From
               humble beginnings in creating small 2D sprite games, and off shoot
-              projects, to contributing code for Mozilla. It wasn’t until Da
-              Twitch Charades project where he found his passion in web
+              projects, to contributing code around the world. It wasn’t until
+              Da Twitch Charades project where he found his passion in web
               development. Since then, he has deep dived into the front end
               world. Learning the best practices in code structure,
               documentation, UI/UX design, accessibility, and many more still
@@ -22,9 +22,9 @@ const About = () => {
             </div>
             <div className="about__image p-2">
               <StaticImage
-                src="../images/pic_leo.jpg"
+                src="../images/leo_1.jpg"
                 alt="Picture of leonel"
-                height={330}
+                height={380}
                 width={330}
               />
             </div>

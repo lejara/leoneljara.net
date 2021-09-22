@@ -7,8 +7,8 @@ const Card = ({ title, children, image_src, image_alt, link }) => {
         className="card__image"
         src={image_src}
         alt={image_alt}
-        height={176}
-        width={176}
+        height={130}
+        width={130}
       />
 
       <div className="card__content p-5">

@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 /* Color Vars */
-$primary-color: #01ad76;
+$primary-color: #01a16e;
 $secondary-color: #50c8e8;
 $error-color: #e1341e;
 $linebreak-color: #959595;
@@ -13,19 +13,17 @@ $text-color: white;
 
 /* Background colors */
 $bg-color: #07091a;
-$about-color: rgba(8, 42, 104, 0);
-$projectsBg-color: rgba(6, 63, 71, 0.8);
-$contactBg-color: rgba(55, 5, 71, 0);
+$projectsBg-color: rgba(8, 42, 104, 0.6);
 $footerBg-color: #0f0f0f;
 $footerHr-color: $linebreak-color;
-$card-color: #47061f;
+$card-color: #00002a;
 $inputBG-color: $secondary-color;
 
 $footer-height: 3rem;
 
 /* Component Block*/
 .block-component {
-  @apply py-16;
+  @apply py-24;
 }
 
 .block-break {

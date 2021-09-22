@@ -1,6 +1,3 @@
-/* .contact {
-  background-color: $contactBg-color;
-} */
 .contact__wrapper {
   margin-left: 2.5rem;
   margin-right: 2.5rem;
@@ -8,7 +5,7 @@
 
 .contact__form {
   max-width: 400px;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   margin: 0 auto;
 }
 
@@ -51,7 +48,7 @@
   margin: 0 auto;
   font-size: 1.4rem;
   text-align: center;
-  background-color: #47061f;
+  background-color: $primary-color;
   padding-top: 6px;
   padding-bottom: 6px;
   line-height: normal;

@@ -8,7 +8,7 @@ const Hero = ({ bg }) => {
   return (
     <>
       <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
-        <div className="block-component hero mb-2">
+        <div className="py-16 hero mb-2">
           <div
             className={`hero__content mx-auto ${
               playing ? "opacity-0 invisible" : "opacity-100 visible"
@@ -18,7 +18,7 @@ const Hero = ({ bg }) => {
               <h1>Leonel</h1>
               <h1 className="hero__second">Jara</h1>
               <h2 className="hero__adword text-left">
-                {won ? "Knows Your The Best" : "Loves putting fun into code!"}
+                {won ? "Knows Your The Best" : "Loves putting fun into code"}
               </h2>
             </div>
           </div>

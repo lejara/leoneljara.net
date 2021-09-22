@@ -6,9 +6,8 @@
   font-size: 1.5rem;
 }
 .card__image {
-  width: 11rem;
   margin: 0 auto;
-  margin-bottom: -80px;
+  margin-bottom: -60px;
 }
 .card__content {
   min-height: 400px;

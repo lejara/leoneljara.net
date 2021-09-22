@@ -28,7 +28,7 @@ const Projects = () => {
               <p>
                 Web App that allowed streamers on the platform Twtich.tv to play
                 charades with viewers in the chat. Was recived with great sucess
-                by thousands of visiters and spectators.
+                by thousands of visitors and spectators.
               </p>
               <p className="mt-4">
                 Open-source project; developed as mobile first mind-set. Made
