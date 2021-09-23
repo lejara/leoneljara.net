@@ -1,6 +1,6 @@
 import PlayerInput from "./Input";
 var keys = [],
-  floor_height = 565,
+  floor_height = 567,
   friction = 0.8,
   gravity = 0.2;
 

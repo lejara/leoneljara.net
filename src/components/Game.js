@@ -47,6 +47,7 @@ const Game = ({ bg }) => {
       window.webkitRequestAnimationFrame ||
       window.msRequestAnimationFrame;
     window.requestAnimationFrame = requestAnimationFrame;
+
     canvas = document.getElementById("mini-game");
     ctx = canvas.getContext("2d");
     canvas.setAttribute("tabindex", "0");
@@ -60,13 +61,13 @@ const Game = ({ bg }) => {
       win: false,
     };
     time = {
-      start_time: Date.now(),
+      start_time: window.performance.now(),
       time_to_win: 90,
       time_to_actually_win: 180,
       timePassed: 0,
-      delta: 0,
-      interval: 1000 / fps,
-      then: Date.now(),
+      elapsed: 0,
+      fpsInterval: 1000 / fps,
+      then: window.performance.now(),
     };
     diffculties = {
       levels: [
@@ -100,61 +101,73 @@ const Game = ({ bg }) => {
 
   function start() {
     setPlaying(true);
-    time.then = time.interval + 1;
-    update();
+    time.then = window.performance.now();
+
+    //draw once, for button animation and player sprite to sync
+    draw();
+
+    animate();
   }
 
-  function update() {
-    //Frame timing
-    var now = Date.now();
-    time.delta = now - time.then;
-    if (time.delta > time.interval) {
-      //scale canvas if window changes, sideeffect: of clearing of the canvas
-      canvas.width = window.innerWidth;
-      time.then = now - (time.delta % time.interval);
-      //Check If player moved
-      if (gameState.playerMoved && !gameState.gameStarted) {
-        setPlayerMoved(true);
-        gameState.gameStarted = true;
-        // console.log("player moved");
-      }
-
-      //diffculty scale
-      if (time.timePassed == diffculties.breakpoints[0]) {
-        gameState.diffculty = 0;
-      } else if (time.timePassed == diffculties.breakpoints[1]) {
-        gameState.diffculty = 1;
-      } else if (time.timePassed == diffculties.breakpoints[2]) {
-        gameState.diffculty = 2;
-      } else if (time.timePassed == diffculties.breakpoints[3]) {
-        gameState.diffculty = 3;
-      }
-      //Win check
-      if (time.timePassed == time.time_to_win && !gameState.win) {
-        setWon(true);
-        backgroundWon(bg);
-        gameState.win = true;
-      } else if (time.timePassed == time.time_to_actually_win) {
-        backgroundTrueWin(bg);
-        console.log("true winner");
-      }
-      //updates
-      player.update();
-      if (gameState.playerMoved === true) {
-        //timer
-        time.timePassed = Math.round((now - time.start_time) / 1000);
-        objects.update();
-      }
-
-      //Draw all objects
-      draw();
-    }
-
-    if (!gameState.dead) {
-      requestAnimationFrame(update);
-    } else {
+  function animate(newtime) {
+    if (gameState.dead) {
       end();
+      return;
     }
+    requestAnimationFrame(animate);
+
+    var now = newtime;
+    time.elapsed = now - time.then;
+
+    if (time.elapsed > time.fpsInterval) {
+      time.then = now - (time.elapsed % time.fpsInterval);
+
+      update(now);
+    }
+  }
+
+  function update(now) {
+    //scale canvas if window changes, has side effect of clearing of the canvas
+    canvas.width = window.innerWidth;
+
+    //Check If player moved
+    if (gameState.playerMoved && !gameState.gameStarted) {
+      setPlayerMoved(true);
+      gameState.gameStarted = true;
+      // console.log("player moved");
+    }
+
+    //diffculty scale
+    if (time.timePassed == diffculties.breakpoints[0]) {
+      gameState.diffculty = 0;
+    } else if (time.timePassed == diffculties.breakpoints[1]) {
+      gameState.diffculty = 1;
+    } else if (time.timePassed == diffculties.breakpoints[2]) {
+      gameState.diffculty = 2;
+    } else if (time.timePassed == diffculties.breakpoints[3]) {
+      gameState.diffculty = 3;
+    }
+    //Win check
+    if (time.timePassed == time.time_to_win && !gameState.win) {
+      setWon(true);
+      backgroundWon(bg);
+      gameState.win = true;
+    } else if (time.timePassed == time.time_to_actually_win) {
+      backgroundTrueWin(bg);
+      console.log("true winner");
+    }
+    //updates
+    player.update();
+    if (gameState.playerMoved === true) {
+      //timer
+      time.timePassed = Math.round((now - time.start_time) / 1000);
+      objects.update();
+    } else {
+      time.start_time = window.performance.now();
+    }
+
+    //Draw all objects
+    draw();
   }
 
   function draw() {

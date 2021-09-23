@@ -15,7 +15,7 @@
   line-height: 60%;
 }
 
-@media only screen and (min-width: 380px) {
+@media only screen and (min-width: 400px) {
   .hero__title {
     font-size: 8rem;
   }
@@ -29,7 +29,7 @@
   padding-right: 4.4rem;
 }
 
-@media only screen and (min-width: 380px) {
+@media only screen and (min-width: 400px) {
   .hero__second {
     padding-right: 7rem;
   }
@@ -47,7 +47,7 @@
   color: white;
 }
 
-@media only screen and (min-width: 380px) {
+@media only screen and (min-width: 400px) {
   .hero__adword {
     font-size: 2rem;
   }
