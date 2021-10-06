@@ -46,8 +46,9 @@
 .hero__adword {
   line-height: 90%;
   font-size: 1rem;
-  font-family: Cairo;
+  font-family: Consolas, 'Courier New', monospace;
   color: #5d7c43;
+  font-weight: bold;
 }
 
 @media only screen and (min-width: 400px) {
