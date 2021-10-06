@@ -33,7 +33,7 @@ $footer-height: 3rem;
 }
 
 .hero-break {
-  border-top: 2px solid $linebreak-color;
+  border-top: 4px solid $linebreak-color;
   width: 100%;
   opacity: 0.7;
 }
