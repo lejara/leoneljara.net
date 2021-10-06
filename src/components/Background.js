@@ -21,7 +21,7 @@ const Background = ({ bg_containerRef }) => {
           },
           detectRetina: true,
           duration: 0,
-          fpsLimit: 45,
+          fpsLimit: 60,
           motion: {
             disable: false,
             reduce: {
@@ -281,7 +281,7 @@ const Background = ({ bg_containerRef }) => {
             {
               maxWidth: 600,
               options: {
-                fpsLimit: 30,
+                fpsLimit: 35,
                 particles: {
                   number: {
                     limit: 0,
