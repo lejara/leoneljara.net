@@ -220,7 +220,7 @@ const Background = ({ bg_containerRef }) => {
                 factor: 1000,
               },
               limit: 0,
-              value: 100,
+              value: 70,
             },
             opacity: {
               random: {
@@ -241,29 +241,18 @@ const Background = ({ bg_containerRef }) => {
                 startValue: "random",
               },
             },
-            shadow: {
-              blur: 5,
-              color: {
-                value: "#0734e4",
-              },
-              enable: true,
-              offset: {
-                x: 0,
-                y: 0,
-              },
-            },
             shape: {
               options: {},
-              type: "circle",
+              type: "square",
             },
             size: {
               random: {
                 enable: true,
-                minimumValue: 2,
+                minimumValue: 3,
               },
               value: {
-                min: 2,
-                max: 2.3,
+                min: 3,
+                max: 5,
               },
               animation: {
                 count: 0,
@@ -271,7 +260,7 @@ const Background = ({ bg_containerRef }) => {
                 speed: 2,
                 sync: false,
                 destroy: "none",
-                minimumValue: 1.3,
+                minimumValue: 3,
                 startValue: "max",
               },
             },
@@ -296,7 +285,7 @@ const Background = ({ bg_containerRef }) => {
                 particles: {
                   number: {
                     limit: 0,
-                    value: 30,
+                    value: 20,
                   },
                 },
               },
@@ -307,7 +296,7 @@ const Background = ({ bg_containerRef }) => {
                 particles: {
                   number: {
                     limit: 0,
-                    value: 70,
+                    value: 40,
                   },
                 },
               },

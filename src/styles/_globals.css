@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 /* Color Vars */
-$primary-color: #01a16e;
+$primary-color: #5d7c43;
 $secondary-color: #50c8e8;
 $error-color: #e1341e;
 $linebreak-color: #959595;
@@ -12,11 +12,11 @@ $title-color: #fdb215;
 $text-color: white;
 
 /* Background colors */
-$bg-color: #07091a;
-$projectsBg-color: rgba(8, 42, 104, 0.6);
+$bg-color: #1e1e1e;
+$projectsBg-color: rgba(8, 42, 104, 0);
 $footerBg-color: #0f0f0f;
 $footerHr-color: $linebreak-color;
-$card-color: #00002a;
+$card-color: #0f0f0f;
 $inputBG-color: $secondary-color;
 
 $footer-height: 3rem;
@@ -27,7 +27,7 @@ $footer-height: 3rem;
 }
 
 .block-break {
-  border-top: 2px solid $linebreak-color;
+  border-top: 2px dashed $linebreak-color;
   width: 100%;
   opacity: 0.5;
 }

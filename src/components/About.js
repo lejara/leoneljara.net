@@ -11,13 +11,10 @@ const About = () => {
         <ScrollAnimation animateIn="slideInLeft" animateOnce={true}>
           <div className="about__grid">
             <div className="about__text p-2">
-              (Leo)nel Jara a web developer. Born and raised in Toronto. From
-              humble beginnings in creating small 2D sprite games, and off shoot
-              projects, to contributing code around the world. It wasn’t until
-              Da Twitch Charades project where he found his passion in web
-              development. Since then, he has deep dived into the front end
-              world. Learning the best practices in code structure,
-              documentation, UI/UX design, accessibility, and many more still
+              Leonel Jara a web developer, born and raised in Toronto. From
+              humble beginnings in creating 2D sprite games, to contributing code around the world. He is passionate and enjoys every moment in the web development scene. 
+              Always trying to learn the best practices in code structure,
+              documentation, UI/UX design, accessibility, and many more
               too this day.
             </div>
             <div className="about__image p-2">

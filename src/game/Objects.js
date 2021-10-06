@@ -56,7 +56,7 @@ class Objects {
             this.diffculties.levels[this.gameState.diffculty].min_speed,
             this.diffculties.levels[this.gameState.diffculty].max_speed
           ),
-          color: "#ffffff",
+          color: "#fc3232",
           die: false,
         });
         this.spawned++;
