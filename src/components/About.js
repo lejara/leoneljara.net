@@ -10,14 +10,14 @@ const About = () => {
       <div className="block-component about">
         <ScrollAnimation animateIn="slideInLeft" animateOnce={true}>
           <div className="about__grid">
-            <div className="about__text p-2">
+            <div className="about__text p-2 mx-5">
               Leonel Jara a web developer, born and raised in Toronto. From
               humble beginnings in creating 2D sprite games, to contributing code around the world. He is passionate and enjoys every moment in the web development scene. 
               Always trying to learn the best practices in code structure,
               documentation, UI/UX design, accessibility, and many more
               too this day.
             </div>
-            <div className="about__image p-2">
+            <div className="about__image">
               <StaticImage
                 src="../images/leo_1.jpg"
                 alt="Picture of leonel"

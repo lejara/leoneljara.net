@@ -10,6 +10,8 @@
 
 /* mobile */
 .about__image {
+  padding: 0;
+  border: 6px solid #0f0f0f;
   grid-column: 1 / span 2;
   grid-row: 2 / span 2;
 }
