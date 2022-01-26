@@ -6,7 +6,7 @@ import title_image from "../images/logo_title.png";
 
 const Layout = ({
   children,
-  title = "Leo's Best Website Ever",
+  title = "leoneljara.net",
   description = "Leonel Jara is a web developer, love creating website and games",
   url = "https://leoneljara.net/",
   image = title_image,

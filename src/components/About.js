@@ -17,14 +17,14 @@ const About = () => {
               documentation, UI/UX design, accessibility, and many more
               too this day.
             </div>
-            <div className="about__image">
+            {/* <div className="about__image">
               <StaticImage
                 src="../images/leo_1.jpg"
                 alt="Picture of leonel"
                 height={380}
                 width={330}
               />
-            </div>
+            </div> */}
             <div className="about__socials p-2">
               <p className="about__socials--title">Socials!~</p>
               <div className="about__socials--flex mt-1">
