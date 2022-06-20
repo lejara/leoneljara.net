@@ -2,6 +2,9 @@ module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}"],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    colors: {
+      LJ_LightBlue: "#50c8e8",
+    },
     extend: {
       fontSize: {
         title: "14rem",
@@ -18,7 +21,7 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    fill: ["hover", "focus"], // this line does the trick
   },
   plugins: [],
 };

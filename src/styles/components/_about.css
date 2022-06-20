@@ -1,57 +1,5 @@
-.about__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 5px;
-  max-width: 1200px;
-  margin: 0 auto;
-  grid-auto-rows: minmax(100px, auto);
-  justify-items: center;
-}
-
-/* mobile */
-.about__image {
-  padding: 0;
-  border: 6px solid #0f0f0f;
-  grid-column: 1 / span 2;
-  grid-row: 2 / span 2;
-}
-
 .about__text {
-  grid-column: 1 / span 2;
-  grid-row: 1;
-  font-size: 1.18rem;
-  text-align: left;
   font-family: Yantramanav-Regular;
-}
-
-.about__socials {
-  grid-column: 1 / span 2;
-  grid-row: 4;
-}
-
-/* Desktop */
-@screen md {
-  .about__image {
-    grid-column: 1;
-    grid-row: 1 / 3;
-  }
-
-  .about__text {
-    grid-column: 2;
-    grid-row: 1;
-    font-size: 1.3rem;
-  }
-
-  .about__socials {
-    grid-column: 2;
-    grid-row: 2;
-  }
-}
-
-.about__socials--flex {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .about__socials a {
