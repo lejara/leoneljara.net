@@ -10,6 +10,7 @@ $error-color: #e1341e;
 $linebreak-color: #959595;
 $title-color: #fdb215;
 $text-color: white;
+$scrollbar-color: #a19f9f;
 
 /* Background colors */
 $bg-color: #1e1e1e;
@@ -36,6 +37,25 @@ $footer-height: 3rem;
   border-top: 4px solid $linebreak-color;
   width: 100%;
   opacity: 0.7;
+}
+
+/* Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $scrollbar-color rgba(0, 0, 0, 0);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $scrollbar-color;
 }
 
 /* Everything */
