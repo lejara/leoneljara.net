@@ -132,7 +132,7 @@ const Tab2 = () => {
           title="Solitary"
           image_src={sol_icon}
           image_alt="Logo of Solitary"
-          link="https://github.com/PopeSpaceous/Solitary"
+          link="https://leption.itch.io/solitary"
         >
           <p>
             Devloped and designed the backend of the 2D Puzzle Platformer
