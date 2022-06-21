@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       colors: {
         LJ_LightBlue: "#50c8e8",
-        LG_Green: "#5d7c43",
+        LG_Green: "#007d5c",
       },
       fontSize: {
         title: "14rem",
