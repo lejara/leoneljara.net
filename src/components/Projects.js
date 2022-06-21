@@ -24,6 +24,7 @@ const Projects = () => {
       <div className="text-center text-xl mt-2">
         {tabs.map((tabObj, index) => (
           <button
+            key={`tab-buttons-${index}`}
             onClick={() => {
               onTabClick(index);
             }}

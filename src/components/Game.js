@@ -10,8 +10,8 @@ import btnPlayAnimation from "../game/StartBtn";
 import Player from "../game/Player";
 import Objects from "../game/Objects";
 import { StaticImage } from "gatsby-plugin-image";
-import GameIcon from "../images/svg/btn_sprite.svg";
-import SpriteArrows from "../images/svg/sprite_arrows.svg";
+import GameIcon from "../images/svg/btn_sprite.inline.svg";
+import SpriteArrows from "../images/svg/sprite_arrows.inline.svg";
 
 const Game = ({ bg }) => {
   var canvas,

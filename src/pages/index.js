@@ -11,6 +11,7 @@ import Contact from "../components/Contact";
 import Background from "../components/Background";
 import Footer from "../components/Footer";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import ArrowDown from "../images/down-arrow.svg";
 
 const IndexPage = () => {
   const bg = React.useRef();
@@ -21,9 +22,12 @@ const IndexPage = () => {
         <Background bg_containerRef={bg} />
 
         <Parallax pages={4}>
-          <ParallaxLayer offset={0} speed={4}>
+          <ParallaxLayer offset={0} speed={4} className="relative">
             <Hero bg={bg} />
             <hr className="hero-break" />
+            <span className="transform  absolute bottom-1 left-1/2 -translate-x-1/2">
+              <img src={ArrowDown} className="w-10 h-10" />
+            </span>
           </ParallaxLayer>
 
           <ParallaxLayer offset={1} speed={0.3}>

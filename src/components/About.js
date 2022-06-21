@@ -1,6 +1,6 @@
 import * as React from "react";
-import GitHubIcon from "../images/svg/github.svg";
-import TwitterIcon from "../images/svg/twitter.svg";
+import GitHubIcon from "../images/svg/github.inline.svg";
+import TwitterIcon from "../images/svg/twitter.inline.svg";
 import { StaticImage } from "gatsby-plugin-image";
 
 const About = () => {
