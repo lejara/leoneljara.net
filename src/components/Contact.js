@@ -110,7 +110,7 @@ const Contact = () => {
                 disabled={sending}
                 type="submit"
                 value="Send"
-                className={`contact__button${
+                className={`bg-LG_Green text-lg hover:bg-LJ_LightBlue hover:text-black ${
                   hasError ? "contact__button--error" : ""
                 }`}
               >

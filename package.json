@@ -19,6 +19,7 @@
     "deploy": "gatsby build && gh-pages -d public"
   },
   "dependencies": {
+    "@headlessui/react": "^1.6.5",
     "emailjs-com": "^3.2.0",
     "gatsby": "^3.11.1",
     "gatsby-plugin-google-gtag": "^3.13.0",

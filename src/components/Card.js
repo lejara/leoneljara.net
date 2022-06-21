@@ -16,7 +16,12 @@ const Card = ({ title, children, image_src, image_alt, link }) => {
           <h3 className="card__title mb-3">{title}</h3>
           <div className="card__desc">{children}</div>
           <div className="card__action--link mt-2">
-            <a className="link-primary" href={link}>
+            <a
+              className="link-primary"
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Have a Look →
             </a>
           </div>
