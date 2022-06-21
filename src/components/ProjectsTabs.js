@@ -32,12 +32,12 @@ const Tab1 = () => {
         >
           <p>
             Guessing game with gimmicks for finding the answer. Players guess in
-            a livestream and have 6 options. The fastest correct gets a higher
-            score.
+            a livestream and has 6 options to choose from. The fastest correct
+            gets a higher score.
           </p>
           <p className="mt-4">
-            Made with React, Twitch API and Three.js. Used pre-trained AI model
-            to pick options for certain categories
+            Made with React, Twitch API and Three.js. Used a pre-trained AI
+            model to pick options for certain categories
           </p>
         </Card>
       </div>

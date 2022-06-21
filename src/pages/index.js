@@ -25,8 +25,8 @@ const IndexPage = () => {
           <ParallaxLayer offset={0} speed={4} className="relative">
             <Hero bg={bg} />
             <hr className="hero-break" />
-            <span className="transform  absolute bottom-1 left-1/2 -translate-x-1/2">
-              <img src={ArrowDown} className="w-10 h-10" />
+            <span className="transform  absolute bottom-3 left-1/2 -translate-x-1/2">
+              <img src={ArrowDown} className="w-12 h-12" />
             </span>
           </ParallaxLayer>
 
