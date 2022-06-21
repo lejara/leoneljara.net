@@ -1,5 +1,4 @@
 import * as React from "react";
-import ScrollAnimation from "react-animate-on-scroll";
 import gameContext from "../context/gameContext";
 import { Tab1, Tab2, Tab3 } from "./ProjectsTabs";
 
@@ -19,39 +18,37 @@ const Projects = () => {
   };
 
   return (
-    <div className="block-component projects">
-      <ScrollAnimation animateIn="slideInLeft" animateOnce={true}>
-        <h2 className="text-title">Previous Works</h2>
-        <h3 className="text-subtitle">If theres a will, theres a way.</h3>
-        <div className="text-center text-xl mt-2">
-          {tabs.map((tabObj, index) => (
-            <button
-              onClick={() => {
-                onTabClick(index);
-              }}
-              className={`px-3 py-1  mx-3  ${
-                selectedIndex === index
-                  ? "bg-LJ_LightBlue text-black"
-                  : "bg-LG_Green hover:bg-LJ_LightBlue hover:text-black"
-              }`}
-            >
-              {tabObj.title}
-            </button>
-          ))}
-        </div>
-
-        <div className="flex-col flex lg:flex-row justify-center items-center max-w-7xl mx-auto py-10 gap-y-10">
-          {tabs[selectedIndex].tab()}
-        </div>
-        <div className="">
-          <a
-            className={`link-primary ${won ? "visible" : "invisible"}`}
-            href="https://github.com/users/lejara/projects/2"
+    <div className="block-component">
+      <h2 className="text-title">Previous Works</h2>
+      <h3 className="text-subtitle">If theres a will, theres a way.</h3>
+      <div className="text-center text-xl mt-2">
+        {tabs.map((tabObj, index) => (
+          <button
+            onClick={() => {
+              onTabClick(index);
+            }}
+            className={`px-3 py-1  mx-3  ${
+              selectedIndex === index
+                ? "bg-LJ_LightBlue text-black"
+                : "bg-LG_Green hover:bg-LJ_LightBlue hover:text-black"
+            }`}
           >
-            More Projects →
-          </a>
-        </div>
-      </ScrollAnimation>
+            {tabObj.title}
+          </button>
+        ))}
+      </div>
+
+      <div className="flex-col flex lg:flex-row justify-center items-center max-w-7xl mx-auto py-10 gap-y-10">
+        {tabs[selectedIndex].tab()}
+      </div>
+      <div className="">
+        <a
+          className={`link-primary ${won ? "visible" : "invisible"}`}
+          href="https://github.com/users/lejara/projects/2"
+        >
+          More Projects →
+        </a>
+      </div>
     </div>
   );
 };

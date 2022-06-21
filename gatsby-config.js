@@ -10,13 +10,6 @@ module.exports = {
         trackingIds: ["UA-158713868-2"],
       },
     },
-    {
-      resolve: "gatsby-plugin-google-tagmanager",
-      options: {
-        id: "GTM-NGLPZRG",
-      },
-    },
-
     "gatsby-plugin-postcss",
     "gatsby-plugin-image",
     {

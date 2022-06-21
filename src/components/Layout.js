@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
-import Footer from "./Footer";
 import favicon from "../images/favicon.png";
 import title_image from "../images/logo_title.png";
 
@@ -26,10 +25,8 @@ const Layout = ({
         <meta property="og:image" content={image} />
         <meta property="og:description" content={description} />
       </Helmet>
-      <div className="page-container">
-        <main className="content-wrap">{children}</main>
-        <Footer />
-      </div>
+
+      <main>{children}</main>
     </>
   );
 };

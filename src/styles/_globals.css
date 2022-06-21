@@ -23,7 +23,7 @@ $footer-height: 3rem;
 
 /* Component Block*/
 .block-component {
-  @apply py-24;
+  @apply py-8;
 }
 
 .block-break {
