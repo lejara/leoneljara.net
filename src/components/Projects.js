@@ -42,14 +42,6 @@ const Projects = () => {
       <div className="flex-col flex lg:flex-row justify-center items-center max-w-7xl mx-auto py-10 gap-y-10">
         {tabs[selectedIndex].tab()}
       </div>
-      <div className="">
-        <a
-          className={`link-primary ${won ? "visible" : "invisible"}`}
-          href="https://github.com/users/lejara/projects/2"
-        >
-          More Projects →
-        </a>
-      </div>
     </div>
   );
 };
