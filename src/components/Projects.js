@@ -8,7 +8,7 @@ const Projects = () => {
   const [selectedIndex, setSelectedIndex] = React.useState(0);
 
   const tabs = [
-    { title: "Web Development", tab: Tab1 },
+    { title: "Web", tab: Tab1 },
     { title: "Games", tab: Tab2 },
     { title: "Others", tab: Tab3 },
   ];
