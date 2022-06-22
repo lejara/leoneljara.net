@@ -31,7 +31,7 @@ const Projects = () => {
             className={`px-3 py-1  mx-3 mb-2  ${
               selectedIndex === index
                 ? "bg-LJ_LightBlue text-black"
-                : "bg-LG_Green hover:bg-LJ_LightBlue hover:text-black"
+                : "bg-LJ_Green hover:bg-LJ_LightBlue text-black"
             }`}
           >
             {tabObj.title}

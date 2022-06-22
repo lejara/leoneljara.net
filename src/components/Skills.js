@@ -36,7 +36,9 @@ const Skills = () => {
 
       <div className="flex flex-col xl:flex-row w-full justify-around mt-10 ">
         <div className="w-full xl:w-1/2">
-          <h4 className="text-4xl text-center mb-8">Programming Languages</h4>
+          <h4 className="text-4xl text-center mb-8 opacity-80">
+            Programming Languages
+          </h4>
           <div className="px-5 md:px-32 Yan-text">
             {programmingLangs.map((jsx, i) => (
               <React.Fragment key={`lang-${i}`}>{jsx()}</React.Fragment>
@@ -45,7 +47,7 @@ const Skills = () => {
         </div>
 
         <div className="w-full xl:w-1/2 mt-5  sm:mt-0">
-          <h4 className="text-4xl text-center mb-8">Others</h4>
+          <h4 className="text-4xl text-center mb-8 opacity-80">Others</h4>
 
           <div className="flex flex-wrap flex-col sm:flex-row sm:justify-between items-end px-5 md:px-32 Yan-text">
             {notableSKills.map((note_skill, i) => (

@@ -5,7 +5,8 @@ module.exports = {
     extend: {
       colors: {
         LJ_LightBlue: "#50c8e8",
-        LG_Green: "#007d5c",
+        LJ_Green: "#00bf8c",
+        LJ_Orange: "#fdb215",
       },
       height: {
         100: "25rem",

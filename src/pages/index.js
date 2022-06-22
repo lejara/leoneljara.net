@@ -25,7 +25,7 @@ const IndexPage = () => {
         <Background bg_containerRef={bg} />
 
         <Parallax pages={width < 1024 ? 6 : 5} key={`parallax ${width}`}>
-          <ParallaxLayer offset={0} speed={4} className="relative">
+          <ParallaxLayer offset={0} speed={0} className="relative">
             <Hero bg={bg} />
             <hr className="hero-break" />
             <span className="transform  absolute bottom-3 left-1/2 -translate-x-1/2">
@@ -45,7 +45,7 @@ const IndexPage = () => {
             <Skils />
           </ParallaxLayer>
 
-          <ParallaxLayer offset={width < 1024 ? 5 : 4} speed={0.5}>
+          <ParallaxLayer offset={width < 1024 ? 5 : 4} speed={0.3}>
             <Contact />
           </ParallaxLayer>
           <Footer />
