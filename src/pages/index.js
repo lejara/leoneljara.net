@@ -24,7 +24,7 @@ const IndexPage = () => {
       <GameContextProvider>
         <Background bg_containerRef={bg} />
 
-        <Parallax pages={width < 1024 ? 6 : 5} key={`parallax ${width}`}>
+        <Parallax pages={6.6}>
           <ParallaxLayer offset={0} speed={0} className="relative">
             <Hero bg={bg} />
             <hr className="hero-break" />
@@ -37,15 +37,15 @@ const IndexPage = () => {
             <About />
           </ParallaxLayer>
 
-          <ParallaxLayer offset={2} speed={0.3}>
+          <ParallaxLayer offset={2} factor={7} speed={0.3}>
             <Projects />
           </ParallaxLayer>
 
-          <ParallaxLayer offset={width < 1024 ? 4 : 3} speed={0.3}>
+          <ParallaxLayer offset={4} speed={0.3}>
             <Skils />
           </ParallaxLayer>
 
-          <ParallaxLayer offset={width < 1024 ? 5 : 4} speed={0.3}>
+          <ParallaxLayer offset={5.8} speed={0.3}>
             <Contact />
           </ParallaxLayer>
           <Footer />
