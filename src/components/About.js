@@ -1,7 +1,6 @@
 import * as React from "react";
 import GitHubIcon from "../images/svg/github.inline.svg";
 import TwitterIcon from "../images/svg/twitter.inline.svg";
-import { StaticImage } from "gatsby-plugin-image";
 
 const About = () => {
   return (
@@ -39,15 +38,6 @@ const About = () => {
               </div>
             </div>
           </div>
-
-          {/* <div className="about__image">
-              <StaticImage
-                src="../images/leo_1.jpg"
-                alt="Picture of leonel"
-                height={380}
-                width={330}
-              />
-            </div> */}
         </div>
       </div>
     </>
