@@ -41,6 +41,8 @@ const Card = ({
               >
                 Have a Look →
               </a>
+              {/* Placeholder */}
+              <div className=" pb-9"></div>
             </div>
           )}
         </div>
