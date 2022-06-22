@@ -9,12 +9,16 @@ const About = () => {
         <div className="flex flex-col justify-center items-center">
           <div>
             <div className="text-3xl p-2 max-w-3xl about__text">
-              Leonel Jara a web developer, born and raised in Toronto. From
-              humble beginnings in creating 2D sprite games, to contributing
-              code around the world. He is passionate and enjoys every moment in
-              the web development scene. Always trying to learn the best
-              practices in code structure, documentation, UI/UX design,
-              accessibility, and many more too this day.
+              <p>
+                Web and Game Development are my biggest passion. I always try to
+                push my technical and soft skills further. I excel in
+                self-motivation, good work ethic, teamwork and leadership
+              </p>
+
+              <p className="mt-5">
+                Here you will find here some of my project that I am willing to
+                make public. There will be many more to come.
+              </p>
             </div>
             <div className="about__socials p-2">
               <p className="text-center text-lg">Socials</p>

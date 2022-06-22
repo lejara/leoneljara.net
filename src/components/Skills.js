@@ -21,7 +21,7 @@ const notableSKills = [
   "Webpack",
   "Docker",
   "React/Vue",
-  "CI/CD",
+  "CI/CD/Jest",
   "ThreeJS/BabylonJS",
   "Git",
   "Socket.IO",
@@ -32,10 +32,11 @@ const Skills = () => {
   return (
     <div className="block-component w-full">
       <h2 className="text-title">Technical Skills</h2>
+      <h3 className="text-subtitle">Always Expanding</h3>
 
       <div className="flex flex-col xl:flex-row w-full justify-around mt-10 ">
         <div className="w-full xl:w-1/2">
-          <h3 className="text-4xl text-center mb-8">Programming Languages</h3>
+          <h4 className="text-4xl text-center mb-8">Programming Languages</h4>
           <div className="px-5 md:px-32 Yan-text">
             {programmingLangs.map((jsx, i) => (
               <React.Fragment key={`lang-${i}`}>{jsx()}</React.Fragment>
@@ -44,7 +45,7 @@ const Skills = () => {
         </div>
 
         <div className="w-full xl:w-1/2 mt-5  sm:mt-0">
-          <h3 className="text-4xl text-center mb-8">Other</h3>
+          <h4 className="text-4xl text-center mb-8">Others</h4>
 
           <div className="flex flex-wrap flex-col sm:flex-row sm:justify-between items-end px-5 md:px-32 Yan-text">
             {notableSKills.map((note_skill, i) => (

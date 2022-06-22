@@ -28,7 +28,7 @@ const Projects = () => {
             onClick={() => {
               onTabClick(index);
             }}
-            className={`px-3 py-1  mx-3  ${
+            className={`px-3 py-1  mx-3 mb-2  ${
               selectedIndex === index
                 ? "bg-LJ_LightBlue text-black"
                 : "bg-LG_Green hover:bg-LJ_LightBlue hover:text-black"

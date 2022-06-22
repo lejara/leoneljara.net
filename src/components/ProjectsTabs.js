@@ -14,9 +14,9 @@ const Tab1 = () => {
         link="https://datwitchcharades.page/"
       >
         <p>
-          Web App that streamers on the platform Twtich.tv to play charades with
-          viewers in the chat. Was recived with great sucess by thousands of
-          visitors and spectators.
+          Allows streamers on Twtich.tv to play charades with viewers in their
+          chat. Was recived with great sucess by thousands of visitors and
+          spectators.
         </p>
         <p className="mt-4">Made with React and Twitch API.</p>
       </Card>
@@ -33,7 +33,7 @@ const Tab1 = () => {
           a higher score.
         </p>
         <p className="mt-4">
-          Made with React, Twitch API and Three.js. Used a pre-trained AI model
+          Made with React, Twitch API and ThreeJS. Used a pre-trained AI model
           to pick options for certain categories
         </p>
       </Card>

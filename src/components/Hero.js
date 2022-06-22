@@ -15,10 +15,10 @@ const Hero = ({ bg }) => {
           <div className="hero__title mx-5">
             <h1>Leonel</h1>
             <h1 className="hero__second">Jara</h1>
-            <h2 className="hero__adword text-left">
+            <h2 className="text-white hero__adword text-left">
               {won
                 ? "Knows Your The Best!"
-                : "Web Dev/Game Dev/Random Little Creations"}
+                : "Web Dev/Game Dev/Anything In Between"}
             </h2>
           </div>
         </div>
