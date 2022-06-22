@@ -26,7 +26,7 @@ const Layout = ({
         <meta property="og:description" content={description} />
       </Helmet>
 
-      <main>{children}</main>
+      <main style={{ minWidth: "350px", minHeight: "675px" }}>{children}</main>
     </>
   );
 };
