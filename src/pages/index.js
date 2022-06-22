@@ -38,9 +38,9 @@ const IndexPage = () => {
             <Projects />
           </ParallaxLayer>
 
-          <ParallaxLayer offset={3} speed={0.5}>
+          {/* <ParallaxLayer offset={3} speed={0.5}>
             <Contact />
-          </ParallaxLayer>
+          </ParallaxLayer> */}
           <Footer />
         </Parallax>
       </GameContextProvider>

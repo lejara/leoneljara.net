@@ -41,7 +41,7 @@ const Projects = () => {
 
       <div
         key={`tab-${selectedIndex}`}
-        className="flex-col flex lg:flex-row justify-center items-center max-w-7xl mx-auto py-10 gap-y-10"
+        className="flex-col flex lg:flex-row justify-center items-center max-w-7xl mx-auto py-10 gap-y-10 w-full"
       >
         {tabs[selectedIndex].tab()}
       </div>
