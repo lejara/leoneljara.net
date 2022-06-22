@@ -12,16 +12,18 @@ import Background from "../components/Background";
 import Footer from "../components/Footer";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import ArrowDown from "../images/down-arrow.svg";
+import useWindowDimensions from "../utils/useWindowDimensions";
 
 const IndexPage = () => {
   const bg = React.useRef();
+  const { width } = useWindowDimensions();
 
   return (
     <Layout>
       <GameContextProvider>
         <Background bg_containerRef={bg} />
 
-        <Parallax pages={4}>
+        <Parallax pages={width < 1024 ? 5 : 4} key={`parallax ${width}`}>
           <ParallaxLayer offset={0} speed={4} className="relative">
             <Hero bg={bg} />
             <hr className="hero-break" />
@@ -38,9 +40,9 @@ const IndexPage = () => {
             <Projects />
           </ParallaxLayer>
 
-          {/* <ParallaxLayer offset={3} speed={0.5}>
+          <ParallaxLayer offset={width < 1024 ? 4 : 3} speed={0.5}>
             <Contact />
-          </ParallaxLayer> */}
+          </ParallaxLayer>
           <Footer />
         </Parallax>
       </GameContextProvider>
