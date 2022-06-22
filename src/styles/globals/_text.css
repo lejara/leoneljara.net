@@ -30,6 +30,10 @@ a:hover {
   text-decoration: underline;
 }
 
+.Yan-text {
+  font-family: Yantramanav-Regular;
+}
+
 /* Titles */
 .text-title {
   font-size: 4rem;
