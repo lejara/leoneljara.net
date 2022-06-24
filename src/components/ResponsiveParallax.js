@@ -68,7 +68,7 @@ const ResponsiveParallax = ({ sections }) => {
   return (
     <Parallax
       pages={calcPages()}
-      key={`para-${accHeight}-${layerOffsets[1]}`}
+      key={`para-${accHeight}}`}
       enabled={accHeight ? true : false}
     >
       {sections.map((section, index) => {
