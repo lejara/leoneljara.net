@@ -21,7 +21,7 @@ const notableSKills = [
   "Webpack",
   "Docker",
   "React/Vue",
-  "CI/CD/Jest",
+  "Dev Ops",
   "ThreeJS/BabylonJS",
   "Git",
   "Socket.IO",

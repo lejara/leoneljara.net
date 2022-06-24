@@ -29,7 +29,7 @@ const Tab1 = () => {
       >
         <p>
           Guessing game with gimmicks for finding the answer. Players guess in a
-          livestream and has 6 options to choose from. The fastest correct gets
+          livestream and have 6 options to choose from. The fastest correct gets
           a higher score.
         </p>
         <p className="mt-4">
