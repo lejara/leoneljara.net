@@ -23,7 +23,7 @@ const ResponsiveParallax = ({ sections }) => {
     sectionRef5,
   ];
 
-  const pagesFactor = 200;
+  const pagesFactor = 400;
   const sectionFactor = 7000;
 
   React.useEffect(() => {
@@ -62,7 +62,9 @@ const ResponsiveParallax = ({ sections }) => {
 
   const calcOffset = (offset, heightState, viewport_height) => {
     const factor = sectionFactor - (sectionFactor / viewport_height) * 300;
-    return (heightState * 3) / factor + offset;
+    const offsetValue =
+      (heightState * 3) / (factor < 0 ? 500 : factor) + offset;
+    return offsetValue;
   };
 
   return (
