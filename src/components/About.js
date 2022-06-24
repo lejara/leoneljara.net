@@ -8,20 +8,20 @@ const About = () => {
       <div className="about">
         <div className="flex flex-col justify-center items-center">
           <div>
-            <div className="text-3xl p-2 max-w-3xl about__text">
+            <div className="text-3xl px-5 max-w-3xl about__text">
               <p>
                 Web and Game Development are my biggest passion. Always trying
                 to push my technical and soft skills further. I excel in
-                self-motivation, good work ethic, teamwork and leadership
+                self-motivation, good work ethic and teamwork.
               </p>
 
               <p className="mt-5">
-                Here you will find here some of my project that I am willing to
-                make public. There will be many more to come.
+                Here you will find here some projects I took part in or made.
+                There will be many more to come.
               </p>
 
               <p className="mt-5 text-base opacity-80">
-                Also Known on the Internet: Leption, Lejara
+                Also Known As: Leption, Lejara
               </p>
             </div>
             <div className="about__socials p-2">
