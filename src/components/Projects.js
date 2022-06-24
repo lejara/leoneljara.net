@@ -18,7 +18,7 @@ const Projects = () => {
   };
 
   return (
-    <div className="block-component">
+    <div>
       <h2 className="text-title">Previous Works</h2>
       <h3 className="text-subtitle">If theres a will, theres a way.</h3>
       <div className="text-center text-xl mt-2">

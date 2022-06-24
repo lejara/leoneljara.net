@@ -58,7 +58,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="block-component contact">
+    <div className="contact">
       <h2 className="text-title">Contact Me</h2>
       <h2 className="text-subtitle">Want To have Chat? Sure!</h2>
       <div className="contact__wrapper mt-8">

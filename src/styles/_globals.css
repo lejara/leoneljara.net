@@ -22,11 +22,6 @@ $inputBG-color: $secondary-color;
 
 $footer-height: 3rem;
 
-/* Component Block*/
-.block-component {
-  @apply py-8;
-}
-
 .block-break {
   border-top: 2px dashed $linebreak-color;
   width: 100%;

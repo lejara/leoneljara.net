@@ -5,7 +5,7 @@ import TwitterIcon from "../images/svg/twitter.inline.svg";
 const About = () => {
   return (
     <>
-      <div className="block-component about">
+      <div className="about">
         <div className="flex flex-col justify-center items-center">
           <div>
             <div className="text-3xl p-2 max-w-3xl about__text">
