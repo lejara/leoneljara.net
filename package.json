@@ -16,7 +16,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "deploy": "gatsby build && gh-pages -d public"
+    "deploy": "echo 'leoneljara.net' > ./public/CNAME && gatsby build && gh-pages -d public"
   },
   "dependencies": {
     "@headlessui/react": "^1.6.5",
@@ -29,7 +29,7 @@
     "gatsby-plugin-react-svg": "^3.0.1",
     "gatsby-plugin-sharp": "^3.11.0",
     "gatsby-plugin-sitemap": "^4.7.0",
-    "gatsby-source-filesystem": "^3.11.0",
+    "gatsby-source-filesystem": "^4.17.0",
     "gatsby-transformer-sharp": "^3.11.0",
     "postcss-nested-vars": "^1.0.0",
     "react": "^17.0.2",
