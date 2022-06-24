@@ -29,7 +29,7 @@ const Hero = ({ bg }) => {
 
       <hr className="hero-break" />
 
-      <span className="transform  absolute bottom-3 left-1/2 -translate-x-1/2 hidden md:block">
+      <span className="transform  absolute bottom-3 left-1/2 -translate-x-1/2 hidden lg:block">
         <img src={ArrowDown} className="w-12 h-12" />
       </span>
     </div>

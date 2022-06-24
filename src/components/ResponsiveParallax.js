@@ -23,7 +23,7 @@ const ResponsiveParallax = ({ sections }) => {
     sectionRef5,
   ];
 
-  const pagesFactor = 400;
+  const pagesFactor = 300;
   const sectionFactor = 7000;
 
   React.useEffect(() => {
@@ -84,7 +84,7 @@ const ResponsiveParallax = ({ sections }) => {
           </ParallaxLayer>
         );
       })}
-      <Footer />
+      <Footer innerStyle={"absolute bottom-0"} />
     </Parallax>
   );
 };

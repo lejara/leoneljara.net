@@ -10,7 +10,7 @@ const Card = ({
   className,
 }) => {
   return (
-    <div className={` mx-3 w-screen lg:w-120 relative ${className}`}>
+    <div className={` px-3 w-full lg:w-120 relative ${className}`}>
       {image_src ? (
         <img
           className="card__image"
@@ -34,7 +34,7 @@ const Card = ({
           {link && (
             <div className="card__action--link mt-2">
               <a
-                className="link-primary text-xl absolute bottom-8 left-4"
+                className="link-primary text-xl absolute bottom-8 left-7"
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"
