@@ -16,7 +16,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "deploy": "echo 'leoneljara.net' > ./public/CNAME && gatsby build && gh-pages -d public"
+    "deploy": "echo leoneljara.net > ./public/CNAME && gatsby build && gh-pages -d public"
   },
   "dependencies": {
     "@headlessui/react": "^1.6.5",
