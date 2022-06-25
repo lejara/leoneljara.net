@@ -121,19 +121,28 @@ const Tab2 = () => {
       </Card>
 
       <Card
-        title="Keep Getting Rings"
-        link="https://github.com/lejara/KeepGettingRings"
+        title="Gun Over"
+        link="https://leption.itch.io/gunover"
         titleTop={true}
       >
         <p>
-          Little hack, you have to keep getting rings in Sonic The Hedgehog 2.
-          If not the level resets
+          Small Top Down Shooter. Player must kill a certain ammount of enemies
+          to clear the level before timer runs out
         </p>
-        <p className="mt-4">An Open-source project. Made using Python</p>
+        <p className="mt-4">Made in Unreal Engine 4 with Blueprints</p>
       </Card>
 
       <Card title="Other Games" titleTop={true}>
         <p>
+          <a
+            className="link-primary text-xl block my-2"
+            href="https://github.com/lejara/KeepGettingRings"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="text-white">-</span>
+            <span> KeepGettingRings</span>
+          </a>
           <a
             className="link-primary text-xl block my-2"
             href="https://www.spigotmc.org/resources/dagrouphardcore.72389/"
