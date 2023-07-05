@@ -7,16 +7,17 @@ const Hero = ({ bg }) => {
   const { playing, won } = React.useContext(gameContext);
   return (
     <div>
-      <div className="py-16 hero mb-2">
+      <div className="py-16 text-center mb-2 relative">
+        {/* height must be 456px so the game floor is aligned with the box */}
         <div
-          className={`hero__content mx-auto ${
+          style={{ height: "456px" }}
+          className={`flex justify-center items-center transition-all duration-700 mx-auto ${
             playing ? "opacity-0 invisible" : "opacity-100 visible"
           }`}
         >
-          <div className="hero__title mx-5">
-            <h1>Leonel</h1>
-            <h1 className="hero__second">Jara</h1>
-            <h2 className="text-white hero__adword text-left">
+          <div className="text-LJ_Orange mx-5 flex flex-wrap justify-center gap-0">
+            <h1 className=" text-9xl lg:text-title h-full">Leonel Jara</h1>
+            <h2 className="text-white text-3xl lg:text-5xl w-full text-center">
               {won ? "Knows Your The Best!" : "Front-End Web Developer"}
             </h2>
           </div>
@@ -25,11 +26,8 @@ const Hero = ({ bg }) => {
         <Game bg={bg} />
       </div>
 
-      <hr className="hero-break" />
-
-      {/* <span className="transform  absolute bottom-3 left-1/2 -translate-x-1/2 hidden lg:block">
-        <img src={ArrowDown} className="w-12 h-12" />
-      </span> */}
+      {/* game floor */}
+      <hr className="w-full border-t-2 opacity-75" />
     </div>
   );
 };

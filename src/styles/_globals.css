@@ -5,34 +5,11 @@
 
 /* Color Vars */
 $primary-color: #00bf8c;
-$secondary-color: #50c8e8;
-$error-color: #e1341e;
-$linebreak-color: #959595;
-$title-color: #fdb215;
 $text-color: white;
 $scrollbar-color: #a19f9f;
 
 /* Background colors */
 $bg-color: #1e1e1e;
-$projectsBg-color: rgba(8, 42, 104, 0);
-$footerBg-color: #0f0f0f;
-$footerHr-color: $linebreak-color;
-$card-color: #0f0f0f;
-$inputBG-color: $secondary-color;
-
-$footer-height: 3rem;
-
-.block-break {
-  border-top: 2px dashed $linebreak-color;
-  width: 100%;
-  opacity: 0.5;
-}
-
-.hero-break {
-  border-top: 4px solid $linebreak-color;
-  width: 100%;
-  opacity: 0.7;
-}
 
 /* Scrollbar */
 * {
@@ -77,10 +54,34 @@ canvas:focus {
   outline: none;
 }
 
-.page-container {
-  position: relative;
-  min-height: 100vh;
+/* Font */
+@font-face {
+  font-family: Yantramanav-Black;
+  src: url("../fonts/Yantramanav-Black.ttf");
+  font-display: swap;
 }
-.content-wrap {
-  padding-bottom: 2.5rem; /* Footer height */
+
+@font-face {
+  font-family: Cairo;
+  src: url("../fonts/Cairo-Bold.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Yantramanav-Regular;
+  src: url("../fonts/Yantramanav-Regular.ttf");
+  font-display: swap;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: $primary-color;
+  text-decoration: underline;
+}
+
+.Yan-text {
+  font-family: Yantramanav-Regular;
 }

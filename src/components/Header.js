@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 
 const Header = () => {
   return (
-    <header className="header m-0 p-2">
+    <header className="h-20 m-0 p-2">
       <div className="menu float-right mr-4"></div>
     </header>
   );

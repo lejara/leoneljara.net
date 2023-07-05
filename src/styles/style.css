@@ -1,17 +1,5 @@
 /* --Globals-- */
 @import "./_globals.css";
 
-/* Text */
-@import "./globals/_text.css";
-
 /* Animations */
 @import "./globals/_animations.css";
-
-/* --Components-- */
-@import "./components/_header.css";
-@import "./components/_hero.css";
-@import "./components/_game.css";
-@import "./components/_about.css";
-@import "./components/_card.css";
-@import "./components/_contact.css";
-@import "./components/_footer.css";

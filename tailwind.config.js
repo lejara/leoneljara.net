@@ -32,7 +32,7 @@ module.exports = {
         152: "38rem",
       },
       fontSize: {
-        title: "14rem",
+        title: ["12rem", "1"],
       },
       screens: {
         xs: "320px",

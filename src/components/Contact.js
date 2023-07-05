@@ -58,15 +58,11 @@ const Contact = () => {
   };
 
   return (
-    <div className="contact">
-      <h2 className="text-title">Contact Me</h2>
-      <h2 className="text-subtitle">Want To have Chat? Sure!</h2>
-      <div className="contact__wrapper mt-8">
-        <form
-          id="contact-form"
-          className="contact__form"
-          onSubmit={formShowCaptcha}
-        >
+    <div className="">
+      <h2 className="">Contact Me</h2>
+      <h2 className="">Want To have Chat? Sure!</h2>
+      <div className="mt-8">
+        <form id="contact-form" className="" onSubmit={formShowCaptcha}>
           <input type="hidden" name="contact_number" />
           <label htmlFor="user_name">Name</label>
           <input
@@ -100,7 +96,7 @@ const Contact = () => {
               setMessage(e.target.value);
             }}
             value={message}
-            className="contact__message mb-6"
+            className="mb-6"
             required
           />
           <button
@@ -108,7 +104,7 @@ const Contact = () => {
             type="submit"
             value="Send"
             className={`bg-LJ_Green text-lg hover:bg-LJ_LightBlue text-black ${
-              hasError ? "contact__button--error" : ""
+              hasError ? "text-red-400" : ""
             }`}
           >
             {submitBtn}

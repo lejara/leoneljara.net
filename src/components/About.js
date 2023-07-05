@@ -5,10 +5,10 @@ import TwitterIcon from "../images/svg/twitter.inline.svg";
 const About = () => {
   return (
     <>
-      <div className="about">
+      <div className="">
         <div className="flex flex-col justify-center items-center">
           <div>
-            <div className="text-3xl px-5 max-w-3xl about__text">
+            <div className="text-3xl px-5 max-w-3xl">
               true meaning is desgin arc. 3 desgin engineearing princeables.
               testing, moduldary, keeping it simple
               <p>
@@ -24,7 +24,7 @@ const About = () => {
                 Also Known As: Leption, Lejara
               </p>
             </div>
-            <div className="about__socials p-2">
+            <div className="p-2">
               <p className="text-center text-lg">Socials</p>
               <div className="flex justify-center mt-1">
                 <a

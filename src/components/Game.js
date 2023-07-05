@@ -202,7 +202,7 @@ const Game = ({ bg }) => {
       ></canvas>
 
       <div
-        className={`game__instructions ${
+        className={` absolute right-1/2 transform translate-x-1/2 top-28 transition-opacity duration-500 ease-in ${
           playing && !playerMoved
             ? "opacity-100 visible"
             : "opacity-0 invisible"
@@ -216,11 +216,17 @@ const Game = ({ bg }) => {
           width={330}
         />
 
-        <SpriteArrows height="100" width="100" className="game__arrows" />
+        <SpriteArrows
+          height="100"
+          width="100"
+          className=" mx-auto transform translate-y-16"
+        />
       </div>
 
       <div
-        className={`game__btnContainer ${playing ? "invisible" : "visible"}`}
+        className={`absolute right-1/2 transform translate-x-1/2  ${
+          playing ? "invisible" : "visible"
+        }`}
       >
         <button
           disabled={started}
@@ -229,7 +235,11 @@ const Game = ({ bg }) => {
             awake();
           }}
           aria-label="play mini game"
-          className="game__btn"
+          style={{
+            width: "25px",
+            height: "25px",
+            transform: "translate(0, -25px)",
+          }}
         >
           <GameIcon />
         </button>

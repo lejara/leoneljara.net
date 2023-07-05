@@ -30,8 +30,8 @@ const notableSKills = [
 const Skills = () => {
   return (
     <div className="w-full">
-      <h2 className="text-title">Technical Skills</h2>
-      <h3 className="text-subtitle">Always Expanding</h3>
+      <h2 className="">Technical Skills</h2>
+      <h3 className="">Always Expanding</h3>
 
       <div className="flex flex-col xl:flex-row w-full justify-around mt-10 ">
         <div className="w-full xl:w-1/2">
