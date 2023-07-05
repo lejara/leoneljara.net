@@ -2,6 +2,7 @@ import * as React from "react";
 import gameContext from "../context/gameContext";
 import Game from "../components/Game";
 import ArrowDown from "../images/down-arrow.svg";
+import { Transition } from "@headlessui/react";
 
 const Hero = ({ bg }) => {
   const { playing, won } = React.useContext(gameContext);
@@ -27,7 +28,19 @@ const Hero = ({ bg }) => {
       </div>
 
       {/* game floor */}
-      <hr className="w-full border-t-2 opacity-75" />
+      <div className="relative h-1">
+        <Transition
+          show={playing}
+          enter="transition-opacity duration-500 ease-in"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="transition-opacity duration-500"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+        >
+          <hr className=" absolute w-full border-t-2 opacity-75" />
+        </Transition>
+      </div>
     </div>
   );
 };
