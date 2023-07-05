@@ -16,8 +16,7 @@ import Footer from "../components/Footer";
 
 const IndexPage = () => {
   const bg = React.useRef();
-  const { width } = useWindowDimensions();
-  const lg = 992;
+
   const sections = [
     <Hero bg={bg} />,
     <About />,
@@ -30,22 +29,12 @@ const IndexPage = () => {
     <Layout>
       <GameContextProvider>
         <Background bg_containerRef={bg} />
-
-        {width > lg ? (
-          <ResponsiveParallax sections={sections} />
-        ) : (
-          <>
-            {sections.map((section, index) => (
-              <div
-                key={`section-${index}`}
-                className={`${index !== 0 && "py-56"}`}
-              >
-                {section}
-              </div>
-            ))}
-            <Footer />
-          </>
-        )}
+        {sections.map((section, index) => (
+          <div key={`section-${index}`} className={`${index !== 0 && "py-56"}`}>
+            {section}
+          </div>
+        ))}
+        <Footer />
       </GameContextProvider>
     </Layout>
   );

@@ -17,9 +17,7 @@ const Hero = ({ bg }) => {
             <h1>Leonel</h1>
             <h1 className="hero__second">Jara</h1>
             <h2 className="text-white hero__adword text-left">
-              {won
-                ? "Knows Your The Best!"
-                : "Web Dev/Game Dev/Anything In Between"}
+              {won ? "Knows Your The Best!" : "Front-End Web Developer"}
             </h2>
           </div>
         </div>
@@ -29,9 +27,9 @@ const Hero = ({ bg }) => {
 
       <hr className="hero-break" />
 
-      <span className="transform  absolute bottom-3 left-1/2 -translate-x-1/2 hidden lg:block">
+      {/* <span className="transform  absolute bottom-3 left-1/2 -translate-x-1/2 hidden lg:block">
         <img src={ArrowDown} className="w-12 h-12" />
-      </span>
+      </span> */}
     </div>
   );
 };

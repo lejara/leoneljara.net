@@ -2,14 +2,13 @@ import * as React from "react";
 import Star from "../images/svg/star-solid.svg";
 
 const programmingLangs = [
-  () => SkillWithStars("Javascript / TypeScript", 4),
-  () => SkillWithStars("C#", 3),
+  () => SkillWithStars("Javascript / TypeScript", 5),
+  () => SkillWithStars("C#", 4),
   () => SkillWithStars("Python", 4),
-  () => SkillWithStars("Java", 3),
-  () => SkillWithStars("Rust", 1),
-  () => SkillWithStars("C/C++", 2),
-  () => SkillWithStars("Bash", 1),
+  () => SkillWithStars("C/C++", 3),
+  () => SkillWithStars("Bash", 3),
   () => SkillWithStars("SQL", 3),
+  () => SkillWithStars("Java", 2),
 ];
 
 const notableSKills = [
@@ -20,12 +19,12 @@ const notableSKills = [
   "MongoDB/MySQL",
   "Webpack",
   "Docker",
-  "React/Vue",
-  "Dev Ops",
+  "React/Vue/Svelte",
+  "Dev Ops and CI",
   "ThreeJS/BabylonJS",
   "Git",
-  "Socket.IO",
   "Google Analytics/Tags",
+  "3D Modeling and Sculpting",
 ];
 
 const Skills = () => {
@@ -47,7 +46,9 @@ const Skills = () => {
         </div>
 
         <div className="w-full xl:w-1/2 mt-5  sm:mt-0">
-          <h4 className="text-4xl text-center mb-8 opacity-80">Others</h4>
+          <h4 className="text-4xl text-center mb-8 opacity-80">
+            Notable Skills
+          </h4>
 
           <div className="flex flex-wrap flex-col sm:flex-row sm:justify-between items-end px-5 md:px-32 Yan-text">
             {notableSKills.map((note_skill, i) => (

@@ -11,7 +11,7 @@ const Tab1 = () => {
         title="Da Stream Charades"
         image_src={dtc_icon}
         image_alt="Logo of Twitch Charades"
-        link="https://datwitchcharades.page/"
+        link="https://dastreamcharades.net/"
       >
         <p>
           Allows streamers on Twtich.tv to play charades with viewers in their
@@ -33,8 +33,8 @@ const Tab1 = () => {
           a higher score.
         </p>
         <p className="mt-4">
-          Made with React, Twitch API and ThreeJS. Used a pre-trained AI model
-          to pick options for certain categories
+          Made with React, Twitch API and ThreeJS. Uses a pre-trained AI model
+          tools to pick options
         </p>
       </Card>
 
