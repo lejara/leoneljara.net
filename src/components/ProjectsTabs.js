@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Transition } from "@headlessui/react";
 import dtc_icon from "../images/DTC_ICON.png";
 import sol_icon from "../images/SOL_ICON.png";
 import botc_icon from "../images/BOTC_ICON.png";
@@ -58,17 +59,7 @@ const webCards = [
           link: "https://github.com/elastic/eui",
         },
       ];
-      return links.map((obj) => (
-        <a
-          className="link-primary text-xl block my-2"
-          href={obj.link}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="text-white">-</span>
-          <span> {obj.name}</span>
-        </a>
-      ));
+      return listLinks(links);
     },
     image: null,
     link: null,
@@ -123,17 +114,7 @@ const gameCards = [
         },
       ];
 
-      return links.map((obj) => (
-        <a
-          className="link-primary text-xl block my-2"
-          href={obj.link}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="text-white">-</span>
-          <span> {obj.name}</span>
-        </a>
-      ));
+      return listLinks(links);
     },
     image: null,
     link: "",
@@ -155,32 +136,49 @@ const otherCards = [
         },
       ];
 
-      return links.map((obj) => (
-        <a
-          className="link-primary text-xl block my-2"
-          href={obj.link}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="text-white">-</span>
-          <span> {obj.name}</span>
-        </a>
-      ));
+      return listLinks(links);
     },
     image: null,
     link: null,
   },
 ];
-const listCards = (list) => {
-  return list.map((data) => (
-    <Card
-      title={data.title}
-      image_src={data.image}
-      image_alt={`Logo  of ${data.title}`}
-      link={data.link}
+const listLinks = (links) => {
+  return links.map((obj, index) => (
+    <a
+      key={`name-${obj.name}-${index}`}
+      className="link-primary text-xl block my-2"
+      href={obj.link}
+      target="_blank"
+      rel="noopener noreferrer"
     >
-      {data.body()}
-    </Card>
+      <span className="text-white">-</span>
+      <span> {obj.name}</span>
+    </a>
+  ));
+};
+const listCards = (list) => {
+  const delayMap = ["delay-100", "delay-200", "delay-300"];
+  return list.map((data, index) => (
+    <Transition
+      key={`card-${index}`}
+      appear={true}
+      show={true}
+      enter={`transition-all ease-in ${delayMap[index]} duration-300`}
+      enterFrom="opacity-0 transform -translate-x-60"
+      enterTo="opacity-100"
+      // leave="transition-opacity duration-700"
+      // leaveFrom="opacity-100"
+      // leaveTo="opacity-0"
+    >
+      <Card
+        title={data.title}
+        image_src={data.image}
+        image_alt={`Logo  of ${data.title}`}
+        link={data.link}
+      >
+        {data.body()}
+      </Card>
+    </Transition>
   ));
 };
 

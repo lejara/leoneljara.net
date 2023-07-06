@@ -2,7 +2,6 @@ import * as React from "react";
 import gameContext from "../context/gameContext";
 import { Tab1, Tab2, Tab3 } from "./ProjectsTabs";
 import { Tab } from "@headlessui/react";
-import { Transition } from "@headlessui/react";
 import SectionTitle from "./SectionTitle";
 
 const Projects = () => {
@@ -42,21 +41,11 @@ const Projects = () => {
         </Tab.List>
         <Tab.Panels className="max-w-7xl mx-auto">
           {tabs.map((tabObj, index) => (
-            <Tab.Panel as={React.Fragment} key={`tab-panel-${index}`}>
-              <Transition
-                appear={true}
-                show={selectedIndex === index}
-                className="flex-col flex lg:flex-row justify-center items-center gap-y-10 w-full"
-                enter={`transition-opacity ease-in duration-500`}
-                enterFrom="opacity-0"
-                enterTo="opacity-100"
-                leave="transition-opacity duration-500"
-                leaveFrom="opacity-100"
-                leaveTo="opacity-0"
-              >
-                {console.log(tabObj.duration)}
-                {tabObj.tab()}
-              </Transition>
+            <Tab.Panel
+              key={`tab-panel-${index}`}
+              className="w-full flex lg:flex-row justify-center items-center gap-y-10"
+            >
+              {tabObj.tab()}
             </Tab.Panel>
           ))}
         </Tab.Panels>
