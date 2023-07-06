@@ -1,5 +1,10 @@
 import * as React from "react";
 
+const options = {
+  image_height: 145,
+  image_width: 145,
+};
+
 const Card = ({
   title,
   children,
@@ -10,37 +15,39 @@ const Card = ({
   className,
 }) => {
   return (
-    <div className={` px-3 w-full lg:w-120 relative ${className}`}>
+    <div className={`px-3 w-full lg:w-120 relative ${className}`}>
       {image_src ? (
         <img
-          className=""
+          className="transform relative translate-y-8 left-1/2 -translate-x-1/2"
           src={image_src}
           alt={image_alt}
-          height={130}
-          width={130}
+          height={options.image_height}
+          width={options.image_width}
         />
       ) : (
-        <div className="m-0" style={{ width: "130px", height: "130px" }}></div>
+        <div
+          className="m-0"
+          style={{
+            width: `${options.image_width}px`,
+            height: `${options.image_height}px`,
+          }}
+        ></div>
       )}
 
-      <div className="w-full p-5">
-        <div className={`${!titleTop && "mt-16"}`}>
-          <h3 className="text-3xl mb-3">{title}</h3>
-          <div className="text-xl">{children}</div>
+      <div className="bg-gray-700 h-125 w-full p-5 pt-16 flex flex-col gap-11 rounded-md">
+        <h3 className="text-3xl">{title}</h3>
+        <div className="text-xl">{children}</div>
 
+        <div className="mt-2 self-end">
           {link && (
-            <div className="mt-2">
-              <a
-                className="link-primary text-xl absolute bottom-8 left-7"
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Have a Look →
-              </a>
-              {/* Placeholder */}
-              <div className=" pb-9"></div>
-            </div>
+            <a
+              className="text-xl absolute bottom-8 left-7 underline"
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Have a Look →
+            </a>
           )}
         </div>
       </div>

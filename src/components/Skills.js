@@ -3,11 +3,10 @@ import Star from "../images/svg/star-solid.svg";
 
 const programmingLangs = [
   () => SkillWithStars("Javascript / TypeScript", 5),
-  () => SkillWithStars("C#", 4),
   () => SkillWithStars("Python", 4),
+  () => SkillWithStars("C#", 4),
   () => SkillWithStars("C/C++", 3),
   () => SkillWithStars("Bash", 3),
-  () => SkillWithStars("SQL", 3),
   () => SkillWithStars("Java", 2),
 ];
 

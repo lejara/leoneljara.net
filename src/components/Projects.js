@@ -1,6 +1,7 @@
 import * as React from "react";
 import gameContext from "../context/gameContext";
 import { Tab1, Tab2, Tab3 } from "./ProjectsTabs";
+import SectionTitle from "./SectionTitle";
 
 const Projects = () => {
   const { won } = React.useContext(gameContext);
@@ -18,10 +19,10 @@ const Projects = () => {
   };
 
   return (
-    <div>
-      <h2 className="text-title">Previous Works</h2>
-      <h3 className="text-subtitle">If theres a will, theres a way.</h3>
-      <div className="text-center text-xl mt-2">
+    <div className=" flex flex-col gap-12">
+      <SectionTitle title={"Previous Works"} />
+
+      <div className="text-2xl">
         {tabs.map((tabObj, index) => (
           <button
             key={`tab-buttons-${index}`}
@@ -41,7 +42,7 @@ const Projects = () => {
 
       <div
         key={`tab-${selectedIndex}`}
-        className="flex-col flex lg:flex-row justify-center items-center max-w-7xl mx-auto py-10 gap-y-10 w-full"
+        className="flex-col flex lg:flex-row justify-center items-center max-w-7xl mx-auto gap-y-10 w-full"
       >
         {tabs[selectedIndex].tab()}
       </div>
