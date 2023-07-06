@@ -1,6 +1,8 @@
 import * as React from "react";
 import gameContext from "../context/gameContext";
 import { Tab1, Tab2, Tab3 } from "./ProjectsTabs";
+import { Tab } from "@headlessui/react";
+import { Transition } from "@headlessui/react";
 import SectionTitle from "./SectionTitle";
 
 const Projects = () => {
@@ -21,31 +23,44 @@ const Projects = () => {
   return (
     <div className=" flex flex-col gap-12">
       <SectionTitle title={"Previous Works"} />
-
-      <div className="text-2xl">
-        {tabs.map((tabObj, index) => (
-          <button
-            key={`tab-buttons-${index}`}
-            onClick={() => {
-              onTabClick(index);
-            }}
-            className={`px-3 py-1  mx-3 mb-2  ${
-              selectedIndex === index
-                ? "bg-LJ_LightBlue text-black"
-                : "bg-LJ_Green hover:bg-LJ_LightBlue text-black"
-            }`}
-          >
-            {tabObj.title}
-          </button>
-        ))}
-      </div>
-
-      <div
-        key={`tab-${selectedIndex}`}
-        className="flex-col flex lg:flex-row justify-center items-center max-w-7xl mx-auto gap-y-10 w-full"
-      >
-        {tabs[selectedIndex].tab()}
-      </div>
+      <Tab.Group onChange={(index) => onTabClick(index)}>
+        <Tab.List className="text-2xl">
+          {tabs.map((tabObj, index) => (
+            <Tab as={React.Fragment} key={`tab-${index}`}>
+              <button
+                key={`tab-buttons-${index}`}
+                className={`px-3 py-1  mx-3 mb-2  ${
+                  selectedIndex === index
+                    ? "bg-LJ_LightBlue text-black"
+                    : "bg-LJ_Green hover:bg-LJ_LightBlue text-black"
+                }`}
+              >
+                {tabObj.title}
+              </button>
+            </Tab>
+          ))}
+        </Tab.List>
+        <Tab.Panels className="max-w-7xl mx-auto">
+          {tabs.map((tabObj, index) => (
+            <Tab.Panel as={React.Fragment} key={`tab-panel-${index}`}>
+              <Transition
+                appear={true}
+                show={selectedIndex === index}
+                className="flex-col flex lg:flex-row justify-center items-center gap-y-10 w-full"
+                enter={`transition-opacity ease-in duration-500`}
+                enterFrom="opacity-0"
+                enterTo="opacity-100"
+                leave="transition-opacity duration-500"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+              >
+                {console.log(tabObj.duration)}
+                {tabObj.tab()}
+              </Transition>
+            </Tab.Panel>
+          ))}
+        </Tab.Panels>
+      </Tab.Group>
     </div>
   );
 };

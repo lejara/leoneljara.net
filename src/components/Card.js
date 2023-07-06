@@ -5,15 +5,7 @@ const options = {
   image_width: 145,
 };
 
-const Card = ({
-  title,
-  children,
-  image_src,
-  image_alt,
-  link,
-  titleTop = false,
-  className,
-}) => {
+const Card = ({ title, children, image_src, image_alt, link, className }) => {
   return (
     <div className={`px-3 w-full lg:w-120 relative ${className}`}>
       {image_src ? (

@@ -4,29 +4,26 @@ import sol_icon from "../images/SOL_ICON.png";
 import botc_icon from "../images/BOTC_ICON.png";
 import Card from "./Card";
 
-const Tab1 = () => {
-  return (
-    <>
-      <Card
-        title="Da Stream Charades"
-        image_src={dtc_icon}
-        image_alt="Logo of Twitch Charades"
-        link="https://dastreamcharades.net/"
-      >
+const webCards = [
+  {
+    title: "Da Stream Charades",
+    body: () => (
+      <>
         <p>
           Allows streamers on Twtich.tv to play charades with viewers in their
           chat. Was recived with great sucess by thousands of visitors and
           spectators.
         </p>
         <p className="mt-4">Made with React and Twitch API.</p>
-      </Card>
-
-      <Card
-        title="Battle Of The Chat"
-        image_src={botc_icon}
-        image_alt="Logo of Battle Of The Chat"
-        link="https://battleofthechat.net/"
-      >
+      </>
+    ),
+    image: dtc_icon,
+    link: "https://dastreamcharades.net/",
+  },
+  {
+    title: "Battle Of The Chat",
+    body: () => (
+      <>
         <p>
           Guessing game with gimmicks for finding the answer. Players guess in a
           livestream and have 6 options to choose from. The fastest correct gets
@@ -36,174 +33,167 @@ const Tab1 = () => {
           Made with React, Twitch API and ThreeJS. Uses a pre-trained AI model
           tools to pick options
         </p>
-      </Card>
-
-      <Card title="Contributions" titleTop={true}>
+      </>
+    ),
+    image: botc_icon,
+    link: "https://battleofthechat.net/",
+  },
+  {
+    title: "Contributions",
+    body: () => {
+      const links = [
+        { name: "gecko-dev", link: "https://github.com/mozilla/gecko-dev" },
+        { name: "Blé", link: "https://github.com/getkey/ble" },
+        {
+          name: "foundation.mozilla",
+          link: "https://github.com/mozilla/foundation.mozilla.org",
+        },
+        {
+          name: "Lightning Browser Extension",
+          link: "https://github.com/getAlby/lightning-browser-extension",
+        },
+        { name: "CadHub", link: "https://github.com/Irev-Dev/cadhub" },
+        {
+          name: "Elastic UI Framework",
+          link: "https://github.com/elastic/eui",
+        },
+      ];
+      return links.map((obj) => (
         <a
           className="link-primary text-xl block my-2"
-          href="https://github.com/mozilla/gecko-dev"
+          href={obj.link}
           target="_blank"
           rel="noopener noreferrer"
         >
           <span className="text-white">-</span>
-          <span> gecko-dev</span>
+          <span> {obj.name}</span>
         </a>
+      ));
+    },
+    image: null,
+    link: null,
+  },
+];
 
-        <a
-          className="link-primary text-xl block my-2"
-          href="https://github.com/getkey/ble"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="text-white">-</span>
-          <span> Blé</span>
-        </a>
-
-        <a
-          className="link-primary text-xl block my-2"
-          href="https://github.com/mozilla/foundation.mozilla.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="text-white">-</span>
-          <span> foundation.mozilla</span>
-        </a>
-
-        <a
-          className="link-primary text-xl block my-2"
-          href="https://github.com/getAlby/lightning-browser-extension"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="text-white">-</span>
-          <span> Lightning Browser Extension</span>
-        </a>
-
-        <a
-          className="link-primary text-xl block my-2"
-          href="https://github.com/Irev-Dev/cadhub"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="text-white">-</span>
-          <span> CadHub</span>
-        </a>
-
-        <a
-          className="link-primary text-xl block my-2"
-          href="https://github.com/elastic/eui"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="text-white">-</span>
-          <span> Elastic UI Framework</span>
-        </a>
-      </Card>
-    </>
-  );
-};
-
-const Tab2 = () => {
-  return (
-    <>
-      <Card
-        title="Solitary"
-        image_src={sol_icon}
-        image_alt="Logo of Solitary"
-        link="https://leption.itch.io/solitary"
-      >
+const gameCards = [
+  {
+    title: "Solitary",
+    body: () => (
+      <>
         <p>
           Devloped and designed the backend of the 2D Puzzle Platformer
           Solitary. Players must slove a series of puzzles through out a level
           in order to escape the decaying ship.
         </p>
         <p className="mt-4">An Open-source project. Made using Unity with C#</p>
-      </Card>
-
-      <Card
-        title="Gun Over"
-        link="https://leption.itch.io/gunover"
-        titleTop={true}
-      >
+      </>
+    ),
+    image: sol_icon,
+    link: "https://leption.itch.io/solitary",
+  },
+  {
+    title: "Gun Over",
+    body: () => (
+      <>
         <p>
           Small Top Down Shooter. Player must kill a certain ammount of enemies
           to clear the level before timer runs out
         </p>
         <p className="mt-4">Made in Unreal Engine 4 with Blueprints</p>
-      </Card>
+      </>
+    ),
+    image: null,
+    link: "https://leption.itch.io/gunover",
+  },
+  {
+    title: "Other Games",
+    body: () => {
+      const links = [
+        {
+          name: "KeepGettingRings",
+          link: "https://github.com/lejara/KeepGettingRings",
+        },
+        {
+          name: " Da Group Hardcore",
+          link: "https://www.spigotmc.org/resources/dagrouphardcore.72389/",
+        },
+        {
+          name: "Floater",
+          link: "https://github.com/lejara/Floater",
+        },
+      ];
 
-      <Card title="Other Games" titleTop={true}>
-        <p>
-          <a
-            className="link-primary text-xl block my-2"
-            href="https://github.com/lejara/KeepGettingRings"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span className="text-white">-</span>
-            <span> KeepGettingRings</span>
-          </a>
-          <a
-            className="link-primary text-xl block my-2"
-            href="https://www.spigotmc.org/resources/dagrouphardcore.72389/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span className="text-white">-</span>
-            <span> Da Group Hardcore</span>
-          </a>
-          <a
-            className="link-primary text-xl block my-2"
-            href="https://github.com/lejara/Floater"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span className="text-white">-</span>
-            <span> Floater</span>
-          </a>
-        </p>
-        <p className="mt-4"></p>
-      </Card>
-    </>
-  );
+      return links.map((obj) => (
+        <a
+          className="link-primary text-xl block my-2"
+          href={obj.link}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className="text-white">-</span>
+          <span> {obj.name}</span>
+        </a>
+      ));
+    },
+    image: null,
+    link: "",
+  },
+];
+
+const otherCards = [
+  {
+    title: "Others",
+    body: () => {
+      const links = [
+        {
+          name: "SupBot",
+          link: "https://github.com/lejara/SupBot",
+        },
+        {
+          name: "Basement Butler Bot",
+          link: "https://github.com/lejara/BasementButlerBot",
+        },
+      ];
+
+      return links.map((obj) => (
+        <a
+          className="link-primary text-xl block my-2"
+          href={obj.link}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className="text-white">-</span>
+          <span> {obj.name}</span>
+        </a>
+      ));
+    },
+    image: null,
+    link: null,
+  },
+];
+const listCards = (list) => {
+  return list.map((data) => (
+    <Card
+      title={data.title}
+      image_src={data.image}
+      image_alt={`Logo  of ${data.title}`}
+      link={data.link}
+    >
+      {data.body()}
+    </Card>
+  ));
+};
+
+const Tab1 = () => {
+  return listCards(webCards);
+};
+
+const Tab2 = () => {
+  return listCards(gameCards);
 };
 
 const Tab3 = () => {
-  return (
-    <>
-      <Card title="Others" titleTop={true}>
-        <a
-          className="link-primary text-xl block my-2"
-          href="https://github.com/lejara/SupBot"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="text-white">-</span>
-          <span> SupBot</span>
-        </a>
-
-        <a
-          className="link-primary text-xl block my-2"
-          href="https://github.com/lejara/BasementButlerBot"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="text-white">-</span>
-          <span> Basement Butler Bot</span>
-        </a>
-
-        <a className="link-primary text-xl block my-2">
-          <span className="text-white">-</span>
-          <span> Single Player Game(WIP)</span>
-        </a>
-
-        <a className="link-primary text-xl block my-2">
-          <span className="text-white">-</span>
-          <span> Multiplayer Game(WIP)</span>
-        </a>
-      </Card>
-    </>
-  );
+  return listCards(otherCards);
 };
 
 export { Tab1, Tab2, Tab3 };
