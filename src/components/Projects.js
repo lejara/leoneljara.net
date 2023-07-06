@@ -21,7 +21,7 @@ const Projects = () => {
 
   return (
     <div className=" flex flex-col gap-12">
-      <SectionTitle title={"Previous Works"} />
+      <SectionTitle title={"Previous Works"} adword="Never Ending" />
       <Tab.Group onChange={(index) => onTabClick(index)}>
         <Tab.List className="text-2xl">
           {tabs.map((tabObj, index) => (
@@ -43,7 +43,7 @@ const Projects = () => {
           {tabs.map((tabObj, index) => (
             <Tab.Panel
               key={`tab-panel-${index}`}
-              className="w-full flex lg:flex-row justify-center items-center gap-y-10"
+              className="w-full flex flex-col lg:flex-row justify-center items-center gap-y-10"
             >
               {tabObj.tab()}
             </Tab.Panel>

@@ -146,12 +146,11 @@ const listLinks = (links) => {
   return links.map((obj, index) => (
     <a
       key={`name-${obj.name}-${index}`}
-      className="link-primary text-xl block my-2"
+      className="link-primary text-xl block my-2 underline"
       href={obj.link}
       target="_blank"
       rel="noopener noreferrer"
     >
-      <span className="text-white">-</span>
       <span> {obj.name}</span>
     </a>
   ));

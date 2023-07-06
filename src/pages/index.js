@@ -30,7 +30,7 @@ const IndexPage = () => {
       <GameContextProvider>
         <Background bg_containerRef={bg} />
         {sections.map((section, index) => (
-          <div key={`section-${index}`} className={`${index !== 0 && "py-56"}`}>
+          <div key={`section-${index}`} className={`${index !== 0 && "py-16"}`}>
             {section}
           </div>
         ))}
