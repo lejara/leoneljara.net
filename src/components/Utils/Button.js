@@ -17,13 +17,15 @@ const Button = React.forwardRef(
   ) => {
     return (
       <button
-        disabled={disabled}
+        disabled={disabled || selected}
         type={type}
         value={value}
         onChange={onChange}
         onClick={onClick}
-        className={` rounded-sm p-1 ${
-          selected ? "bg-LJ_LightBlue" : "hover:bg-LJ_LightBlue bg-LJ_Green"
+        className={` rounded-sm p-1 transition-colors duration-150 ${
+          selected
+            ? "bg-LJ_LightBlue cursor-default"
+            : "hover:bg-LJ_LightBlue bg-LJ_Green"
         } text-black px-4 text-2xl ${className} ${hasError && "text-red-400"}`}
       >
         {children}
