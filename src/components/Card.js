@@ -26,8 +26,12 @@ const Card = ({ title, children, image_src, image_alt, link, className }) => {
         ></div>
       )}
 
-      <div className="bg-gray-700 h-125 w-full p-5 pt-16 flex flex-col gap-11 rounded-md">
-        <h3 className="text-3xl">{title}</h3>
+      <div className="bg-gray-800 h-125 w-full p-5 pt-16 flex flex-col gap-11 rounded-md">
+        <div>
+          <h3 className="text-4xl text-center lg:text-left">{title}</h3>
+          <hr className="border-t-2 border-LJ_Green w-3/5 mt-3" />
+        </div>
+
         <div className="text-xl">{children}</div>
 
         <div className="mt-2 self-end">
@@ -38,7 +42,7 @@ const Card = ({ title, children, image_src, image_alt, link, className }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Have a Look →
+              Have a Look
             </a>
           )}
         </div>

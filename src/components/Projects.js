@@ -23,7 +23,7 @@ const Projects = () => {
 
   return (
     <div className="">
-      <SectionTitle title={"Previous Works"} adword="Never Ending" />
+      <SectionTitle title={"Previous Works"} adword="More to Come" />
       <div className="ml-2">
         {tabs.map((tabObj, index) => (
           <Button

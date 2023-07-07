@@ -10,8 +10,10 @@ const webCards = [
     body: () => (
       <>
         <p>
-          Allows streamers on Twtich.tv to play charades with viewers in their
-          chat. Was recived with great sucess by thousands of visitors and
+          Play charades with viewers in your livestream works for Twitch.tv.
+        </p>
+        <p className="mt-5">
+          Was recived with positive reception by thousands of visitors and
           spectators.
         </p>
         <p className="mt-4">Made with React and Twitch API.</p>
@@ -24,14 +26,14 @@ const webCards = [
     title: "Battle Of The Chat",
     body: () => (
       <>
-        <p>
-          Guessing game with gimmicks for finding the answer. Players guess in a
-          livestream and have 6 options to choose from. The fastest correct gets
-          a higher score.
+        <p>Play a guessing game with gimmicks</p>
+        <p className="mt-5">
+          Players guess in a livestream and have 6 options to choose from.
+          Everyone gets a score if correct and how fast they guessed.
         </p>
         <p className="mt-4">
-          Made with React, Twitch API and ThreeJS. Uses a pre-trained AI model
-          tools to pick options
+          Made with React, Twitch API and ThreeJS. <br /> Uses AI to pick
+          relevant options.
         </p>
       </>
     ),
@@ -71,11 +73,15 @@ const gameCards = [
     body: () => (
       <>
         <p>
-          Devloped and designed the backend of the 2D Puzzle Platformer
-          Solitary. Players must slove a series of puzzles through out a level
-          in order to escape the decaying ship.
+          Players must slove a series of puzzles through out a level in order to
+          escape a decaying ship.
         </p>
-        <p className="mt-4">An Open-source project. Made using Unity with C#</p>
+        <p className="mt-5">
+          My main role was to design and develop the game's code for the
+          physics, animations, scenes, menus and create tools for level and
+          puzzle designers.
+        </p>
+        <p className="mt-4">An Open-source project. Made with Unity and C#</p>
       </>
     ),
     image: sol_icon,
@@ -87,9 +93,9 @@ const gameCards = [
       <>
         <p>
           Small Top Down Shooter. Player must kill a certain ammount of enemies
-          to clear the level before timer runs out
+          to clear a level before timer runs out
         </p>
-        <p className="mt-4">Made in Unreal Engine 4 with Blueprints</p>
+        <p className="mt-4">Made in Unreal Engine 4 using only Blueprints</p>
       </>
     ),
     image: null,
@@ -133,6 +139,10 @@ const otherCards = [
           name: "Basement Butler Bot",
           link: "https://github.com/lejara/BasementButlerBot",
         },
+        {
+          name: "3D Works",
+          link: "https://www.artstation.com/leption",
+        },
       ];
 
       return listLinks(links);
@@ -160,7 +170,7 @@ const listCards = (list, transitioning) => {
   return list.map((data, index) => (
     <div
       key={`card-${index}`}
-      className={`lg:w-120 transition-all ease-in duration-300 transform ${
+      className={`w-full lg:w-120 transition-all ease-in duration-300 transform ${
         delayMap[index]
       }  ${transitioning ? "opacity-0 -translate-x-12" : "opacity-100"}`}
     >

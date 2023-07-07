@@ -7,7 +7,7 @@ import { Transition } from "@headlessui/react";
 const Hero = ({ bg }) => {
   const { playing, won } = React.useContext(gameContext);
   return (
-    <div>
+    <div className="h-screen relative">
       <div className="py-16 text-center mb-2 relative">
         {/* height must be 456px so the game floor is aligned with the box */}
         <div
@@ -41,6 +41,9 @@ const Hero = ({ bg }) => {
           <hr className=" absolute w-full border-t-2 opacity-75" />
         </Transition>
       </div>
+      <span className="transform  absolute bottom-10 left-1/2 -translate-x-1/2 hidden lg:block">
+        <img src={ArrowDown} className="w-12 h-12 opacity-80" />
+      </span>
     </div>
   );
 };
