@@ -157,9 +157,6 @@ const listLinks = (links) => {
 
 const listCards = (list, transitioning) => {
   const delayMap = ["delay-100", "delay-200", "delay-300"];
-  {
-    console.log(transitioning);
-  }
   return list.map((data, index) => (
     <div
       key={`card-${index}`}
