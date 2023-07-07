@@ -3,6 +3,7 @@ import gameContext from "../context/gameContext";
 import { Tab1, Tab2, Tab3 } from "./ProjectsTabs";
 import SectionTitle from "./SectionTitle";
 import useTransition from "./Utils/useTransition";
+import Button from "./Utils/Button";
 
 const Projects = () => {
   const { won } = React.useContext(gameContext);
@@ -23,21 +24,20 @@ const Projects = () => {
   return (
     <div className="">
       <SectionTitle title={"Previous Works"} adword="Never Ending" />
-      {tabs.map((tabObj, index) => (
-        <button
-          key={`tab-buttons-${index}`}
-          className={`px-3 py-1  mx-3 mb-2  ${
-            selectedIndex === index
-              ? "bg-LJ_LightBlue text-black"
-              : "bg-LJ_Green hover:bg-LJ_LightBlue text-black"
-          }`}
-          onClick={() => {
-            onTabClick(index);
-          }}
-        >
-          {tabObj.title}
-        </button>
-      ))}
+      <div className="ml-2">
+        {tabs.map((tabObj, index) => (
+          <Button
+            key={`tab-buttons-${index}`}
+            selected={selectedIndex === index}
+            className="mx-2"
+            onClick={() => {
+              onTabClick(index);
+            }}
+          >
+            {tabObj.title}
+          </Button>
+        ))}
+      </div>
 
       <div
         key={`${selectedIndex}`}

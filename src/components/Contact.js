@@ -2,6 +2,8 @@ import * as React from "react";
 import { useState } from "react";
 import emailjs from "emailjs-com";
 import ReCAPTCHA from "react-google-recaptcha";
+import SectionTitle from "./SectionTitle";
+import Button from "./Utils/Button";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -57,59 +59,83 @@ const Contact = () => {
     setShowCaptcha(false);
   };
 
+  const textField = (text, name, id, onChange, value, type) => {
+    return (
+      <span>
+        <label htmlFor={id} className="block text-2xl">
+          {text}
+        </label>
+        <input
+          className="mb-2 text-black text-2xl p-1 rounded-sm"
+          type={type}
+          id={id}
+          name={name}
+          onChange={onChange}
+          value={value}
+          required
+        />
+      </span>
+    );
+  };
+
   return (
-    <div className="">
-      <h2 className="">Contact Me</h2>
-      <h2 className="">Want To have Chat? Sure!</h2>
+    <div>
+      <SectionTitle title="Contact Me" adword="Send an email" center={true} />
       <div className="mt-8">
-        <form id="contact-form" className="" onSubmit={formShowCaptcha}>
+        <form
+          id="contact-form"
+          className="flex flex-col items-center justify-center max-w-lg mx-auto"
+          onSubmit={formShowCaptcha}
+        >
           <input type="hidden" name="contact_number" />
-          <label htmlFor="user_name">Name</label>
-          <input
-            type="text"
-            id="user_name"
-            name="user_name"
-            onChange={(e) => {
+          {textField(
+            "Name",
+            "user_name",
+            "user_name",
+            (e) => {
               setName(e.target.value);
-            }}
-            value={name}
-            className="mb-2"
-            required
-          />
-          <label htmlFor="user_email">Email</label>
-          <input
-            type="email"
-            id="user_email"
-            name="user_email"
-            onChange={(e) => {
+            },
+            name,
+            "text"
+          )}
+
+          {textField(
+            "Email",
+            "user_email",
+            "user_email",
+            (e) => {
               setEmail(e.target.value);
-            }}
-            value={email}
-            className="mb-2"
-            required
-          />
-          <label htmlFor="message">Message</label>
-          <textarea
-            id="message"
-            name="message"
-            onChange={(e) => {
-              setMessage(e.target.value);
-            }}
-            value={message}
-            className="mb-6"
-            required
-          />
-          <button
-            disabled={sending}
+            },
+            email,
+            "email"
+          )}
+
+          <span>
+            <label htmlFor="message" className="block text-2xl">
+              Message
+            </label>
+            <textarea
+              className="mb-6 text-black text-lg resize p-1 rounded-sm"
+              rows="8"
+              cols="30"
+              id="message"
+              name="message"
+              onChange={(e) => {
+                setMessage(e.target.value);
+              }}
+              value={message}
+              required
+            />
+          </span>
+
+          <Button
             type="submit"
             value="Send"
-            className={`bg-LJ_Green text-lg hover:bg-LJ_LightBlue text-black ${
-              hasError ? "text-red-400" : ""
-            }`}
+            disabled={sending}
+            hasError={hasError}
           >
             {submitBtn}
-          </button>
-
+          </Button>
           <ReCAPTCHA
             sitekey="6LfssEUcAAAAAAlKqSq8T0MqMKID3zT86W7XxjvG"
             onChange={Submit}

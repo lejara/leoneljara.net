@@ -10,7 +10,6 @@ import Projects from "../components/Projects";
 import Contact from "../components/Contact";
 import Background from "../components/Background";
 import Skils from "../components/Skills";
-import ResponsiveParallax from "../components/ResponsiveParallax";
 import useWindowDimensions from "../utils/useWindowDimensions";
 import Footer from "../components/Footer";
 
@@ -30,7 +29,7 @@ const IndexPage = () => {
       <GameContextProvider>
         <Background bg_containerRef={bg} />
         {sections.map((section, index) => (
-          <div key={`section-${index}`} className={`${index !== 0 && "py-16"}`}>
+          <div key={`section-${index}`} className={`${index !== 0 && "py-44"}`}>
             {section}
           </div>
         ))}
