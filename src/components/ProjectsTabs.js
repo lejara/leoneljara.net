@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Transition } from "@headlessui/react";
 import dtc_icon from "../images/DTC_ICON.png";
 import sol_icon from "../images/SOL_ICON.png";
 import botc_icon from "../images/BOTC_ICON.png";
@@ -155,19 +154,18 @@ const listLinks = (links) => {
     </a>
   ));
 };
-const listCards = (list) => {
+
+const listCards = (list, transitioning) => {
   const delayMap = ["delay-100", "delay-200", "delay-300"];
+  {
+    console.log(transitioning);
+  }
   return list.map((data, index) => (
-    <Transition
+    <div
       key={`card-${index}`}
-      appear={true}
-      show={true}
-      enter={`transition-all ease-in ${delayMap[index]} duration-300`}
-      enterFrom="opacity-0 transform -translate-x-60"
-      enterTo="opacity-100"
-      // leave="transition-opacity duration-700"
-      // leaveFrom="opacity-100"
-      // leaveTo="opacity-0"
+      className={`lg:w-120 transition-all ease-in duration-300 transform ${
+        delayMap[index]
+      }  ${transitioning ? "opacity-0 -translate-x-12" : "opacity-100"}`}
     >
       <Card
         title={data.title}
@@ -177,20 +175,20 @@ const listCards = (list) => {
       >
         {data.body()}
       </Card>
-    </Transition>
+    </div>
   ));
 };
 
-const Tab1 = () => {
-  return listCards(webCards);
+const Tab1 = (transitioning) => {
+  return listCards(webCards, transitioning);
 };
 
-const Tab2 = () => {
-  return listCards(gameCards);
+const Tab2 = (transitioning) => {
+  return listCards(gameCards, transitioning);
 };
 
-const Tab3 = () => {
-  return listCards(otherCards);
+const Tab3 = (transitioning) => {
+  return listCards(otherCards, transitioning);
 };
 
 export { Tab1, Tab2, Tab3 };

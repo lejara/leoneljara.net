@@ -19,7 +19,7 @@
     "deploy": "echo leoneljara.net > ./public/CNAME && gatsby build && gh-pages -d public"
   },
   "dependencies": {
-    "@headlessui/react": "^1.6.5",
+    "@headlessui/react": "^1.7.15",
     "@react-spring/parallax": "^9.4.5",
     "emailjs-com": "^3.2.0",
     "gatsby": "^5.11.0",

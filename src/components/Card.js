@@ -7,7 +7,7 @@ const options = {
 
 const Card = ({ title, children, image_src, image_alt, link, className }) => {
   return (
-    <div className={`px-3 w-full lg:w-120 relative ${className}`}>
+    <div className={`px-3 w-full relative ${className}`}>
       {image_src ? (
         <img
           className="transform relative translate-y-8 left-1/2 -translate-x-1/2"
