@@ -1,7 +1,6 @@
 import * as React from "react";
 import gameContext from "../context/gameContext";
 import Game from "../components/Game";
-import ArrowDown from "../images/down-arrow.svg";
 import { Transition } from "@headlessui/react";
 
 const Hero = ({ bg }) => {
@@ -41,9 +40,6 @@ const Hero = ({ bg }) => {
           <hr className=" absolute w-full border-t-2 opacity-75" />
         </Transition>
       </div>
-      <span className="transform  absolute bottom-10 left-1/2 -translate-x-1/2 hidden lg:block">
-        <img src={ArrowDown} className="w-12 h-12 opacity-80" />
-      </span>
     </div>
   );
 };

@@ -4,6 +4,7 @@ import emailjs from "emailjs-com";
 import ReCAPTCHA from "react-google-recaptcha";
 import SectionTitle from "./SectionTitle";
 import Button from "./Utils/Button";
+import Footer from "./Footer";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -144,6 +145,7 @@ const Contact = () => {
             onErrored={hasErrorFunc}
           />
         </form>
+        <Footer />
       </div>
     </div>
   );

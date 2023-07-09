@@ -29,7 +29,7 @@ const notableSKills = [
 
 const Skills = () => {
   return (
-    <div className="w-full">
+    <div className="w-full min-h-screen">
       <SectionTitle
         title={"Technical Skills"}
         adword="Always Expanding"
