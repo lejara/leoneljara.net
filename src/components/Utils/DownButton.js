@@ -14,6 +14,7 @@ const DownButton = ({ sections }) => {
     handleScroll();
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", updatePositions);
     };
   }, [sections]);
 
