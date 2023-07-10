@@ -10,7 +10,6 @@ import Projects from "../components/Projects";
 import Contact from "../components/Contact";
 import Background from "../components/Background";
 import Skils from "../components/Skills";
-import useWindowDimensions from "../utils/useWindowDimensions";
 import DownButton from "../components/Utils/DownButton";
 import Footer from "../components/Footer";
 
