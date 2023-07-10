@@ -9,16 +9,16 @@ const DownButton = ({ sections }) => {
 
   React.useEffect(() => {
     updatePositions();
+    onScroll();
     window.addEventListener("resize", updatePositions);
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
+    window.addEventListener("scroll", onScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", updatePositions);
     };
   }, [sections]);
 
-  function updatePositions() {
+  const updatePositions = () => {
     positions = [];
     sections.map((section) => {
       let pos = section.ref.current.offsetTop;
@@ -27,16 +27,16 @@ const DownButton = ({ sections }) => {
       }
       positions.push(pos);
     });
-  }
+  };
 
-  function handleScroll() {
+  const onScroll = () => {
     let nextPos = positions.find((pos) => pos > window.scrollY);
     nextPos =
       window.innerHeight + window.pageYOffset >= document.body.offsetHeight ||
       !nextPos
         ? 0
         : nextPos;
-    // console.log(nextPos);
+
     setFlip(!nextPos);
     setNext(nextPos);
     if (window.scrollY === 0) {
@@ -44,14 +44,14 @@ const DownButton = ({ sections }) => {
     } else {
       setCenter(false);
     }
-  }
+  };
 
-  function goNext() {
+  const goNext = () => {
     window.scrollTo({
       top: next,
       behavior: "smooth",
     });
-  }
+  };
 
   return (
     <div
@@ -64,7 +64,7 @@ const DownButton = ({ sections }) => {
           src={ArrowDown}
           className={`${
             flip && "rotate-180 transform"
-          } transition-all w-16 h-16 lg:w-20 md:h-20 hover:bg-gray-700 p-2 rounded-lg duration-300`}
+          } transition-all w-12 h-12 lg:w-16 md:h-16 hover:bg-gray-700 p-2 rounded-lg duration-300`}
         />
       </button>
     </div>
