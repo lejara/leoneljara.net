@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
+    siteUrl: "https://www.leoneljara.net",
     title: "leoneljara.net",
   },
   plugins: [
@@ -11,7 +11,6 @@ module.exports = {
       },
     },
     "gatsby-plugin-postcss",
-    "gatsby-plugin-image",
     {
       resolve: "gatsby-plugin-react-svg",
       options: {
@@ -22,15 +21,5 @@ module.exports = {
     },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "images",
-        path: "./src/images/",
-      },
-      __key: "images",
-    },
   ],
 };
