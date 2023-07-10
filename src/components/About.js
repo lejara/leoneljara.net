@@ -21,13 +21,11 @@ const About = () => {
       <div className="flex flex-col justify-center items-center">
         <div className="text-3xl px-5 max-w-3xl">
           <h3 className="text-center text-4xl mb-10">Hello, 👋</h3>
-          <p>
-            Web Development is my biggest passion, been learning 3 years now!
-          </p>
+          <p>Web Development is my biggest passion for 3 years now!</p>
           <p className="mt-5">
-            Before I causally coded games in C++ or C# for fun. I am always
-            trying to push my technical and soft skills further. I excel in
-            self-motivation, good work ethic and teamwork.
+            Before I casually coded games for fun. I love creating things that
+            others will enjoy. Always trying to push my technical and soft
+            skills further.
           </p>
           <p className="mt-5">
             Here you will find here some projects I took part in or made.

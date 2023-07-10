@@ -133,6 +133,7 @@ const Contact = () => {
             type="submit"
             value="Send"
             disabled={sending}
+            selected={sending}
             hasError={hasError}
           >
             {submitBtn}
