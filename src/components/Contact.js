@@ -146,6 +146,12 @@ const Contact = () => {
             onErrored={hasErrorFunc}
           />
         </form>
+        <div className="text-center font-sans ">
+          <p>Or send directly</p>
+          <a href="mailto:leoneljarame@gmail.com" className="underline">
+            leoneljarame@gmail.com
+          </a>
+        </div>
         <Footer />
       </div>
     </div>
