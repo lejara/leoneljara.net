@@ -18,7 +18,7 @@ const Hero = ({ bg }) => {
           <div className="text-LJ_Orange mx-5 flex flex-wrap justify-center gap-0">
             <h1 className=" text-9xl lg:text-title h-full">Leonel Jara</h1>
             <h2 className="text-white text-3xl lg:text-5xl w-full text-center">
-              {won ? "Knows Your The Best!" : "Front-End Web Developer"}
+              {won ? "Knows Your The Best!" : "Full-Stack Web Developer"}
             </h2>
           </div>
         </div>
