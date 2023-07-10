@@ -4,7 +4,7 @@ import ArrowDown from "../../images/down-arrow.svg";
 const DownButton = ({ sections }) => {
   let positions = [];
   const [next, setNext] = React.useState(0);
-  const [center, setCenter] = React.useState(false);
+  const [center, setCenter] = React.useState(true);
   const [flip, setFlip] = React.useState(false);
 
   React.useEffect(() => {
