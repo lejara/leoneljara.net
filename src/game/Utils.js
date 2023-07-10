@@ -1,7 +1,7 @@
 function collisionCheck(shapeA, shapeB) {
-  var hit = false;
+  let hit = false;
   // get the vectors to check against
-  var vX = shapeA.x + shapeA.width / 2 - (shapeB.x + shapeB.width / 2),
+  let vX = shapeA.x + shapeA.width / 2 - (shapeB.x + shapeB.width / 2),
     vY = shapeA.y + shapeA.height / 2 - (shapeB.y + shapeB.height / 2),
     // add the half widths and half heights of the objects
     hWidths = shapeA.width / 2 + shapeB.width / 2,
@@ -29,15 +29,15 @@ function getRandomSign() {
 
 function backgroundStart(bg) {
   bg.current.particles.array.map((p) => {
-    var speed_target = 4;
-    var speed_incra = 1;
-    var setMoveSpeed = () => {
-      p.moveSpeed = p.moveSpeed + speed_incra;
+    let speed_target = 6;
+    let speed_incra = 1;
+    let setMoveSpeed = () => {
+      p.velocity.y = p.velocity.y + speed_incra;
 
-      if (p.moveSpeed < speed_target) {
+      if (p.velocity.y < speed_target) {
         setTimeout(setMoveSpeed, 100);
       } else {
-        p.moveSpeed = speed_target;
+        p.velocity.y = speed_target;
       }
     };
     setMoveSpeed();
@@ -46,15 +46,15 @@ function backgroundStart(bg) {
 
 function backgroundEnd(bg) {
   bg.current.particles.array.map((p) => {
-    var speed_target = 0.8;
-    var speed_incra = 0.5;
-    var setMoveSpeed = () => {
-      p.moveSpeed = p.moveSpeed - speed_incra;
+    let speed_target = 0.8;
+    let speed_incra = 0.5;
+    let setMoveSpeed = () => {
+      p.velocity.y = p.velocity.y - speed_incra;
 
       if (p.moveSpeed > speed_target) {
         setTimeout(setMoveSpeed, 50);
       } else {
-        p.moveSpeed = speed_target;
+        p.velocity.y = speed_target;
       }
     };
     setMoveSpeed();

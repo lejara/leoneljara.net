@@ -24,8 +24,8 @@ const About = () => {
           <p>Web Development is my biggest passion for 3 years now!</p>
           <p className="mt-5">
             Before I casually coded games for fun. I love creating things that
-            others will enjoy. Always trying to push my technical and soft
-            skills further.
+            others enjoy. Always trying to push my technical and soft skills
+            further.
           </p>
           <p className="mt-5">
             Here you will find here some projects I took part in or made.
