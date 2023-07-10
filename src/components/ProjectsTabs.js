@@ -77,9 +77,8 @@ const gameCards = [
           escape a decaying ship.
         </p>
         <p className="mt-5">
-          My main role was to design and develop the game's code for the
-          physics, animations, scenes, menus and create tools for level and
-          puzzle designers.
+          My main role was to design and develop for the physics, animations,
+          scenes, menus and create tools for level and puzzle designers.
         </p>
         <p className="mt-4">An Open-source project. Made with Unity and C#</p>
       </>
