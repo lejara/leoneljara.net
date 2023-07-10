@@ -9,7 +9,7 @@ import {
 import btnPlayAnimation from "../game/StartBtn";
 import Player from "../game/Player";
 import Objects from "../game/Objects";
-import { StaticImage } from "gatsby-plugin-image";
+import instructions from "../images/instructions.png";
 import GameIcon from "../images/svg/btn_sprite.inline.svg";
 import SpriteArrows from "../images/svg/sprite_arrows.inline.svg";
 
@@ -208,9 +208,9 @@ const Game = ({ bg }) => {
             : "opacity-0 invisible"
         }`}
       >
-        <StaticImage
+        <img
           className="game__inputs"
-          src="../images/instructions.png"
+          src={instructions}
           alt="Game Instructions"
           height={330}
           width={330}
@@ -219,7 +219,7 @@ const Game = ({ bg }) => {
         <SpriteArrows
           height="100"
           width="100"
-          className=" mx-auto transform translate-y-16"
+          className=" mx-auto transform translate-y-11"
         />
       </div>
 
