@@ -26,7 +26,7 @@ const Button = React.forwardRef(
           selected
             ? "bg-LJ_LightBlue cursor-default"
             : "hover:bg-LJ_LightBlue bg-LJ_Green"
-        } text-black px-4 text-2xl ${className} ${hasError && "text-red-400"}`}
+        } text-black px-4 text-2xl ${className} ${hasError && "text-red-600"}`}
       >
         {children}
       </button>
