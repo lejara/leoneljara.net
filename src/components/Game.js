@@ -16,7 +16,7 @@ import SpriteArrows from "../images/svg/sprite_arrows.inline.svg";
 const Game = ({ bg }) => {
   const isBrowser = typeof window !== "undefined";
   if (!isBrowser) {
-    return;
+    return <></>;
   }
   let canvas,
     ctx,
@@ -56,12 +56,17 @@ const Game = ({ bg }) => {
           max_speed: 15,
         },
         {
-          spawnChance: 62,
+          spawnChance: 50,
           min_speed: 16,
           max_speed: 20,
         },
+        {
+          spawnChance: 7,
+          min_speed: 4,
+          max_speed: 13,
+        },
       ],
-      breakpoints: [0, 20, 65, 120],
+      breakpoints: [0, 20, 65, 120, 165],
     },
     player,
     objects;
@@ -149,6 +154,8 @@ const Game = ({ bg }) => {
       gameState.diffculty = 2;
     } else if (time.timePassed == diffculties.breakpoints[3]) {
       gameState.diffculty = 3;
+    } else if (time.timePassed == diffculties.breakpoints[4]) {
+      gameState.diffculty = 4;
     }
     //Win check
     if (time.timePassed == time.time_to_win && !gameState.win) {
