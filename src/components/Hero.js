@@ -7,7 +7,7 @@ const Hero = ({ bg }) => {
   const { playing, won } = React.useContext(gameContext);
   return (
     <div className=" h-170 md:h-screen relative">
-      <div className="py-16 text-center mb-2 relative">
+      <div className="py-12 text-center mb-2 relative">
         {/* height must be 456px so the game floor is aligned with the box */}
         <div
           style={{ height: "456px" }}

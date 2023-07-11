@@ -1,13 +1,13 @@
 import PlayerInput from "./Input";
 var keys = [],
-  floor_height = 567,
+  floor_height = 534,
   friction = 0.8,
   gravity = 0.2;
 
 class Player {
   constructor(canvas, ctx, gameState) {
     this.x = 0;
-    this.y = 495;
+    this.y = 479;
     this.width = 25;
     this.height = 25;
     this.speed = 1.5;

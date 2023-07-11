@@ -28,8 +28,8 @@ const webCards = [
       <>
         <p>Play a guessing game with gimmicks</p>
         <p className="mt-5">
-          Players guess in a livestream and have 6 options to choose from.
-          Everyone gets a score if correct and how fast they guessed.
+          Players guess in a livestream. Everyone gets a score if correct and
+          how fast they guessed.
         </p>
         <p className="mt-4">
           Made with React, Twitch API and ThreeJS. <br /> Uses AI to pick
