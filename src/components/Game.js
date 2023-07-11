@@ -14,19 +14,59 @@ import GameIcon from "../images/svg/btn_sprite.inline.svg";
 import SpriteArrows from "../images/svg/sprite_arrows.inline.svg";
 
 const Game = ({ bg }) => {
-  var canvas,
+  let canvas,
     ctx,
-    gameState = {},
-    time = {},
     fps = 60,
+    gameState = {
+      dead: false,
+      diffculty: 2,
+      playerMoved: false,
+      gameStarted: false,
+      win: false,
+    },
+    time = {
+      start_time: window.performance.now(),
+      time_to_win: 90,
+      time_to_actually_win: 180,
+      timePassed: 0,
+      elapsed: 0,
+      fpsInterval: 1000 / fps,
+      then: window.performance.now(),
+    },
+    diffculties = {
+      levels: [
+        // lower = more. hehe
+        {
+          spawnChance: 60,
+          min_speed: 4,
+          max_speed: 8,
+        },
+        {
+          spawnChance: 28,
+          min_speed: 4,
+          max_speed: 15,
+        },
+        {
+          spawnChance: 12,
+          min_speed: 4,
+          max_speed: 15,
+        },
+        {
+          spawnChance: 62,
+          min_speed: 16,
+          max_speed: 20,
+        },
+      ],
+      breakpoints: [0, 20, 65, 120],
+    },
     player,
-    objects,
-    diffculties;
-  var requestAnimationFrame;
+    objects;
+  let requestAnimationFrame;
 
   const { playing, setPlaying, setWon } = React.useContext(gameContext);
   const [started, setStarted] = React.useState(false);
   const [playerMoved, setPlayerMoved] = React.useState(false);
+  const [timePassed, setTimePassed] = React.useState(time.timePassed);
 
   function awake() {
     //start game
@@ -53,48 +93,7 @@ const Game = ({ bg }) => {
     canvas.setAttribute("tabindex", "0");
     canvas.focus();
     canvas.width = window.innerWidth;
-    gameState = {
-      dead: false,
-      diffculty: 2,
-      playerMoved: false,
-      gameStarted: false,
-      win: false,
-    };
-    time = {
-      start_time: window.performance.now(),
-      time_to_win: 90,
-      time_to_actually_win: 180,
-      timePassed: 0,
-      elapsed: 0,
-      fpsInterval: 1000 / fps,
-      then: window.performance.now(),
-    };
-    diffculties = {
-      levels: [
-        // lower = more. hehe
-        {
-          spawnChance: 60,
-          min_speed: 4,
-          max_speed: 8,
-        },
-        {
-          spawnChance: 28,
-          min_speed: 4,
-          max_speed: 15,
-        },
-        {
-          spawnChance: 12,
-          min_speed: 4,
-          max_speed: 15,
-        },
-        {
-          spawnChance: 62,
-          min_speed: 16,
-          max_speed: 20,
-        },
-      ],
-      breakpoints: [0, 20, 65, 120],
-    };
+
     player = new Player(canvas, ctx, gameState);
     objects = new Objects(canvas, ctx, player, gameState, diffculties);
   }
@@ -116,7 +115,7 @@ const Game = ({ bg }) => {
     }
     requestAnimationFrame(animate);
 
-    var now = newtime;
+    let now = newtime;
     time.elapsed = now - time.then;
 
     if (time.elapsed > time.fpsInterval) {
@@ -149,10 +148,10 @@ const Game = ({ bg }) => {
     }
     //Win check
     if (time.timePassed == time.time_to_win && !gameState.win) {
-      setWon(true);
       backgroundWon(bg);
       gameState.win = true;
     } else if (time.timePassed == time.time_to_actually_win) {
+      setWon(true);
       backgroundTrueWin(bg);
       console.log("true winner");
     }
@@ -161,6 +160,8 @@ const Game = ({ bg }) => {
     if (gameState.playerMoved === true) {
       //timer
       time.timePassed = Math.round((now - time.start_time) / 1000);
+      //incur a react update
+      setTimePassed(time.timePassed);
       objects.update();
     } else {
       time.start_time = window.performance.now();
@@ -192,6 +193,26 @@ const Game = ({ bg }) => {
     ctx.beginPath();
   }
 
+  function getTimeLeft() {
+    //Get seconds left needed to win
+    let secondsLeft;
+    if (timePassed < time.time_to_win) {
+      secondsLeft = time.time_to_win - timePassed;
+    } else if (timePassed < time.time_to_actually_win) {
+      secondsLeft = time.time_to_actually_win - timePassed;
+    } else {
+      return "You Won!";
+    }
+    //Display as a timer
+    let sec = parseInt(secondsLeft % 60, 10);
+    let min = "";
+    if (secondsLeft >= 60) {
+      min = parseInt(secondsLeft / 60, 10).toString() + ":";
+      sec = sec < 10 ? "0" + sec : sec;
+    }
+    return `${min}${sec}`;
+  }
+
   return (
     <div>
       <canvas
@@ -200,7 +221,13 @@ const Game = ({ bg }) => {
         id="mini-game"
         height="592"
       ></canvas>
-
+      <div
+        className={`" absolute right-1/2 transform translate-x-1/2 top-9 text-4xl transition-opacity duration-1000 " ${
+          playing && playerMoved ? "opacity-100 visible" : "opacity-0 invisible"
+        }`}
+      >
+        {getTimeLeft()}
+      </div>
       <div
         className={` absolute right-1/2 transform translate-x-1/2 top-28 transition-opacity duration-500 ease-in ${
           playing && !playerMoved
