@@ -233,7 +233,7 @@ const Game = ({ bg }) => {
         height="562"
       ></canvas>
       <div
-        className={`" absolute right-1/2 transform translate-x-1/2 top-28 text-4xl transition-opacity duration-1000 select-none" ${
+        className={` absolute right-1/2 transform translate-x-1/2 top-28 text-4xl transition-opacity duration-1000 select-none ${
           playing && playerMoved ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
