@@ -55,7 +55,7 @@ const DownButton = ({ sections }) => {
 
   return (
     <div
-      className={`fixed bottom-1 z-50 transition-all duration-500 ease-out opacity-0 md:opacity-100 ${
+      className={`fixed bottom-1 z-50 transition-all duration-500 ease-out hidden md:block ${
         center ? " right-1/2 translate-x-1/2 transform" : "right-1"
       }`}
     >
