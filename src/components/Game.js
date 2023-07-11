@@ -14,6 +14,10 @@ import GameIcon from "../images/svg/btn_sprite.inline.svg";
 import SpriteArrows from "../images/svg/sprite_arrows.inline.svg";
 
 const Game = ({ bg }) => {
+  const isBrowser = typeof window !== "undefined";
+  if (!isBrowser) {
+    return;
+  }
   let canvas,
     ctx,
     fps = 60,
