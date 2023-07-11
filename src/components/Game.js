@@ -5,6 +5,7 @@ import {
   backgroundEnd,
   backgroundWon,
   backgroundTrueWin,
+  backgroundWhite,
 } from "../game/Utils";
 import btnPlayAnimation from "../game/StartBtn";
 import Player from "../game/Player";
@@ -72,7 +73,7 @@ const Game = ({ bg }) => {
     objects;
   let requestAnimationFrame;
 
-  const { playing, setPlaying, setWon } = React.useContext(gameContext);
+  const { playing, setPlaying, setWon, won } = React.useContext(gameContext);
   const [started, setStarted] = React.useState(false);
   const [playerMoved, setPlayerMoved] = React.useState(false);
   const [timePassed, setTimePassed] = React.useState(time.timePassed);
@@ -110,7 +111,9 @@ const Game = ({ bg }) => {
   function start() {
     setPlaying(true);
     time.then = window.performance.now();
-
+    if (!won) {
+      backgroundWhite(bg);
+    }
     //draw once, for button animation and player sprite to sync
     draw();
 

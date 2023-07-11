@@ -78,6 +78,14 @@ function backgroundTrueWin(bg) {
   });
 }
 
+function backgroundWhite(bg) {
+  bg.current.particles.array.map((x) => {
+    x.color.h.value = 0;
+    x.color.s.value = 0;
+    x.color.l.value = 100;
+  });
+}
+
 export {
   collisionCheck,
   getRandomInt,
@@ -86,4 +94,5 @@ export {
   backgroundEnd,
   backgroundWon,
   backgroundTrueWin,
+  backgroundWhite,
 };
