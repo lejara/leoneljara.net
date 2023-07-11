@@ -240,14 +240,14 @@ const Game = ({ bg }) => {
         {getTimeLeft()}
       </div>
       <div
-        className={` absolute right-1/2 transform translate-x-1/2 top-28 transition-opacity duration-500 ease-in ${
+        className={` absolute right-1/2 transform translate-x-1/2 bottom-0 transition-opacity duration-500 ease-in ${
           playing && !playerMoved
             ? "opacity-100 visible"
             : "opacity-0 invisible"
         }`}
       >
         <img
-          className="game__inputs"
+          className="mb-12"
           src={instructions}
           alt="Game Instructions"
           height={330}
@@ -257,7 +257,7 @@ const Game = ({ bg }) => {
         <SpriteArrows
           height="100"
           width="100"
-          className=" mx-auto transform translate-y-11"
+          className="mx-auto transform translate-y-6"
         />
       </div>
 

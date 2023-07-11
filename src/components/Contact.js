@@ -138,6 +138,12 @@ const Contact = () => {
           >
             {submitBtn}
           </Button>
+          <div className="text-center font-sans mt-5">
+            <p>Or send directly</p>
+            <a href="mailto:leoneljarame@gmail.com" className="underline">
+              leoneljarame@gmail.com
+            </a>
+          </div>
           <ReCAPTCHA
             sitekey="6LfssEUcAAAAAAlKqSq8T0MqMKID3zT86W7XxjvG"
             onChange={Submit}
@@ -146,12 +152,7 @@ const Contact = () => {
             onErrored={hasErrorFunc}
           />
         </form>
-        <div className="text-center font-sans ">
-          <p>Or send directly</p>
-          <a href="mailto:leoneljarame@gmail.com" className="underline">
-            leoneljarame@gmail.com
-          </a>
-        </div>
+
         <Footer />
       </div>
     </div>
