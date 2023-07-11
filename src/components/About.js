@@ -1,6 +1,7 @@
 import * as React from "react";
 import GitHubIcon from "../images/svg/github.inline.svg";
 import TwitterIcon from "../images/svg/twitter.inline.svg";
+import LinkedInIcon from "../images/svg/linkedin.inline.svg";
 
 const About = () => {
   const socials = [
@@ -13,6 +14,11 @@ const About = () => {
       image: <GitHubIcon width="45px" height="45px" />,
       link: "https://github.com/lejara",
       name: "github",
+    },
+    {
+      image: <LinkedInIcon width="45px" height="45px" />,
+      link: "https://www.linkedin.com/in/leonel-jara-17a246283/",
+      name: "linkedin",
     },
   ];
 
