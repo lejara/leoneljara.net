@@ -19,7 +19,7 @@ const About = () => {
   return (
     <div className="h-200 md:h-screen">
       <div className="flex flex-col justify-center items-center">
-        <div className="text-3xl px-5 max-w-3xl">
+        <div className=" text-lg md:text-3xl px-5 max-w-3xl">
           <h3 className="text-center text-4xl mb-10">Hello, 👋</h3>
           <p>Web Development is my biggest passion for 3 years now!</p>
           <p className="mt-5">

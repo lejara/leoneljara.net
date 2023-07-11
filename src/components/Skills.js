@@ -39,7 +39,7 @@ const Skills = () => {
       <div className="flex flex-col xl:flex-row w-full justify-around mt-24 ">
         <div className="w-full xl:w-1/2">
           <h4 className="text-4xl text-center mb-8">Programming Languages</h4>
-          <div className="px-5 md:px-32 Yan-text">
+          <div className="px-5 md:px-32">
             {programmingLangs.map((jsx, i) => (
               <React.Fragment key={`lang-${i}`}>{jsx()}</React.Fragment>
             ))}
@@ -49,7 +49,7 @@ const Skills = () => {
         <div className="w-full xl:w-1/2 mt-5  sm:mt-0">
           <h4 className="text-4xl text-center mb-8">Notable Skills</h4>
 
-          <div className="flex flex-wrap flex-col sm:flex-row sm:justify-between items-end px-5 md:px-32 Yan-text">
+          <div className="flex flex-wrap flex-col sm:flex-row sm:justify-between items-end px-5 md:px-32">
             {notableSKills.map((note_skill, i) => (
               <span
                 className={`w-full sm:w-1/2 flex justify-center mb-2 ${
@@ -57,7 +57,9 @@ const Skills = () => {
                 }`}
                 key={`notableskills-${i}`}
               >
-                <span className="max-w-lg text-2xl">{note_skill}</span>
+                <span className="max-w-lg text-lg md:text-2xl">
+                  {note_skill}
+                </span>
               </span>
             ))}
           </div>
@@ -70,7 +72,7 @@ const Skills = () => {
 const SkillWithStars = (title, num_stars) => {
   return (
     <div className="flex items-center justify-between gap-y-10 mb-2">
-      <span className="text-3xl">{title}</span>
+      <span className="text-lg md:text-3xl">{title}</span>
       <span className="flex">
         {[...Array(num_stars)].map((x, i) => (
           <span key={`starts-${i}`}>

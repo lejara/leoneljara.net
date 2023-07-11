@@ -24,12 +24,12 @@ const Projects = () => {
   return (
     <div className="min-h-screen">
       <SectionTitle title={"Previous Works"} adword="More to Come" />
-      <div className="ml-2">
+      <div className="ml-2 flex flex-wrap gap-5">
         {tabs.map((tabObj, index) => (
           <Button
             key={`tab-buttons-${index}`}
             selected={selectedIndex === index}
-            className="mx-2"
+            className=""
             onClick={() => {
               onTabClick(index);
             }}
