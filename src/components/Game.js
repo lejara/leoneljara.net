@@ -31,7 +31,7 @@ const Game = ({ bg }) => {
     time = {
       start_time: window.performance.now(),
       time_to_win: 90,
-      time_to_actually_win: 180,
+      time_to_actually_win: 190,
       timePassed: 0,
       elapsed: 0,
       fpsInterval: 1000 / fps,
@@ -66,7 +66,7 @@ const Game = ({ bg }) => {
           max_speed: 13,
         },
       ],
-      breakpoints: [0, 20, 65, 120, 165],
+      breakpoints: [0, 20, 65, 120, 175],
     },
     player,
     objects;
