@@ -27,14 +27,14 @@ const About = () => {
       <div className="flex flex-col justify-center items-center">
         <div className=" text-lg md:text-3xl px-5 max-w-3xl">
           <h3 className="text-center text-4xl mb-10">Hello, 👋</h3>
-          <p>Web Development is my biggest passion for 3 years now!</p>
+          <p>Web Development is my biggest passion</p>
           <p className="mt-5">
-            Before I casually coded games for fun. I love creating things that
-            others enjoy. Always trying to push my technical and soft skills
-            further.
+            I started causally coding games for fun. And now I create apps that
+            others enjoy. I am always open to new challenges. I strive to push
+            my technical and soft skills further.
           </p>
           <p className="mt-5">
-            Here you will find here some projects I took part in or made.
+            Here you will find some projects I took part in or made.
           </p>
           <p className="mt-5 text-base opacity-80">
             Alt Names: Leption, Lejara
