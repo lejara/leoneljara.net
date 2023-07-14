@@ -7,12 +7,14 @@ const programmingLangs = [
   () => SkillWithStars("Python", 4),
   () => SkillWithStars("C#", 4),
   () => SkillWithStars("C/C++", 3),
+  () => SkillWithStars("Dart", 3),
   () => SkillWithStars("Bash", 3),
   () => SkillWithStars("Java", 2),
 ];
 
 const notableSKills = [
   "NodeJS",
+  "Flutter",
   "Unity",
   "UnrealEngine",
   "GraphQL",
