@@ -29,9 +29,10 @@ const About = () => {
           <h3 className="text-center text-4xl mb-10">Hello, 👋</h3>
           <p>Web Development is my biggest passion</p>
           <p className="mt-5">
-            I started causally coding games for fun. And now I create apps that
-            others enjoy. I am always open to new challenges. I strive to push
-            my technical and soft skills further.
+            I started causally coding games and other applications for fun. I
+            strive to create apps that others enjoy and use. Always open to new
+            challenges. Repeatedly seeking to push my technical and soft skills
+            further.
           </p>
           <p className="mt-5">
             Here you will find some projects I took part in or made.
