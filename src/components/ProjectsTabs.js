@@ -2,6 +2,7 @@ import * as React from "react";
 import dtc_icon from "../images/DTC_ICON.png";
 import sol_icon from "../images/SOL_ICON.png";
 import botc_icon from "../images/BOTC_ICON.png";
+import kinter_icon from "../images/kinter-boi.png";
 import Card from "./Card";
 
 const webCards = [
@@ -87,18 +88,32 @@ const gameCards = [
     link: "https://leption.itch.io/solitary",
   },
   {
-    title: "Gun Over",
+    title: "Iron Jungle",
     body: () => (
       <>
         <p>
-          Small Top Down Shooter. Player must kill a certain ammount of enemies
-          to clear a level before timer runs out
+          3D platformer. Must swing to reach other platforms. The goal is to
+          reach the top!
         </p>
-        <p className="mt-4">Made in Unreal Engine 4 using only Blueprints</p>
+        <p className="mt-5">
+          My role was to program and lead a team of 4 for the
+          <a
+            href="https://itch.io/jam/my-first-game-jam-summer-2023"
+            className="text-xl underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {" "}
+            My First Game Jam: Summer 2023{" "}
+          </a>
+          event. I also had a hand in level design, animations and 3D assets
+          creation.
+        </p>
+        <p className="mt-4">An Open-source project. Made in Unity and C#</p>
       </>
     ),
-    image: null,
-    link: "https://leption.itch.io/gunover",
+    image: kinter_icon,
+    link: " https://leption.itch.io/iron-jungle",
   },
   {
     title: "Other Games",
@@ -115,6 +130,10 @@ const gameCards = [
         {
           name: "Floater",
           link: "https://github.com/lejara/Floater",
+        },
+        {
+          name: "Gun Over",
+          link: "https://leption.itch.io/gunover",
         },
       ];
 
