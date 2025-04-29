@@ -20,7 +20,7 @@ const Hero = ({ bg }) => {
               Leonel Jara
             </h1>
             <h2 className="text-white text-xl md:text-3xl lg:text-5xl w-full text-center">
-              {won ? "Knows Your The Best!" : "Full-Stack Web Developer"}
+              {won ? "Knows Your The Best!" : "Web Developer"}
             </h2>
           </div>
         </div>

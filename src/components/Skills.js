@@ -4,28 +4,29 @@ import SectionTitle from "./SectionTitle";
 
 const programmingLangs = [
   () => SkillWithStars("Javascript / TypeScript", 5),
+  () => SkillWithStars("C#", 5),
   () => SkillWithStars("Python", 4),
-  () => SkillWithStars("C#", 4),
   () => SkillWithStars("C/C++", 3),
-  () => SkillWithStars("Dart", 3),
   () => SkillWithStars("Bash", 3),
   () => SkillWithStars("Java", 2),
 ];
 
 const notableSKills = [
   "NodeJS",
-  "Flutter",
   "Unity",
   "UnrealEngine",
-  "GraphQL",
   "MongoDB/MySQL",
-  "Webpack",
   "Docker",
-  "React/Vue/Svelte",
+  "React",
   "Dev Ops and CI",
   "ThreeJS/BabylonJS",
   "Git",
   "Google Analytics/Tags",
+  "AWS EC2 Instances",
+  "Blender",
+  "Substance Designer / Painter",
+  "Web Accessibility",
+  "SEO",
   "3D Modeling and Sculpting",
 ];
 

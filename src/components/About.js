@@ -15,11 +15,11 @@ const About = () => {
       link: "https://github.com/lejara",
       name: "github",
     },
-    {
-      image: <LinkedInIcon width="45px" height="45px" />,
-      link: "https://www.linkedin.com/in/leonel-jara-17a246283/",
-      name: "linkedin",
-    },
+    // {
+    //   image: <LinkedInIcon width="45px" height="45px" />,
+    //   link: "https://www.linkedin.com/in/leonel-jara-17a246283/",
+    //   name: "linkedin",
+    // },
   ];
 
   return (

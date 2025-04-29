@@ -24,7 +24,7 @@ const Projects = () => {
   return (
     <div className="min-h-screen">
       <SectionTitle title={"Previous Works"} adword="More to Come" />
-      <div className="ml-2 flex flex-wrap gap-5">
+      <div className="mr-24 flex flex-wrap gap-5 justify-end">
         {tabs.map((tabObj, index) => (
           <Button
             key={`tab-buttons-${index}`}

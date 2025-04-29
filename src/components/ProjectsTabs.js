@@ -88,7 +88,7 @@ const gameCards = [
     link: "https://leption.itch.io/solitary",
   },
   {
-    title: "Iron Jungle",
+    title: "Kinter",
     body: () => (
       <>
         <p>
@@ -106,14 +106,14 @@ const gameCards = [
             {" "}
             My First Game Jam: Summer 2023{" "}
           </a>
-          event. I also had a hand in level design, animations and 3D assets
+          event. I had a hand in level design, animations and 3D assets
           creation.
         </p>
-        <p className="mt-4">An Open-source project. Made in Unity and C#</p>
+        <p className="mt-4">Made in Unity with C#</p>
       </>
     ),
     image: kinter_icon,
-    link: " https://leption.itch.io/iron-jungle",
+    link: "https://leption.itch.io/kinter",
   },
   {
     title: "Other Games",
